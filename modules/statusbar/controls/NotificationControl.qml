@@ -28,15 +28,12 @@ Button {
         }
     }
     tooltipText: "Notifications"
-    backgroundColorHover: Color.overlayLight
+    backgroundColorHover: Color.baseLight
     iconColor: isMuted || isInhibited ? Color.colRed : Color.textNormal
-    iconColorHover: isMuted || isInhibited ? Color.colRed : Color.textDark
-    borderColor: Color.accentLight
-    borderColorHover: Color.baseNormal
+    iconColorHover: isMuted || isInhibited ? Color.colRed : Color.textLight
 
     radius: Constant.roundingLarge
     iconSize: Constant.iconSizeMedium
-    border.width: Constant.borderSmall
 
     onLeftClicked: () => {
         Hyprland.dispatch("exec swaync-client -t");

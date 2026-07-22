@@ -6,15 +6,11 @@ import QtQuick
 Tray {
     id: root
 
-    backgroundColor: Color.accentNormal
-    border.color: Color.accentLight
+    innerSpacing: 0
+    implicitHeight: Constant.barHeight
 
-    innerSpacing: Constant.spacingMedium
-    border.width: Constant.borderSmall
-
-    implicitHeight: Constant.barHeight + Constant.paddingSmall * 2
-
-    ControlPanelToggle {}
+    BrightnessControl {}
+    VolumeControl {}
     NotificationControl {}
     PowerControl {}
 }

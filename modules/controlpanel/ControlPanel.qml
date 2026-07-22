@@ -21,7 +21,7 @@ PanelWindow {
         top: -Constant.marginSmall
         right: Constant.marginLarge
     }
-    implicitWidth: Math.max(screen.width / 6)
+    implicitWidth: Math.max(screen.width * 0.25)
     implicitHeight: column.implicitHeight + Constant.marginMedium * 2
 
     exclusiveZone: 0
@@ -37,8 +37,8 @@ PanelWindow {
         }
         spacing: Constant.marginMedium
 
-        VolumeControl {}
-        BrightnessControl {}
+        VolumeSlider {}
+        BrightnessSlider {}
         SystemTrayWidget {}
     }
 }
