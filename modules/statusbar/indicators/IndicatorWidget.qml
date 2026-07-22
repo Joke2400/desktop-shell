@@ -7,8 +7,8 @@ import Quickshell.Hyprland
 Tray {
     id: root
 
-    innerSpacing: Constant.spacingMedium
-    implicitHeight: Constant.barHeight + Constant.paddingSmall * 2
+    innerSpacing: 0
+    implicitHeight: Constant.barHeight
 
     Indicator {
         id: cpuIndicator

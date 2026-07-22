@@ -15,7 +15,7 @@ Button {
     borderColor: Color.accentLight
     borderColorHover: Color.baseNormal
     iconSize: Constant.iconSizeLarge
-    buttonPadding: Constant.paddingSmall
+    buttonPadding: 0
 
     border.width: Constant.borderSmall
     radius: Constant.roundingLarge

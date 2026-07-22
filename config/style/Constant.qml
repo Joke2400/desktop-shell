@@ -33,9 +33,9 @@ Singleton {
     property int iconSizeLarge: Math.round(30 * Theme.scaleFactor)
     property int iconSizeHuge: Math.round(36 * Theme.scaleFactor)
 
-    property int roundingSmall: 6
-    property int roundingMedium: 12
-    property int roundingLarge: 18
+    property int roundingSmall: Math.round(6 * Theme.scaleFactor)
+    property int roundingMedium: Math.round(12 * Theme.scaleFactor)
+    property int roundingLarge: Math.round(18 * Theme.scaleFactor)
 
     property int borderSmall: 1
     property int borderMedium: 2
