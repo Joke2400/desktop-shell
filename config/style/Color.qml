@@ -4,24 +4,24 @@ import Quickshell
 
 Singleton {
     // base = black colors
-    property color baseDark: Qt.hsla(230 / 360, 0.24, 0.22, 1.0)
-    property color baseNormal: Qt.hsla(230 / 360, 0.22, 0.20, 1.0)
-    property color baseLight: Qt.hsla(230 / 360, 0.19, 0.18, 1.0)
+    property color baseDark: Qt.hsla(230 / 360, 0.20, 0.18, 1.0)
+    property color baseNormal: Qt.hsla(230 / 360, 0.20, 0.20, 1.0)
+    property color baseLight: Qt.hsla(230 / 360, 0.22, 0.24, 1.0)
 
     // surface = greys/darker greys
-    property color surfaceDark: Qt.hsla(226 / 360, 0.16, 0.24, 1.0)
-    property color surfaceNormal: Qt.hsla(226 / 360, 0.14, 0.34, 1.0)
-    property color surfaceLight: Qt.hsla(226 / 360, 0.12, 0.38, 1.0)
+    property color surfaceDark: Qt.hsla(226 / 360, 0.22, 0.30, 1.0)
+    property color surfaceNormal: Qt.hsla(226 / 360, 0.22, 0.40, 1.0)
+    property color surfaceLight: Qt.hsla(226 / 360, 0.24, 0.50, 1.0)
 
     // overlay = lighter grays/whites
-    property color overlayDark: Qt.hsla(218 / 360, 0.40, 0.50, 1.0)
-    property color overlayNormal: Qt.hsla(218 / 360, 0.30, 0.60, 1.0)
-    property color overlayLight: Qt.hsla(218 / 360, 0.20, 0.70, 1.0)
+    property color overlayDark: Qt.hsla(218 / 360, 0.28, 0.65, 1.0)
+    property color overlayNormal: Qt.hsla(218 / 360, 0.28, 0.77, 1.0)
+    property color overlayLight: Qt.hsla(218 / 360, 0.30, 0.85, 1.0)
 
     // accent = accent colors (dull to vibrant)
-    property color accentDark: Qt.hsla(216 / 360, 0.60, 0.50, 1.0)
-    property color accentNormal: Qt.hsla(216 / 360, 0.70, 0.40, 1.0)
-    property color accentLight: Qt.hsla(216 / 360, 0.80, 0.35, 1.0)
+    property color accentDark: Qt.hsla(216 / 360, 0.65, 0.35, 1.0)
+    property color accentNormal: Qt.hsla(216 / 360, 0.55, 0.40, 1.0)
+    property color accentLight: Qt.hsla(216 / 360, 0.45, 0.50, 1.0)
 
     // primary text
     property color textLight: Qt.hsla(220 / 360, 0.40, 0.85, 1.0)
