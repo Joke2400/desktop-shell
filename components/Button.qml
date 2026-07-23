@@ -6,6 +6,8 @@ import QtQuick.Layouts
 ButtonBase {
     id: root
 
+    property bool alignToBaseline: true
+
     property string buttonText: ""
     property string buttonIcon: ""
     property string tooltipText: ""
@@ -78,7 +80,7 @@ ButtonBase {
         Text {
             id: iconElement
             visible: root.buttonIcon.length > 0
-            Layout.alignment: Qt.AlignBaseline | Qt.AlignHCenter
+            Layout.alignment: root.alignToBaseline ? Qt.AlignBaseline | Qt.AlignHCenter : Qt.AlignVCenter | Qt.AlignHCenter
             font {
                 family: Theme.fontFamily
                 pixelSize: root.iconSize
@@ -91,7 +93,7 @@ ButtonBase {
         Text {
             id: textElement
             visible: root.buttonText.length > 0
-            Layout.alignment: Qt.AlignBaseline | Qt.AlignHCenter
+            Layout.alignment: root.alignToBaseline ? Qt.AlignBaseline | Qt.AlignHCenter : Qt.AlignVCenter | Qt.AlignHCenter
             font {
                 family: Theme.fontFamily
                 pixelSize: root.textSize

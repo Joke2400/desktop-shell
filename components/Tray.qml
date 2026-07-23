@@ -13,10 +13,8 @@ Rectangle {
     border.color: "transparent"
 
     border.width: 0
-    radius: Constant.roundingLarge * 2
-
-    implicitWidth: Math.max(24, row.implicitWidth + Constant.paddingMedium * 2)
-    implicitHeight: row.implicitHeight + Constant.paddingSmall * 2
+    implicitWidth: Math.max(24, row.implicitWidth)
+    implicitHeight: row.implicitHeight
 
     RowLayout {
         id: row
