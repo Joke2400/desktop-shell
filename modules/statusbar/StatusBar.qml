@@ -29,7 +29,7 @@ PanelWindow {
         id: barContainer
 
         radius: Constant.roundingMedium
-        color: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.8)
+        color: Color.baseNormal //Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.8)
 
         anchors.centerIn: parent
         width: parent.width
@@ -51,6 +51,7 @@ PanelWindow {
 
             AppLauncherButton {}
             WorkspaceWidget {}
+            ColorTestTray {}
 
             Item {
                 Layout.fillWidth: true
