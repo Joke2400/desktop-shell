@@ -9,16 +9,16 @@ Button {
 
     buttonIcon: "󱄅"
     tooltipText: "Launcher"
-    backgroundColor: Color.accentNormal
-    backgroundColorHover: Color.overlayLight
-    iconColorHover: Color.textDark
-    borderColor: Color.accentLight
-    borderColorHover: Color.baseNormal
-    iconSize: Constant.iconSizeLarge
-    buttonPadding: 0
 
-    border.width: Constant.borderSmall
+    backgroundColor: Color.accentNormal
+    backgroundColorHover: Color.accentLight
+
+    iconColor: Color.textNormal
+    iconColorHover: Color.textLight
+
+    iconSize: Constant.iconSizeLarge
     radius: Constant.roundingLarge
+    buttonPadding: 0
 
     onLeftClicked: () => {
         Hyprland.dispatch("exec toggle-rofi");
