@@ -15,6 +15,13 @@ SliderPanel {
     property int volume: AudioService.volume
     property bool muted: AudioService.muted
 
+    HyprlandFocusGrab {
+        id: focusGrab
+        windows: [root]
+        active: root.visible
+        onCleared: GlobalStates.volumeSliderIsVisible = false
+    }
+
     Rectangle {
         id: sliderContainer
 

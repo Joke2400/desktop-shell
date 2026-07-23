@@ -4,6 +4,7 @@ import qs.services
 
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Hyprland
 
 SliderPanel {
     id: root
@@ -14,6 +15,13 @@ SliderPanel {
     property int gamma: BrightnessService.gamma
     property int temperature: BrightnessService.temperature
     property bool dimmed: BrightnessService.temperature !== 6500
+
+    HyprlandFocusGrab {
+        id: focusGrab
+        windows: [root]
+        active: root.visible
+        onCleared: GlobalStates.brightnessSliderIsVisible = false
+    }
 
     Rectangle {
         id: sliderContainer
