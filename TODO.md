@@ -10,12 +10,13 @@
 
 ## Changes
 - [ ] Improve: BrightnessService.qml - implement hardware-dimming controls (preferred for laptops)
-- [ ] Improve: pick new colors (dynamic accent colors based on wallpaper?)
+- [X] Improve: pick new colors
+- [ ] Improve: dynamic accent colors based on wallpaper?
 - [X] Refactor: Make the QML data services slightly more robust
 - [ ] Improve: Post-feature-implementation UI overhaul
 
 ## Bugs/Issues
-- [ ] Bug: The clock widget freezes sometimes.
+- [X] Bug: The clock widget freezes sometimes.
 - [X] Bug: The brightness control is not always in sync with the nightlight.
 - [ ] Issue: SystemDataService.qml needs a better implementation for how mountpoints are specified (needs checks).
 
