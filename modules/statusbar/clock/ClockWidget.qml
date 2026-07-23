@@ -10,34 +10,31 @@ Button {
     id: root
     property bool isToggled: false
 
-    buttonText: Qt.formatTime(ClockService.date, "HH:mm:ss")
+    property string time: Qt.formatTime(ClockService.date, "HH:mm:ss")
+    property string date: Qt.formatDate(ClockService.date, "dd.MM.yyyy")
+
+    buttonIcon: root.isToggled ? "" : ""
+    buttonText: root.isToggled ? root.date : root.time
     tooltipText: "Clock"
 
-    backgroundColorHover: Color.baseDark
+    backgroundColorHover: Color.baseLight
+
+    iconColor: Color.textNormal
+    iconColorHover: Color.textLight
     textColor: Color.textNormal
     textColorHover: Color.textLight
-
     textSize: Constant.fontSizeLarge
-    innerSpacing: 0
+    iconSize: Constant.iconSizeSmall
+    innerSpacing: Constant.spacingSmall
     radius: Constant.roundingLarge
     buttonPadding: Constant.paddingMedium
 
-    width: textElementMaxWidthMetric.advanceWidth + buttonPadding * 2
+    alignToBaseline: false
 
-    TextMetrics {
-        id: textElementMaxWidthMetric
-        font.family: Theme.fontFamily
-        font.pixelSize: root.textSize + root.hoverSizeIncrease
-        font.bold: true
-        text: Qt.formatDate(ClockService.date, "dd.MM.yyyy")
-    }
+    height: Constant.barHeight
+    width: implicitWidth + buttonPadding * 2
 
     onLeftClicked: () => {
         isToggled = !isToggled;
-        if (isToggled) {
-            root.buttonText = Qt.formatDate(ClockService.date, "dd.MM.yyyy");
-        } else {
-            root.buttonText = Qt.formatTime(ClockService.date, "HH:mm:ss");
-        }
     }
 }
