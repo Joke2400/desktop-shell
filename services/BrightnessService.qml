@@ -1,4 +1,6 @@
 pragma Singleton
+import qs.services
+import qs.config.settings
 import QtQuick
 import Quickshell
 import Quickshell.Io
@@ -9,7 +11,24 @@ Singleton {
     property int gamma
     property int temperature
 
+    function nightlight() {
+        BrightnessService.setGamma(75);
+        BrightnessService.setTemperature(5000);
+    }
+
+    function bluelight() {
+        BrightnessService.setGamma(100);
+        BrightnessService.setTemperature(6500);
+    }
+
     Component.onCompleted: {
+        if (Settings.adjustBrightnessOnLoad) {
+            if (ClockService.hours >= 21 || ClockService.hours < 7) {
+                nightlight();
+            } else {
+                bluelight();
+            }
+        }
         Qt.callLater(update);
     }
 

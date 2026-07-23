@@ -1,4 +1,5 @@
 import qs.config.style
+import qs.config.settings
 import qs.modules.statusbar.indicators
 import qs.modules.statusbar.controls
 import qs.modules.statusbar.workspaces
@@ -11,7 +12,8 @@ import Quickshell
 PanelWindow {
     id: root
 
-    anchors.top: true
+    anchors.top: Settings.statusbarPosition === "top" ? true : false
+    anchors.bottom: Settings.statusbarPosition === "bottom" ? true : false
     anchors.left: true
     anchors.right: true
     color: "transparent"

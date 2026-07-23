@@ -1,13 +1,13 @@
 //@ pragma UseQApplication
 import qs.modules.statusbar
 import qs.modules.powermenu
-import qs.modules.controlpanel
+import qs.modules.statusbar.sliders
 
 import Quickshell
 
 ShellRoot {
     StatusBar {}
-    //Tooltip {}
     PowerMenu {}
-    ControlPanel {}
+    BrightnessSlider {}
+    VolumeSlider {}
 }

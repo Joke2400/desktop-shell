@@ -4,5 +4,6 @@ import Quickshell
 
 Singleton {
     property bool powerMenuIsVisible: false
-    property bool controlPanelIsVisible: false
+    property bool brightnessSliderIsVisible: false
+    property bool volumeSliderIsVisible: false
 }

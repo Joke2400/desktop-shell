@@ -35,10 +35,11 @@ Singleton {
 
     // plain colors
     property color colBlue: Qt.hsla(218 / 360, 0.70, 0.45, 1.0)
+    property color colYellow: Qt.hsla(45 / 360, 0.6, 0.55, 1.0)
     property color colOrange: Qt.hsla(20 / 360, 0.8, 0.4, 1.0)
     property color colDarkOrange: Qt.hsla(20 / 360, 0.8, 0.3, 1.0)
-    property color colRed: Qt.hsla(0, 1.0, 0.40, 1.0)
-    property color colMaroon: Qt.hsla(0, 1.0, 0.25, 1.0)
+    property color colRed: Qt.hsla(0, 0.9, 0.40, 1.0)
+    property color colMaroon: Qt.hsla(0, 0.9, 0.25, 1.0)
     property color colLightGreen: Qt.hsla(110 / 360, 1.0, 0.4, 1.0)
 
     // semantic colors

@@ -8,6 +8,10 @@ import QtQuick.Layouts
 Button {
     id: root
 
+    property int gamma: BrightnessService.gamma
+    property int temperature: BrightnessService.temperature
+    property bool dimmed: BrightnessService.temperature !== 6500
+
     buttonIcon: {
         if (root.gamma < 70) {
             return "󰃞";
@@ -19,12 +23,25 @@ Button {
     }
     tooltipText: "Brightness"
     backgroundColorHover: Color.baseLight
-    iconColorHover: Color.textLight
+    iconColor: GlobalStates.brightnessSliderIsVisible ? Color.colYellow : (root.dimmed ? Color.colDarkOrange : Color.textNormal)
+    iconColorHover: GlobalStates.brightnessSliderIsVisible ? Color.colYellow : (root.dimmed ? Color.colOrange : Color.textLight)
 
     radius: Constant.roundingLarge
     iconSize: Constant.iconSizeMedium
 
     onLeftClicked: () => {
-        GlobalStates.powerMenuIsVisible = !GlobalStates.powerMenuIsVisible;
+        if (!GlobalStates.brightnessSliderIsVisible) {
+            GlobalStates.brightnessSliderIsVisible = true;
+            GlobalStates.volumeSliderIsVisible = false;
+        } else {
+            GlobalStates.brightnessSliderIsVisible = false;
+        }
+    }
+    onMiddleClicked: () => {
+        if (root.dimmed) {
+            BrightnessService.bluelight();
+        } else {
+            BrightnessService.nightlight();
+        }
     }
 }

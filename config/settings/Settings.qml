@@ -8,4 +8,5 @@ Singleton {
     property var mountPointsToWatch: ["/", "/home"]
 
     property bool adjustBrightnessOnLoad: false
+    property string statusbarPosition: "top"
 }

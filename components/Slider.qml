@@ -14,7 +14,7 @@ Rectangle {
     property real liveRatio: ratio
     onRatioChanged: {
         if (!dragHandler.active && !tap.pressed) {
-            liveRatio = ratio   // resync from parent when not interacting
+            liveRatio = ratio;   // resync from parent when not interacting
         }
     }
 
@@ -76,11 +76,10 @@ Rectangle {
         root.liveRatio = Math.max(root.ratioMin, Math.min(root.ratioMax, newRatio)).toFixed(2);
     }
 
-    color: Color.surfaceDark
-    border.color: Color.surfaceNormal
+    color: Color.baseLight
+    border.color: Color.surfaceDark
 
     radius: Constant.roundingMedium
-    border.width: Constant.borderSmall
     Layout.fillWidth: true
     Layout.preferredHeight: parent.height
 
@@ -112,7 +111,7 @@ Rectangle {
                 radius: Constant.roundingSmall
             }
             Rectangle { // fill
-                color: Color.overlayLight
+                color: Color.overlayNormal
 
                 anchors.left: track.left
                 anchors.verticalCenter: parent.verticalCenter
