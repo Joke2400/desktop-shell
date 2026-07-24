@@ -4,6 +4,7 @@ import qs.services
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
+import Quickshell.Hyprland
 
 PanelWindow {
     id: root
@@ -23,6 +24,13 @@ PanelWindow {
 
     implicitWidth: gridContainer.implicitWidth
     implicitHeight: gridContainer.implicitHeight
+
+    HyprlandFocusGrab {
+        id: focusGrab
+        windows: [root]
+        active: root.visible
+        onCleared: GlobalStates.systemTrayIsVisible = false
+    }
 
     Rectangle {
         id: gridContainer
