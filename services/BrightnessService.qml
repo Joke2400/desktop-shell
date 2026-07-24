@@ -18,7 +18,7 @@ Singleton {
 
     function bluelight() {
         BrightnessService.setGamma(100);
-        BrightnessService.setTemperature(6500);
+        BrightnessService.setTemperature(6000);
     }
 
     Component.onCompleted: {
