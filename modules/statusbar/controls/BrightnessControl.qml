@@ -9,7 +9,7 @@ Button {
 
     property int gamma: BrightnessService.gamma
     property int temperature: BrightnessService.temperature
-    property bool dimmed: BrightnessService.temperature !== 6500
+    property bool dimmed: BrightnessService.temperature !== 6000
 
     buttonIcon: {
         if (root.gamma < 70) {
