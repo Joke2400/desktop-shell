@@ -6,6 +6,7 @@
 - [ ] Add: Weather display widget
 - [ ] Add: Controls for screen record, screenshot, etc
 - [ ] Add: Notification popups (for certain desktop actions)
+- [ ] Add: SystemTray menu
 - [ ] Add: Changing the theme on-the-fly (sync with wallpaper)
 
 ## Changes
@@ -19,6 +20,7 @@
 - [X] Bug: The clock widget freezes sometimes.
 - [X] Bug: The brightness control is not always in sync with the nightlight.
 - [ ] Issue: SystemDataService.qml needs a better implementation for how mountpoints are specified (needs checks).
+- [ ] Issue: Battery indicator is visually inconsistent with the rest of the indicators
 
 ## Ideas (undeveloped/more long-term):
 - [ ] Add: Integrated controls for audio devices
