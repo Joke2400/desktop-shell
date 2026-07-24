@@ -28,7 +28,7 @@ Tray {
         buttonText: BatteryService.percentage + "%"
         tooltipText: "Battery Level"
 
-        visible: true
+        visible: BatteryService.battery !== null
     }
 
     Indicator {
