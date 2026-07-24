@@ -2,6 +2,7 @@
 import qs.modules.statusbar
 import qs.modules.powermenu
 import qs.modules.statusbar.sliders
+import qs.modules.statusbar.systemtray
 
 import Quickshell
 
@@ -10,4 +11,5 @@ ShellRoot {
     PowerMenu {}
     BrightnessSlider {}
     VolumeSlider {}
+    SystemTrayMenu {}
 }

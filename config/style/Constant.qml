@@ -8,6 +8,7 @@ Singleton {
     property int sliderSize: Math.round(36 * Theme.scaleFactor)
     property int sliderTrackSize: Math.round(10 * Theme.scaleFactor)
     property int sliderHandleSize: Math.round(16 * Theme.scaleFactor)
+    property int systemTrayItemSize: iconSizeMedium
 
     property int spacingSmall: Math.round(4 * Theme.scaleFactor)
     property int spacingMedium: Math.round(8 * Theme.scaleFactor)

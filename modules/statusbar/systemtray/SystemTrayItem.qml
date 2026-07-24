@@ -15,12 +15,12 @@ Button {
     tooltipText: (modelData.tooltipTitle || modelData.title).toUpperCase()
     visible: modelData.status !== SystemTrayItem.Passive
 
-    backgroundColor: Color.surfaceDark
-    backgroundColorHover: Color.baseDark
-    iconColorHover: Color.accentNormal
-    textColorHover: Color.accentNormal
+    backgroundColor: Color.baseLight
+    backgroundColorHover: Color.surfaceDark
+    iconColor: Color.textNormal
+    iconColorHover: Color.textLight
     borderColor: Color.surfaceNormal
-    borderColorHover: Color.accentDark
+    borderColorHover: Color.surfaceLight
 
     Layout.fillHeight: true
 
