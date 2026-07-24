@@ -25,7 +25,7 @@ Tray {
                 return BatteryService.isCharging ? "󱊦" : "󱊣";
             }
         }
-        buttonText: 20.1 + "%"
+        buttonText: BatteryService.percentage + "%"
         tooltipText: "Battery Level"
 
         visible: true
