@@ -34,6 +34,7 @@ Button {
         if (!GlobalStates.volumeSliderIsVisible) {
             GlobalStates.volumeSliderIsVisible = true;
             GlobalStates.brightnessSliderIsVisible = false;
+            GlobalStates.systemTrayIsVisible = false;
         } else {
             GlobalStates.volumeSliderIsVisible = false;
         }

@@ -11,6 +11,27 @@ Tray {
     implicitHeight: Constant.barHeight
 
     Indicator {
+        id: batteryIndicator
+        buttonIcon: {
+            if (BatteryService.isFull)
+                return "󰂄";
+            if (BatteryService.percentage < 15) {
+                return BatteryService.isCharging ? "󰢟" : "󰂎";
+            } else if (BatteryService.percentage < 33) {
+                return BatteryService.isCharging ? "󱊤" : "󱊡";
+            } else if (BatteryService.percentage < 66) {
+                return BatteryService.isCharging ? "󱊥" : "󱊢";
+            } else {
+                return BatteryService.isCharging ? "󱊦" : "󱊣";
+            }
+        }
+        buttonText: 20.1 + "%"
+        tooltipText: "Battery Level"
+
+        visible: true
+    }
+
+    Indicator {
         id: cpuIndicator
         buttonIcon: ""
         buttonText: isToggled ? SystemDataService.cpuFreqGHz + "GHz" : SystemDataService.cpuPercent.toFixed(1) + "%"

@@ -9,6 +9,7 @@ Tray {
     innerSpacing: 0
     implicitHeight: Constant.barHeight
 
+    SystemTrayControl {}
     BrightnessControl {}
     VolumeControl {}
     NotificationControl {}
