@@ -21,6 +21,7 @@
 - [X] Bug: The brightness control is not always in sync with the nightlight.
 - [ ] Issue: SystemDataService.qml needs a better implementation for how mountpoints are specified (needs checks).
 - [ ] Issue: Battery indicator is visually inconsistent with the rest of the indicators
+- [ ] Bug: Context menu doesn't open when system tray items are clicked
 
 ## Ideas (undeveloped/more long-term):
 - [ ] Add: Integrated controls for audio devices
