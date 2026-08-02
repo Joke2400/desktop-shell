@@ -9,6 +9,7 @@ import Quickshell.Hyprland
 Tray {
     id: root
 
+    Layout.leftMargin: Constant.marginLarge
     innerSpacing: Constant.spacingSmall
     implicitHeight: Constant.barHeight + Constant.paddingSmall * 2
 
