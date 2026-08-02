@@ -7,6 +7,7 @@ Singleton {
     property bool brightnessSliderIsVisible: false
     property bool volumeSliderIsVisible: false
     property bool systemTrayIsVisible: false
+    property bool wallpaperSwitcherIsVisible: true
 
     property var trayButtonPosX: 0
     property var trayButtonPosY: 0
