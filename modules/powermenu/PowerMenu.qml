@@ -49,13 +49,6 @@ PanelWindow {
         implicitWidth: row.implicitWidth + Constant.paddingLarge * 4
         implicitHeight: row.implicitHeight + Constant.paddingLarge * 3
 
-        Keys.onPressed: event => {
-            if (event.key === Qt.Key_Escape) {
-                GlobalStates.powerMenuIsVisible = false;
-                event.accepted = true;
-            }
-        }
-
         RowLayout {
             id: row
             anchors.centerIn: parent
