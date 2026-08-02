@@ -2,7 +2,7 @@ import qs.config.style
 import qs.services
 
 import Quickshell
-import Quickshell.Wayland
+import Quickshell.Hyprland
 import QtQuick
 import QtQuick.Layouts
 
@@ -24,13 +24,19 @@ PanelWindow {
         top: (screen.height - implicitHeight) / 2
         bottom: (screen.height - implicitHeight) / 2
     }
-    implicitWidth: powerMenuRect.width
-    implicitHeight: powerMenuRect.height
+    implicitWidth: powerMenuContainer.width
+    implicitHeight: powerMenuContainer.height
     exclusiveZone: -1
-    WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+
+    HyprlandFocusGrab {
+        id: focusGrab
+        windows: [root]
+        active: root.visible
+        onCleared: GlobalStates.powerMenuIsVisible = false
+    }
 
     Rectangle {
-        id: powerMenuRect
+        id: powerMenuContainer
 
         color: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.7)
         border.color: Color.surfaceNormal
@@ -42,12 +48,6 @@ PanelWindow {
         anchors.centerIn: parent
         implicitWidth: row.implicitWidth + Constant.paddingLarge * 4
         implicitHeight: row.implicitHeight + Constant.paddingLarge * 3
-
-        onVisibleChanged: {
-            if (GlobalStates.powerMenuIsVisible) {
-                forceActiveFocus();
-            }
-        }
 
         Keys.onPressed: event => {
             if (event.key === Qt.Key_Escape) {
