@@ -14,7 +14,9 @@
 - [X] Improve: pick new colors
 - [ ] Improve: dynamic accent colors based on wallpaper?
 - [X] Refactor: Make the QML data services slightly more robust
-- [ ] Improve: Post-feature-implementation UI overhaul
+- [ ] Improve: Add keyboard controls to powermenu
+- [ ] Improve: powermenu needs a small UI overhaul
+- [ ] Improve: Do a post-feature-implementation UI overhaul
 
 ## Bugs/Issues
 - [X] Bug: The clock widget freezes sometimes.
