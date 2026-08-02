@@ -7,10 +7,7 @@ import Quickshell.Services.SystemTray
 Singleton {
     id: root
 
-    readonly property var essentialIds: ["nm-applet", "blueman"]
     readonly property var trayItems: SystemTray.items
-    readonly property var essentialTrayItems: essentialIds.map(id => (trayItems?.values ?? []).find(item => item.id === id)).filter(item => item !== undefined)
-    readonly property var otherTrayItems: (trayItems?.values ?? []).filter(item => !essentialIds.includes(item.id))
 
     function getNetworkTrayItemIcon(trayItem) {
         const icon = trayItem.icon ?? "";
