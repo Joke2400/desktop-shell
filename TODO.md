@@ -29,6 +29,7 @@
 
 ## Ideas (undeveloped/more long-term):
 - [ ] Add: Integrated controls for audio devices
+- [ ] Add: Integrated controls for wifi/lan connections
 - [ ] Add: Integrated controls for RGB (OpenRGB?). Sync colors with current theme?
 - [ ] Add: Integrated media/playback controls (at least spotify integration)
 - [ ] Add: Integrated clipboard history (or just add a toggle for the current rofi cliphist implementation)
