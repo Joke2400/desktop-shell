@@ -28,8 +28,8 @@ Button {
         if (isFocused) {
             root.iconColor = Color.colOrange;
             root.iconColorHover = Color.colOrange;
-            root.borderColor = Color.colOrange;
-            root.borderColorHover = Color.colDarkOrange;
+            root.borderColor = Color.colDarkOrange;
+            root.borderColorHover = Color.colOrange;
         } else {
             root.iconColor = Color.textNormal;
             root.iconColorHover = Color.textLight;
