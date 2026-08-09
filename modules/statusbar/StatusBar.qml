@@ -53,7 +53,7 @@ PanelWindow {
 
             AppLauncherButton {}
             WorkspaceWidget {}
-            ColorTestTray {}
+            // ColorTestTray {}
 
             Item {
                 Layout.fillWidth: true
