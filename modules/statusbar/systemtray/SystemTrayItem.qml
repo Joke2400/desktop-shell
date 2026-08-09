@@ -10,6 +10,8 @@ Button {
     id: root
     required property SystemTrayItem modelData
     required property string displayIcon
+    signal menuOpened
+    signal menuClosed
 
     buttonIcon: displayIcon
     tooltipText: (modelData.tooltipTitle || modelData.title).toUpperCase()
@@ -25,6 +27,7 @@ Button {
     Layout.fillHeight: true
 
     onLeftClicked: () => {
+        root.menuOpened();
         contextMenu.open();
     }
 
@@ -34,5 +37,6 @@ Button {
         anchor.item: root
         anchor.edges: Edges.Bottom
         anchor.gravity: Edges.Bottom | Edges.Right
+        onClosed: root.menuClosed()
     }
 }

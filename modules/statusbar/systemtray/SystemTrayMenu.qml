@@ -1,3 +1,4 @@
+pragma ComponentBehavior: Bound
 import qs.config.style
 import qs.services
 
@@ -8,6 +9,8 @@ import Quickshell.Hyprland
 
 PanelWindow {
     id: root
+
+    property bool menuOpen: false
 
     visible: GlobalStates.systemTrayIsVisible
     color: "transparent"
@@ -28,8 +31,11 @@ PanelWindow {
     HyprlandFocusGrab {
         id: focusGrab
         windows: [root]
-        active: root.visible
-        onCleared: GlobalStates.systemTrayIsVisible = false
+        active: root.visible && !root.menuOpen
+        onCleared: {
+            if (!root.menuOpen)
+                GlobalStates.systemTrayIsVisible = false;
+        }
     }
 
     Rectangle {
@@ -56,6 +62,9 @@ PanelWindow {
                     radius: Constant.roundingMedium
                     buttonPadding: Constant.paddingSmall
                     border.width: Constant.borderSmall
+
+                    onMenuOpened: root.menuOpen = true
+                    onMenuClosed: root.menuOpen = false
                 }
             }
         }
