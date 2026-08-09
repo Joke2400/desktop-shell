@@ -6,8 +6,9 @@
 - [ ] Add: Weather display widget
 - [ ] Add: Controls for screen record, screenshot, etc
 - [ ] Add: Notification popups (for certain desktop actions)
-- [ ] Add: SystemTray menu
+- [X] Add: SystemTray menu
 - [ ] Add: Changing the theme on-the-fly (sync with wallpaper)
+- [ ] Add: Add a control for opening upp the wallpaper switcher
 
 ## Changes
 - [ ] Improve: BrightnessService.qml - implement hardware-dimming controls (preferred for laptops)
@@ -17,6 +18,7 @@
 - [ ] Improve: Add keyboard controls to powermenu
 - [ ] Improve: powermenu needs a small UI overhaul
 - [ ] Improve: Do a post-feature-implementation UI overhaul
+- [ ] Improve: Look into styling the context menus for system tray items.
 
 ## Bugs/Issues
 - [X] Bug: The clock widget freezes sometimes.
