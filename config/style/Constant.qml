@@ -40,5 +40,5 @@ Singleton {
 
     property int borderSmall: 1
     property int borderMedium: 2
-    property int borderLarge: 4
+    property int borderLarge: 3
 }

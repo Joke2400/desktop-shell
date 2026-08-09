@@ -16,17 +16,12 @@ Rectangle {
     signal rightClicked
     signal scrolled(int scrollDelta)
 
-    color: backgroundColor
-    border.color: borderColor
+    color: hovered ? backgroundColorHover : backgroundColor
+    border.color: hovered ? borderColorHover : borderColor
 
     border.width: 0
     implicitWidth: 24
     implicitHeight: 24
-
-    onHoveredChanged: () => {
-        color = hovered ? backgroundColorHover : backgroundColor;
-        border.color = hovered ? borderColorHover : borderColor;
-    }
 
     HoverHandler {
         id: hover
