@@ -31,7 +31,7 @@ PanelWindow {
         id: barContainer
 
         radius: Constant.roundingMedium
-        color: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.9)
+        color: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.85)
 
         anchors.centerIn: parent
         width: parent.width
