@@ -19,6 +19,7 @@
 - [ ] Improve: powermenu needs a small UI overhaul
 - [ ] Improve: Do a post-feature-implementation UI overhaul
 - [ ] Improve: Look into styling the context menus for system tray items.
+- [ ] Improve: powermenu is missing a button for logging out
 
 ## Bugs/Issues
 - [X] Bug: The clock widget freezes sometimes.
