@@ -47,15 +47,23 @@ PanelWindow {
             gradient: Gradient {
                 GradientStop {
                     position: 0.0
-                    color: Qt.rgba(1, 1, 1, 0.12)
+                    color: Qt.rgba(1, 1, 1, 0.07)
                 }
                 GradientStop {
-                    position: 0.4
-                    color: Qt.rgba(1, 1, 1, 0.03)
+                    position: 0.2
+                    color: Qt.rgba(1, 1, 1, 0.05)
+                }
+                GradientStop {
+                    position: 0.5
+                    color: Qt.rgba(0, 0, 0, 0.0)
+                }
+                GradientStop {
+                    position: 0.7
+                    color: Qt.rgba(0, 0, 0, 0.05)
                 }
                 GradientStop {
                     position: 1.0
-                    color: Qt.rgba(1, 1, 1, 0.0)
+                    color: Qt.rgba(0, 0, 0, 0.25)
                 }
             }
         }
@@ -65,7 +73,7 @@ PanelWindow {
             radius: parent.radius
             color: "transparent"
             border.width: 1
-            border.color: Qt.rgba(1, 1, 1, 0.15)
+            border.color: Qt.rgba(1, 1, 1, 0.2)
         }
 
         Rectangle {
