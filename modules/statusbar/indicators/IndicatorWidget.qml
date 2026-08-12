@@ -7,7 +7,7 @@ import Quickshell.Hyprland
 Tray {
     id: root
 
-    innerSpacing: 0
+    innerSpacing: Constant.spacingSmall
     implicitHeight: Constant.barHeight
 
     Indicator {
