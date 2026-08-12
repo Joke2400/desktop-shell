@@ -10,15 +10,15 @@ Button {
 
     backgroundColorHover: Color.baseLight
     textColor: Color.subTextNormal
-    textColorHover: Color.accentNormal
+    textColorHover: Color.accentLight
     iconColor: Color.subTextNormal
-    iconColorHover: Color.accentNormal
+    iconColorHover: Color.accentLight
 
     textSize: Constant.fontSizeMedium
     iconSize: Constant.iconSizeSmall
     innerSpacing: Constant.spacingSmall
     radius: Constant.roundingLarge
-    buttonPadding: Constant.paddingMedium
+    buttonPadding: Constant.paddingMedium * 1.25
 
     onLeftClicked: () => {
         isToggled = !isToggled;

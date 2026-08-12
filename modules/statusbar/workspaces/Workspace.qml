@@ -21,7 +21,7 @@ Button {
     hoverSizeIncrease: 4
 
     border.width: Constant.borderMedium
-    radius: Constant.roundingMedium
+    radius: Constant.roundingLarge
     color: isFocused || root.hovered ? backgroundColorHover : backgroundColor
 
     onIsFocusedChanged: {

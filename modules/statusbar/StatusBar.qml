@@ -18,7 +18,7 @@ PanelWindow {
     anchors.right: true
     color: "transparent"
 
-    implicitHeight: barContainer.implicitHeight
+    implicitHeight: barContainer.implicitHeight + Constant.paddingSmall * 2
 
     margins {
         top: Constant.marginSmall
@@ -31,9 +31,9 @@ PanelWindow {
         id: barContainer
 
         radius: Constant.roundingMedium
-        color: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.85)
+        color: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.9)
 
-        anchors.centerIn: parent
+        anchors.fill: parent
         width: parent.width
         implicitHeight: rowLayout.implicitHeight + Constant.paddingSmall * 2
 
@@ -41,14 +41,59 @@ PanelWindow {
             anchors.centerIn: parent
         }
 
+        Rectangle {
+            anchors.fill: parent
+            radius: parent.radius
+            gradient: Gradient {
+                GradientStop {
+                    position: 0.0
+                    color: Qt.rgba(1, 1, 1, 0.12)
+                }
+                GradientStop {
+                    position: 0.4
+                    color: Qt.rgba(1, 1, 1, 0.03)
+                }
+                GradientStop {
+                    position: 1.0
+                    color: Qt.rgba(1, 1, 1, 0.0)
+                }
+            }
+        }
+
+        Rectangle {
+            anchors.fill: parent
+            radius: parent.radius
+            color: "transparent"
+            border.width: 1
+            border.color: Qt.rgba(1, 1, 1, 0.15)
+        }
+
+        Rectangle {
+            anchors.fill: parent
+            radius: parent.radius
+            gradient: Gradient {
+                GradientStop {
+                    position: 0.0
+                    color: Qt.rgba(0, 0, 0, 0.0)
+                }
+                GradientStop {
+                    position: 0.7
+                    color: Qt.rgba(0, 0, 0, 0.0)
+                }
+                GradientStop {
+                    position: 1.0
+                    color: Qt.rgba(0, 0, 0, 0.08)
+                }
+            }
+        }
+
         RowLayout {
             id: rowLayout
-
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.verticalCenter: parent.verticalCenter
+            anchors.fill: parent
             anchors.leftMargin: Constant.marginMedium
             anchors.rightMargin: Constant.marginMedium
+            anchors.topMargin: Constant.paddingSmall
+            anchors.bottomMargin: Constant.paddingSmall
             spacing: 0
 
             AppLauncherButton {}

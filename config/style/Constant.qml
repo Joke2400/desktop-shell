@@ -15,8 +15,8 @@ Singleton {
     property int spacingLarge: Math.round(16 * Theme.scaleFactor)
 
     property int paddingSmall: Math.round(2 * Theme.scaleFactor)
-    property int paddingMedium: Math.round(6 * Theme.scaleFactor)
-    property int paddingLarge: Math.round(10 * Theme.scaleFactor)
+    property int paddingMedium: Math.round(4 * Theme.scaleFactor)
+    property int paddingLarge: Math.round(8 * Theme.scaleFactor)
 
     property int marginSmall: Math.round(6 * Theme.scaleFactor)
     property int marginMedium: Math.round(12 * Theme.scaleFactor)
