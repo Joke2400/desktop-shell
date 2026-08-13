@@ -44,7 +44,7 @@ PanelWindow {
         implicitWidth: column.implicitWidth + Constant.marginMedium * 2
         implicitHeight: column.implicitHeight + Constant.marginMedium * 2
         color: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.9)
-        radius: Constant.roundingMedium
+        radius: Constant.roundingSmall
 
         Rectangle {
             anchors.fill: parent
@@ -52,15 +52,23 @@ PanelWindow {
             gradient: Gradient {
                 GradientStop {
                     position: 0.0
-                    color: Qt.rgba(1, 1, 1, 0.12)
+                    color: Qt.rgba(1, 1, 1, 0.07)
+                }
+                GradientStop {
+                    position: 0.1
+                    color: Qt.rgba(1, 1, 1, 0.05)
                 }
                 GradientStop {
                     position: 0.4
-                    color: Qt.rgba(1, 1, 1, 0.03)
+                    color: Qt.rgba(0, 0, 0, 0.0)
+                }
+                GradientStop {
+                    position: 0.7
+                    color: Qt.rgba(0, 0, 0, 0.05)
                 }
                 GradientStop {
                     position: 1.0
-                    color: Qt.rgba(1, 1, 1, 0.0)
+                    color: Qt.rgba(0, 0, 0, 0.25)
                 }
             }
         }
@@ -70,7 +78,7 @@ PanelWindow {
             radius: parent.radius
             color: "transparent"
             border.width: 1
-            border.color: Qt.rgba(1, 1, 1, 0.15)
+            border.color: Qt.rgba(1, 1, 1, 0.2)
         }
 
         Rectangle {
