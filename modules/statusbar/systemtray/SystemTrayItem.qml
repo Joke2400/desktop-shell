@@ -26,6 +26,41 @@ Button {
 
     Layout.fillHeight: true
 
+    Rectangle {
+        anchors.fill: parent
+        radius: parent.radius
+        gradient: Gradient {
+            GradientStop {
+                position: 0.0
+                color: Qt.rgba(1, 1, 1, 0.07)
+            }
+            GradientStop {
+                position: 0.1
+                color: Qt.rgba(1, 1, 1, 0.05)
+            }
+            GradientStop {
+                position: 0.4
+                color: Qt.rgba(0, 0, 0, 0.0)
+            }
+            GradientStop {
+                position: 0.7
+                color: Qt.rgba(0, 0, 0, 0.05)
+            }
+            GradientStop {
+                position: 1.0
+                color: Qt.rgba(0, 0, 0, 0.25)
+            }
+        }
+    }
+
+    Rectangle {
+        anchors.fill: parent
+        radius: parent.radius
+        color: "transparent"
+        border.width: 1
+        border.color: Qt.rgba(1, 1, 1, 0.2)
+    }
+
     onLeftClicked: () => {
         root.menuOpened();
         contextMenu.open();
