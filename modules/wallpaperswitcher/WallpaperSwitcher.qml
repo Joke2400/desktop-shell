@@ -26,12 +26,12 @@ PanelWindow {
     Rectangle {
         id: switcherContainer
 
-        color: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.7)
+        color: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.75)
         border.color: Color.surfaceNormal
         border.width: Constant.borderSmall
         anchors.fill: parent
         focus: true
 
-        WallpaperTray {}
+        WallpaperCarousel {}
     }
 }
