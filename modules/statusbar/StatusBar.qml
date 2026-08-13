@@ -21,10 +21,10 @@ PanelWindow {
     implicitHeight: barContainer.implicitHeight + Constant.paddingSmall * 2
 
     margins {
-        top: Constant.marginSmall
-        left: Constant.marginMedium
-        right: Constant.marginMedium
-        bottom: Constant.marginSmall
+        top: (Constant.marginSmall / 2)
+        left: Constant.marginSmall
+        right: Constant.marginSmall
+        bottom: (Constant.marginSmall / 2)
     }
 
     Rectangle {
