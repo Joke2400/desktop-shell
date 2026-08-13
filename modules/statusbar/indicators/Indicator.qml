@@ -27,23 +27,23 @@ Button {
         gradient: Gradient {
             GradientStop {
                 position: 0.0
-                color: Qt.rgba(0, 0, 0, 0.25)
+                color: Qt.rgba(0, 0, 0, 0.2)
             }
             GradientStop {
                 position: 0.3
                 color: Qt.rgba(0, 0, 0, 0.05)
             }
             GradientStop {
-                position: 0.7
-                color: Qt.rgba(0.5, 0.5, 0.5, 0.0)
+                position: 0.5
+                color: Qt.rgba(0, 0, 0, 0.0)
             }
             GradientStop {
-                position: 0.9
+                position: 0.8
                 color: Qt.rgba(1, 1, 1, 0.05)
             }
             GradientStop {
                 position: 1.0
-                color: Qt.rgba(1, 1, 1, 0.1)
+                color: Qt.rgba(1, 1, 1, 0.07)
             }
         }
     }
