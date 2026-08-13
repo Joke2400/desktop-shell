@@ -26,7 +26,7 @@ Button {
         gradient: Gradient {
             GradientStop {
                 position: 0.0
-                color: Qt.rgba(1, 1, 1, 0.15)
+                color: Qt.rgba(1, 1, 1, 0.07)
             }
             GradientStop {
                 position: 0.3
