@@ -50,11 +50,11 @@ PanelWindow {
                     color: Qt.rgba(1, 1, 1, 0.07)
                 }
                 GradientStop {
-                    position: 0.2
+                    position: 0.1
                     color: Qt.rgba(1, 1, 1, 0.05)
                 }
                 GradientStop {
-                    position: 0.5
+                    position: 0.4
                     color: Qt.rgba(0, 0, 0, 0.0)
                 }
                 GradientStop {
