@@ -2,13 +2,13 @@
 ## Features
 - [X] Add: Basic status & task bar
 - [X] Add: System tray menu
-- [ ] Add: Wallpaper-switcher module
+- [X] Add: Wallpaper-switcher module
 - [ ] Add: Calendar display widget
 - [ ] Add: Weather display widget
 - [ ] Add: Controls for screen record, screenshot, etc
 - [ ] Add: Notification popups (for certain desktop actions)
 - [ ] Add: Changing the theme on-the-fly (sync with wallpaper)
-- [ ] Add: Add a control for opening upp the wallpaper switcher
+- [X] Add: Add a control for opening upp the wallpaper switcher
 
 ## Changes
 - [X] Improve: pick new colors
@@ -22,6 +22,7 @@
 - [ ] Improve: powermenu is missing a button for logging out
 - [ ] Improve: wallpaperswitcher needs keyboard controls
 - [ ] Improve: WallpaperService needs to be aware of current wallpaper
+- [ ] Improve: Wallpaper carousel items to be displayed as slanted paralellograms
 
 ## Bugs/Issues
 - [X] Bug: The clock widget freezes sometimes.
@@ -31,7 +32,7 @@
 - [ ] Issue: Battery indicator is visually inconsistent with the rest of the indicators
 - [ ] Issue: Brightness service needs to react to hyprsunset schedule
 - [ ] Issue: Implement fix for certain font icons which are visually off-center compared to other icons
-- [ ] Issue: Problem with Quickshell.screens & multimonitor setups
+- [ ] Issue: Fix problem with Quickshell.screens & multimonitor setups
 
 ## Ideas (undeveloped/more long-term):
 - [ ] Add: Integrated controls for audio devices
