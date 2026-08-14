@@ -31,6 +31,7 @@
 - [ ] Issue: Battery indicator is visually inconsistent with the rest of the indicators
 - [ ] Issue: Brightness service needs to react to hyprsunset schedule
 - [ ] Issue: Implement fix for certain font icons which are visually off-center compared to other icons
+- [ ] Issue: Problem with Quickshell.screens & multimonitor setups
 
 ## Ideas (undeveloped/more long-term):
 - [ ] Add: Integrated controls for audio devices
