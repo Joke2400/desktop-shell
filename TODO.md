@@ -20,6 +20,8 @@
 - [ ] Improve: Do a post-feature-implementation UI overhaul
 - [ ] Improve: Look into styling the context menus for system tray items.
 - [ ] Improve: powermenu is missing a button for logging out
+- [ ] Improve: wallpaperswitcher needs keyboard controls
+- [ ] Improve: WallpaperService needs to be aware of current wallpaper
 
 ## Bugs/Issues
 - [X] Bug: The clock widget freezes sometimes.
