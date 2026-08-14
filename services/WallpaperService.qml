@@ -4,6 +4,7 @@ import qs.config.settings
 
 import QtQuick
 import Quickshell
+import Quickshell.Io
 import Qt.labs.folderlistmodel
 
 Singleton {
@@ -13,6 +14,12 @@ Singleton {
 
     readonly property real preloadImageHeight: Constant.carouselHeight
     readonly property real preloadImageWidth: Math.min(preloadImageHeight, Settings.selectedScreen.height / Settings.carouselItemCount)
+
+    function setWallpaper(fileUrl) {
+        setWallpaperProc.configStr = `${Settings.selectedScreen.name}, ${fileUrl.replace(/^file:\/\//, '')}, cover`;
+        console.log(setWallpaperProc.configStr);
+        setWallpaperProc.running = true;
+    }
 
     FolderListModel {
         id: folderModel
@@ -34,8 +41,20 @@ Singleton {
             source: fileUrl
             fillMode: Image.PreserveAspectCrop
             visible: false
-            onStatusChanged: if (status === Image.Ready)
-                console.log("preloaded:", fileUrl, Date.now(), "w/h", image.width, image.height)
+            //onStatusChanged: if (status === Image.Ready)
+            //    console.log("Preloaded image:", fileUrl, "w/h", image.width, image.height)
+        }
+    }
+
+    Process {
+        id: setWallpaperProc
+        property string configStr
+        command: ["hyprctl", "hyprpaper", "wallpaper", String(configStr)]
+        stdout: StdioCollector {
+            onStreamFinished: {
+                const parsed = parseInt(text.trim());
+                console.log(parsed);
+            }
         }
     }
 }

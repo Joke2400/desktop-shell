@@ -1,4 +1,5 @@
 import qs.components
+import qs.services
 import qs.config.style
 import qs.config.settings
 
@@ -23,19 +24,20 @@ ButtonBase {
         height: parent.height - Constant.borderMedium * 2
         width: parent.width - Constant.borderMedium * 2
         anchors.centerIn: parent
+        opacity: 0.9
 
         asynchronous: true
         source: root.fileUrl
         fillMode: Image.PreserveAspectCrop
 
-        onStatusChanged: if (status === Image.Ready) {
-            console.log("preloaded:", fileUrl, Date.now(), "w/h", image.width, image.height);
-        }
+        //onStatusChanged: if (status === Image.Ready) {
+        //    console.log("Displayed image:", fileUrl, Date.now(), "w/h", image.width, image.height);
+        //}
     }
 
-    Component.onCompleted: console.log("delegate created:", root.fileUrl, Date.now())
+    // Component.onCompleted: console.log("delegate created:", root.fileUrl, Date.now())
 
     onLeftClicked: {
-        console.log("left clicked", root.index);
+        WallpaperService.setWallpaper(root.fileUrl);
     }
 }

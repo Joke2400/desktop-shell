@@ -14,7 +14,7 @@ PanelWindow {
     screen: Quickshell.screens[0]
 
     implicitWidth: Settings.selectedScreen.width
-    implicitHeight: Constant.carouselPanelWindowHeight
+    implicitHeight: Constant.carouselPanelWindowHeight + 2 * (Constant.marginLarge * 2)
     exclusiveZone: -1
 
     HyprlandFocusGrab {
@@ -27,7 +27,7 @@ PanelWindow {
     Rectangle {
         id: switcherContainer
 
-        color: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.75)
+        color: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.5)
         border.color: Color.surfaceNormal
         border.width: Constant.borderSmall
 

@@ -15,7 +15,7 @@ PathView {
 
     model: WallpaperService.model
     pathItemCount: Settings.carouselItemCount + 2
-    cacheItemCount: 4
+    cacheItemCount: 2
     snapMode: PathView.SnapToItem
     preferredHighlightBegin: 0.5
     preferredHighlightEnd: 0.5
