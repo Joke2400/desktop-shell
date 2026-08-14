@@ -1,3 +1,5 @@
+import qs.components
+import qs.services
 import qs.config.style
 import qs.config.settings
 import qs.modules.statusbar.indicators
@@ -107,6 +109,12 @@ PanelWindow {
             AppLauncherButton {}
             WorkspaceWidget {}
             // ColorTestTray {}
+            Button {
+                buttonIcon: "X"
+                onLeftClicked: {
+                    GlobalStates.wallpaperSwitcherIsVisible = !GlobalStates.wallpaperSwitcherIsVisible;
+                }
+            }
 
             Item {
                 Layout.fillWidth: true

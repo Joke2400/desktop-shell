@@ -1,5 +1,6 @@
-import qs.config.style
 import qs.services
+import qs.config.style
+import qs.config.settings
 
 import Quickshell
 import Quickshell.Hyprland
@@ -19,10 +20,10 @@ PanelWindow {
         right: true
     }
     margins {
-        left: (screen.width - implicitWidth) / 2
-        right: (screen.width - implicitWidth) / 2
-        top: (screen.height - implicitHeight) / 2
-        bottom: (screen.height - implicitHeight) / 2
+        left: (Settings.selectedScreen.width - implicitWidth) / 2
+        right: (Settings.selectedScreen.width - implicitWidth) / 2
+        top: (Settings.selectedScreen.height - implicitHeight) / 2
+        bottom: (Settings.selectedScreen.height - implicitHeight) / 2
     }
     implicitWidth: powerMenuContainer.width
     implicitHeight: powerMenuContainer.height

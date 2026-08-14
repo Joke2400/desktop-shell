@@ -1,5 +1,9 @@
 import qs.components
+import qs.config.style
+import qs.config.settings
+
 import QtQuick
+import Quickshell
 
 ButtonBase {
     id: root
@@ -11,15 +15,25 @@ ButtonBase {
     width: Math.min(height, PathView.view.width / PathView.view.pathItemCount)
     clip: true
 
+    border.width: Constant.borderMedium
+    border.color: Color.baseDark
+
     Image {
         id: image
-        anchors.fill: parent
+        height: parent.height - Constant.borderMedium * 2
+        width: parent.width - Constant.borderMedium * 2
+        anchors.centerIn: parent
 
+        asynchronous: true
         source: root.fileUrl
-        sourceSize.width: root.width
-        sourceSize.height: root.height
         fillMode: Image.PreserveAspectCrop
+
+        onStatusChanged: if (status === Image.Ready) {
+            console.log("preloaded:", fileUrl, Date.now(), "w/h", image.width, image.height);
+        }
     }
+
+    Component.onCompleted: console.log("delegate created:", root.fileUrl, Date.now())
 
     onLeftClicked: {
         console.log("left clicked", root.index);
