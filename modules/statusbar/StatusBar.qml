@@ -109,12 +109,6 @@ PanelWindow {
             AppLauncherButton {}
             WorkspaceWidget {}
             // ColorTestTray {}
-            Button {
-                buttonIcon: "X"
-                onLeftClicked: {
-                    GlobalStates.wallpaperSwitcherIsVisible = !GlobalStates.wallpaperSwitcherIsVisible;
-                }
-            }
 
             Item {
                 Layout.fillWidth: true

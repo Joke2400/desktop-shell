@@ -10,6 +10,7 @@ Tray {
     implicitHeight: Constant.barHeight
 
     SystemTrayControl {}
+    WallpaperControl {}
     BrightnessControl {}
     VolumeControl {}
     NotificationControl {}
