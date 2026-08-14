@@ -33,6 +33,8 @@
 - [ ] Issue: Brightness service needs to react to hyprsunset schedule
 - [ ] Issue: Implement fix for certain font icons which are visually off-center compared to other icons
 - [ ] Issue: Fix problem with Quickshell.screens & multimonitor setups
+  - Appears on the wrong monitor sometimes, controls the wrong monitor
+  - Add a selector for which monitor the wallpaper is being set for
 
 ## Ideas (undeveloped/more long-term):
 - [ ] Add: Integrated controls for audio devices
