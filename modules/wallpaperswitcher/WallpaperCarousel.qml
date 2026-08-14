@@ -32,8 +32,4 @@ PathView {
     }
 
     delegate: WallpaperItem {}
-
-    onCurrentIndexChanged: {
-        console.log("Current index changed:", root.currentIndex);
-    }
 }
