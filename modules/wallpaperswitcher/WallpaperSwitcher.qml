@@ -34,7 +34,7 @@ PanelWindow {
         implicitWidth: parent.width + Constant.carouselItemWidth * 2
         implicitHeight: parent.height
 
-        x: switcherContainer.x - Constant.carouselItemWidth
+        x: -Constant.carouselItemWidth
 
         anchors.fill: parent
         focus: true
