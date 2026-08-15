@@ -1,6 +1,5 @@
 import qs.config.style
 import qs.components
-import qs.services
 
 import QtQuick
 import QtQuick.Layouts

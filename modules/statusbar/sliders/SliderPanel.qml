@@ -1,3 +1,4 @@
+import qs.services
 import qs.config.style
 
 import QtQuick
@@ -7,7 +8,12 @@ import Quickshell
 PanelWindow {
     id: root
     default property alias contents: column.data
+
+    screen: MonitorService.selectedMonitor
     color: Color.baseNormal
+    implicitWidth: Constant.sliderSize * 10
+    implicitHeight: Constant.sliderSize
+    exclusiveZone: 0
 
     anchors {
         top: true
@@ -17,11 +23,6 @@ PanelWindow {
         top: 0
         right: Constant.marginLarge
     }
-    exclusiveZone: 0
-
-    implicitWidth: Constant.sliderSize * 10
-    implicitHeight: Constant.sliderSize
-
     ColumnLayout {
         id: column
         anchors {

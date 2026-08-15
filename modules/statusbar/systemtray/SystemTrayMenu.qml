@@ -12,6 +12,7 @@ PanelWindow {
 
     property bool menuOpen: false
 
+    screen: MonitorService.selectedMonitor
     visible: GlobalStates.systemTrayIsVisible
     color: "transparent"
 

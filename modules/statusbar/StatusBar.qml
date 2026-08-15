@@ -14,6 +14,7 @@ import Quickshell
 PanelWindow {
     id: root
 
+    screen: MonitorService.selectedMonitor
     anchors.top: Settings.statusbarPosition === "top" ? true : false
     anchors.bottom: Settings.statusbarPosition === "bottom" ? true : false
     anchors.left: true

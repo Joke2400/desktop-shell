@@ -1,4 +1,5 @@
 //@ pragma UseQApplication
+import qs.services
 import qs.config.settings
 import qs.config.style
 
@@ -21,11 +22,11 @@ ShellRoot {
 
     Component.onCompleted: {
         console.log("UI scale factor: " + Constant.uiScaleFactor);
-        console.log("Screen: " + Settings.selectedScreen.toString());
-        console.log("Screen width: " + Settings.selectedScreen.width);
-        console.log("Screen height: " + Settings.selectedScreen.height);
-        console.log("Logical pixel density: " + Settings.selectedScreen.logicalPixelDensity);
-        console.log("Device pixel ratio: " + Settings.selectedScreen.devicePixelRatio);
-        console.log("Physical pixel density: " + Settings.selectedScreen.physicalPixelDensity);
+        console.log("Screen: " + MonitorService.selectedMonitor.toString());
+        console.log("Screen width: " + MonitorService.selectedMonitor.width);
+        console.log("Screen height: " + MonitorService.selectedMonitor.height);
+        console.log("Logical pixel density: " + MonitorService.selectedMonitor.logicalPixelDensity);
+        console.log("Device pixel ratio: " + MonitorService.selectedMonitor.devicePixelRatio);
+        console.log("Physical pixel density: " + MonitorService.selectedMonitor.physicalPixelDensity);
     }
 }

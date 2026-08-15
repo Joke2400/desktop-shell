@@ -10,6 +10,7 @@ import QtQuick.Layouts
 PanelWindow {
     id: root
 
+    screen: MonitorService.selectedMonitor
     visible: GlobalStates.powerMenuIsVisible
     color: "transparent"
 
@@ -20,10 +21,10 @@ PanelWindow {
         right: true
     }
     margins {
-        left: (Settings.selectedScreen.width - implicitWidth) / 2
-        right: (Settings.selectedScreen.width - implicitWidth) / 2
-        top: (Settings.selectedScreen.height - implicitHeight) / 2
-        bottom: (Settings.selectedScreen.height - implicitHeight) / 2
+        left: (screen.width - implicitWidth) / 2
+        right: (screen.width - implicitWidth) / 2
+        top: (screen.height - implicitHeight) / 2
+        bottom: (screen.height - implicitHeight) / 2
     }
     implicitWidth: powerMenuContainer.width
     implicitHeight: powerMenuContainer.height

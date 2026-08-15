@@ -1,4 +1,5 @@
 pragma Singleton
+import qs.services
 import qs.config.style
 import qs.config.settings
 
@@ -12,11 +13,11 @@ Singleton {
 
     property alias model: folderModel
 
-    readonly property real preloadImageHeight: Constant.carouselHeight
-    readonly property real preloadImageWidth: Math.min(preloadImageHeight, Settings.selectedScreen.height / Settings.carouselItemCount)
+    readonly property real preloadImageHeight: Constant.carouselViewHeight
+    readonly property real preloadImageWidth: Math.min(preloadImageHeight, MonitorService.selectedMonitor.height / Constant.carouselItemCount)
 
-    function setWallpaper(fileUrl) {
-        setWallpaperProc.configStr = `${Settings.selectedScreen.name}, ${fileUrl.replace(/^file:\/\//, '')}, cover`;
+    function setWallpaper(monitorOutStr, fileUrl) {
+        setWallpaperProc.configStr = `${monitorOutStr}, ${fileUrl.replace(/^file:\/\//, '')}, cover`;
         console.log(setWallpaperProc.configStr);
         setWallpaperProc.running = true;
     }

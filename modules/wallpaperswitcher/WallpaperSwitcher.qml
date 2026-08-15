@@ -1,6 +1,5 @@
 import qs.services
 import qs.config.style
-import qs.config.settings
 
 import Quickshell
 import Quickshell.Hyprland
@@ -9,12 +8,12 @@ import QtQuick
 PanelWindow {
     id: root
 
+    screen: MonitorService.selectedMonitor
     visible: GlobalStates.wallpaperSwitcherIsVisible
     color: "transparent"
-    screen: Quickshell.screens[0]
 
-    implicitWidth: Settings.selectedScreen.width
-    implicitHeight: Constant.carouselPanelWindowHeight + 2 * (Constant.marginLarge * 2)
+    implicitWidth: MonitorService.selectedMonitor.width
+    implicitHeight: Constant.carouselPanelHeight + 2 * (Constant.marginLarge * 2)
     exclusiveZone: -1
 
     HyprlandFocusGrab {
@@ -39,6 +38,8 @@ PanelWindow {
         anchors.fill: parent
         focus: true
 
-        WallpaperCarousel {}
+        WallpaperCarousel {
+            monitorOutStr: root.screen.name
+        }
     }
 }

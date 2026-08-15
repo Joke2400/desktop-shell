@@ -1,15 +1,14 @@
 import qs.components
 import qs.services
 import qs.config.style
-import qs.config.settings
 
 import QtQuick
-import Quickshell
 
 ButtonBase {
     id: root
 
     required property int index
+    required property string monitorOutStr
     required property string fileUrl
 
     height: PathView.view.height
@@ -38,6 +37,6 @@ ButtonBase {
     // Component.onCompleted: console.log("delegate created:", root.fileUrl, Date.now())
 
     onLeftClicked: {
-        WallpaperService.setWallpaper(root.fileUrl);
+        WallpaperService.setWallpaper(root.monitorOutStr, root.fileUrl);
     }
 }

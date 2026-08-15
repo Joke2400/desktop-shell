@@ -1,20 +1,21 @@
+pragma ComponentBehavior: Bound
 import qs.services
 import qs.config.style
-import qs.config.settings
 import QtQuick
 
 PathView {
     id: root
 
-    implicitWidth: Constant.carouselWidth + Constant.carouselItemWidth * 2
-    implicitHeight: Constant.carouselHeight
+    property string monitorOutStr: ""
 
-    x: switcherContainer.x - Constant.carouselItemWidth
+    implicitWidth: Constant.carouselViewWidth + Constant.carouselItemWidth * 2
+    implicitHeight: Constant.carouselViewHeight
+    x: -Constant.carouselItemWidth
 
     anchors.centerIn: parent
 
     model: WallpaperService.model
-    pathItemCount: Settings.carouselItemCount + 2
+    pathItemCount: Constant.carouselItemCount + 2
     cacheItemCount: 2
     snapMode: PathView.SnapToItem
     preferredHighlightBegin: 0.5
@@ -31,5 +32,7 @@ PathView {
         }
     }
 
-    delegate: WallpaperItem {}
+    delegate: WallpaperItem {
+        monitorOutStr: root.monitorOutStr
+    }
 }

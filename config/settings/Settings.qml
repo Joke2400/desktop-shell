@@ -4,13 +4,14 @@ import Quickshell
 
 Singleton {
 
-    // Note: partition  paths must be correct & all must be mounted (no checks yet)!
-    readonly property var mountPointsToWatch: ["/", "/home"]
-
-    readonly property var selectedScreen: Quickshell.screens.length > 0 ? Quickshell.screens[0] : null
+    // I/O
+    readonly property var mountPointsToWatch: ["/", "/home"] // Note: partition  paths must be correct & all must be mounted (no checks yet)!
     readonly property string wallpaperDirPath: "file://" + Quickshell.env("HOME") + "/Pictures/wallpapers"
+
+    // Behavior
+    readonly property string selectedMonitorOutput: "DP-1" // TBA: set this by reading ENVVAR
     readonly property bool adjustBrightnessOnLoad: false
-    readonly property string statusbarPosition: "top"
-    readonly property int carouselItemCount: 5
-    readonly property size thumbnailSize: Qt.size(960, 540)
+
+    // UI components
+    readonly property string statusbarPosition: "top" // not used yet
 }

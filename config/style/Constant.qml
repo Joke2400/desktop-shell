@@ -1,22 +1,27 @@
 pragma Singleton
-import qs.config.settings
+import qs.services
 
 import QtQuick
 import Quickshell
 
 Singleton {
-    property real uiScaleFactor: 1.0
+    property real uiScaleFactor: MonitorService.uiScaleFactor
 
+    // Component sizes
     readonly property int barHeight: Math.round(32 * uiScaleFactor)
     readonly property int sliderSize: Math.round(36 * uiScaleFactor)
     readonly property int sliderTrackSize: Math.round(10 * uiScaleFactor)
     readonly property int sliderHandleSize: Math.round(16 * uiScaleFactor)
 
-    readonly property int carouselPanelWindowHeight: Settings.selectedScreen.height * 0.5
-    readonly property int carouselHeight: carouselPanelWindowHeight - Constant.borderLarge * 2
-    readonly property int carouselWidth: Settings.selectedScreen.width - Constant.borderLarge * 2
-    readonly property int carouselItemWidth: carouselWidth / Settings.carouselItemCount
+    readonly property int carouselPanelHeight: MonitorService.selectedMonitor.height * 0.5
+    readonly property int carouselPanelWidth: MonitorService.selectedMonitor.width
+    readonly property int carouselViewHeight: carouselPanelHeight - borderLarge * 2
+    readonly property int carouselViewWidth: carouselPanelWidth - borderLarge * 2
 
+    readonly property int carouselItemCount: 5
+    readonly property int carouselItemWidth: carouselViewWidth / carouselItemCount
+
+    // Basic sizes
     readonly property int spacingSmall: Math.round(4 * uiScaleFactor)
     readonly property int spacingMedium: Math.round(8 * uiScaleFactor)
     readonly property int spacingLarge: Math.round(16 * uiScaleFactor)
