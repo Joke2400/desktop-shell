@@ -9,9 +9,9 @@ Singleton {
     readonly property string wallpaperDirPath: "file://" + Quickshell.env("HOME") + "/Pictures/wallpapers"
 
     // Behavior
-    readonly property string selectedMonitorOutput: "DP-1" // TBA: set this by reading ENVVAR
+    readonly property string selectedMonitorOutput: Quickshell.env("QS_MAIN_MONITOR_OUT")
     readonly property bool adjustBrightnessOnLoad: false
 
     // UI components
-    readonly property string statusbarPosition: "top" // not used yet
+    readonly property string statusbarPosition: "top" // is not used yet
 }
