@@ -5,7 +5,7 @@ import Quickshell
 Singleton {
 
     // I/O
-    readonly property var mountPointsToWatch: ["/", "/home"] // Note: partition  paths must be correct & all must be mounted (no checks yet)!
+    readonly property var mountPointsToWatch: ["/"] // Note: partition  paths must be correct & all must be mounted (no checks yet)!
     readonly property string wallpaperDirPath: "file://" + Quickshell.env("HOME") + "/Pictures/wallpapers"
 
     // Behavior
