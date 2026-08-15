@@ -24,6 +24,7 @@
 - [ ] Improve: WallpaperService needs to be aware of current wallpaper
 - [ ] Improve: Wallpaper carousel items to be displayed as slanted paralellograms
 - [ ] Improve: Add a selector for which monitor the wallpaper is being set for
+- [ ] Improve: How UI scale factor is determined
 
 ## Bugs/Issues
 - [X] Bug: The clock widget freezes sometimes.
