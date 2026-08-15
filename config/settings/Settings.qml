@@ -6,7 +6,7 @@ Singleton {
 
     // I/O
     readonly property var mountPointsToWatch: ["/"] // Note: partition  paths must be correct & all must be mounted (no checks yet)!
-    readonly property string wallpaperDirPath: "file://" + Quickshell.env("HOME") + "/Pictures/wallpapers"
+    readonly property string wallpaperDirPath: "file://" + Quickshell.env("HOME") + "/Pictures/wallpapers/horizontal"
 
     // Behavior
     readonly property string selectedMonitorOutput: Quickshell.env("QS_MAIN_MONITOR_OUT")
