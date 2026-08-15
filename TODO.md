@@ -23,6 +23,7 @@
 - [ ] Improve: wallpaperswitcher needs keyboard controls
 - [ ] Improve: WallpaperService needs to be aware of current wallpaper
 - [ ] Improve: Wallpaper carousel items to be displayed as slanted paralellograms
+- [ ] Improve: Add a selector for which monitor the wallpaper is being set for
 
 ## Bugs/Issues
 - [X] Bug: The clock widget freezes sometimes.
@@ -32,9 +33,8 @@
 - [ ] Issue: Battery indicator is visually inconsistent with the rest of the indicators
 - [ ] Issue: Brightness service needs to react to hyprsunset schedule
 - [ ] Issue: Implement fix for certain font icons which are visually off-center compared to other icons
-- [ ] Issue: Fix problem with Quickshell.screens & multimonitor setups
+- [X] Issue: Fix problem with Quickshell.screens & multimonitor setups
   - Appears on the wrong monitor sometimes, controls the wrong monitor
-  - Add a selector for which monitor the wallpaper is being set for
 
 ## Ideas (undeveloped/more long-term):
 - [ ] Add: Integrated controls for audio devices
