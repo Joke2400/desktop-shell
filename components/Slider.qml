@@ -22,6 +22,40 @@ Rectangle {
 
     signal applied(real ratio)
 
+    color: Color.baseLight
+    border.color: Color.surfaceDark
+
+    radius: Constant.roundingMedium
+    Layout.fillWidth: true
+    Layout.preferredHeight: parent.height
+
+    Rectangle {
+        anchors.fill: parent
+        radius: parent.radius
+        gradient: Gradient {
+            GradientStop {
+                position: 0.0
+                color: Qt.rgba(1, 1, 1, 0.07)
+            }
+            GradientStop {
+                position: 0.1
+                color: Qt.rgba(1, 1, 1, 0.05)
+            }
+            GradientStop {
+                position: 0.4
+                color: Qt.rgba(0, 0, 0, 0.0)
+            }
+            GradientStop {
+                position: 0.7
+                color: Qt.rgba(0, 0, 0, 0.05)
+            }
+            GradientStop {
+                position: 1.0
+                color: Qt.rgba(0, 0, 0, 0.05)
+            }
+        }
+    }
+
     WheelHandler {
         id: wheel
         acceptedDevices: PointerDevice.AllDevices
@@ -75,13 +109,6 @@ Rectangle {
         let newRatio = startRatio + visualDelta * (root.ratioMax - root.ratioMin);
         root.liveRatio = Math.max(root.ratioMin, Math.min(root.ratioMax, newRatio)).toFixed(2);
     }
-
-    color: Color.baseLight
-    border.color: Color.surfaceDark
-
-    radius: Constant.roundingMedium
-    Layout.fillWidth: true
-    Layout.preferredHeight: parent.height
 
     TextMetrics {
         id: textElementMaxWidthMetric
