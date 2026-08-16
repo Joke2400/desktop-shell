@@ -8,6 +8,7 @@ ButtonBase {
     id: root
 
     required property int index
+    required property bool isCurrentItem
     required property string monitorOutStr
     required property string fileUrl
 
@@ -16,7 +17,12 @@ ButtonBase {
     clip: true
 
     border.width: Constant.borderLarge
-    border.color: Color.baseDark
+    border.color: root.isCurrentItem ? Color.accentLight : Color.baseDark
+
+    function action() {
+        WallpaperService.setWallpaper(root.monitorOutStr, root.fileUrl);
+        GlobalStates.wallpaperSwitcherIsVisible = false;
+    }
 
     Image {
         id: image
@@ -36,7 +42,5 @@ ButtonBase {
 
     // Component.onCompleted: console.log("delegate created:", root.fileUrl, Date.now())
 
-    onLeftClicked: {
-        WallpaperService.setWallpaper(root.monitorOutStr, root.fileUrl);
-    }
+    onLeftClicked: action()
 }

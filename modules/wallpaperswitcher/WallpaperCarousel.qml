@@ -3,7 +3,6 @@ import qs.services
 import qs.config.style
 
 import QtQuick
-import Quickshell.Hyprland
 
 PathView {
     id: root
@@ -18,8 +17,19 @@ PathView {
     model: WallpaperService.model
     pathItemCount: Constant.carouselItemCount + 2
     snapMode: PathView.SnapToItem
-    preferredHighlightBegin: (Constant.carouselItemWidth * 1.5) / root.width
-    preferredHighlightEnd: (Constant.carouselItemWidth * 1.5) / root.width
+    preferredHighlightBegin: {
+        if (Constant.carouselItemCount % 2 === 0) {
+            return (Constant.carouselItemWidth * 2.5) / root.width;
+        } else
+            return 0.5;
+    }
+
+    preferredHighlightEnd: {
+        if (Constant.carouselItemCount % 2 === 0) {
+            return (Constant.carouselItemWidth * 2.5) / root.width;
+        } else
+            return 0.5;
+    }
     highlightRangeMode: PathView.StrictlyEnforceRange
     highlightMoveDuration: 300
 
@@ -34,6 +44,7 @@ PathView {
 
     delegate: WallpaperItem {
         monitorOutStr: root.monitorOutStr
+        isCurrentItem: PathView.isCurrentItem
     }
 
     Keys.onPressed: event => {
@@ -46,6 +57,13 @@ PathView {
         } else if (event.key === Qt.Key_Right) {
             const inx = root.currentIndex + 1;
             root.currentIndex = inx > root.model.count - 1 ? 0 : inx;
+            event.accepted = true;
+        } else if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
+            const currentWallpaperItem = root.currentItem as WallpaperItem;
+            if (currentWallpaperItem) {
+                console.log("RUN");
+                currentWallpaperItem.action();
+            }
             event.accepted = true;
         }
     }
