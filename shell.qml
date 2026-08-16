@@ -1,8 +1,4 @@
 //@ pragma UseQApplication
-import qs.services
-import qs.config.settings
-import qs.config.style
-
 import qs.modules.statusbar
 import qs.modules.powermenu
 import qs.modules.wallpaperswitcher
@@ -19,17 +15,4 @@ ShellRoot {
     BrightnessSlider {}
     VolumeSlider {}
     SystemTrayMenu {}
-
-    Component.onCompleted: {
-        console.log("UI scale factor: " + Constant.uiScaleFactor);
-        console.log("Screen: " + MonitorService.selectedMonitor.toString());
-        console.log("Screen width: " + MonitorService.selectedMonitor.width);
-        console.log("Screen height: " + MonitorService.selectedMonitor.height);
-        console.log("Logical pixel density: " + MonitorService.selectedMonitor.logicalPixelDensity);
-        console.log("Device pixel ratio: " + MonitorService.selectedMonitor.devicePixelRatio);
-        console.log("Physical pixel density: " + MonitorService.selectedMonitor.physicalPixelDensity);
-
-        console.log(Constant.carouselPanelWidth);
-        console.log(Constant.carouselItemWidth);
-    }
 }
