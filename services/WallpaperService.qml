@@ -18,7 +18,7 @@ Singleton {
 
     function setWallpaper(monitorOutStr, fileUrl) {
         setWallpaperProc.configStr = `${monitorOutStr}, ${fileUrl.replace(/^file:\/\//, '')}, cover`;
-        console.log(setWallpaperProc.configStr);
+        console.log("Setting wallpaper with string: '" + setWallpaperProc.configStr + "'");
         setWallpaperProc.running = true;
     }
 

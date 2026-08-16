@@ -61,7 +61,6 @@ PathView {
         } else if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
             const currentWallpaperItem = root.currentItem as WallpaperItem;
             if (currentWallpaperItem) {
-                console.log("RUN");
                 currentWallpaperItem.action();
             }
             event.accepted = true;
