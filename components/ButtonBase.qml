@@ -1,5 +1,3 @@
-import qs.config.style
-
 import QtQuick
 
 Rectangle {
