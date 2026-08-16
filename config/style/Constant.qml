@@ -1,5 +1,6 @@
 pragma Singleton
 import qs.services
+import qs.config.settings
 
 import QtQuick
 import Quickshell
@@ -18,8 +19,8 @@ Singleton {
     readonly property int carouselViewHeight: carouselPanelHeight - borderLarge * 2
     readonly property int carouselViewWidth: carouselPanelWidth - borderLarge * 2
 
-    readonly property int carouselItemCount: 5
-    readonly property int carouselItemWidth: carouselViewWidth / carouselItemCount
+    readonly property int carouselItemCount: Math.max(2, Math.min(WallpaperService.model.count - 2, Settings.maxWallpapersDisplayed))
+    readonly property real carouselItemWidth: carouselViewWidth / carouselItemCount
 
     // Basic sizes
     readonly property int spacingSmall: Math.round(4 * uiScaleFactor)

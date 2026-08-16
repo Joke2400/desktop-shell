@@ -12,6 +12,7 @@ Button {
     backgroundColorHover: Color.baseLight
     iconColorHover: Color.textLight
     borderColor: Color.accentLight
+    visible: WallpaperService.model.count >= 2
 
     radius: Constant.roundingLarge
     iconSize: Constant.iconSizeMedium

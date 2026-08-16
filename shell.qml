@@ -28,5 +28,8 @@ ShellRoot {
         console.log("Logical pixel density: " + MonitorService.selectedMonitor.logicalPixelDensity);
         console.log("Device pixel ratio: " + MonitorService.selectedMonitor.devicePixelRatio);
         console.log("Physical pixel density: " + MonitorService.selectedMonitor.physicalPixelDensity);
+
+        console.log(Constant.carouselPanelWidth);
+        console.log(Constant.carouselItemWidth);
     }
 }

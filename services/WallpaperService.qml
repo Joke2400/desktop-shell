@@ -14,7 +14,7 @@ Singleton {
     property alias model: folderModel
 
     readonly property real preloadImageHeight: Constant.carouselViewHeight
-    readonly property real preloadImageWidth: Math.min(preloadImageHeight, MonitorService.selectedMonitor.height / Constant.carouselItemCount)
+    readonly property real preloadImageWidth: MonitorService.selectedMonitor.width / Constant.carouselItemCount
 
     function setWallpaper(monitorOutStr, fileUrl) {
         setWallpaperProc.configStr = `${monitorOutStr}, ${fileUrl.replace(/^file:\/\//, '')}, cover`;
@@ -51,11 +51,5 @@ Singleton {
         id: setWallpaperProc
         property string configStr
         command: ["hyprctl", "hyprpaper", "wallpaper", String(configStr)]
-        stdout: StdioCollector {
-            onStreamFinished: {
-                const parsed = parseInt(text.trim());
-                console.log(parsed);
-            }
-        }
     }
 }

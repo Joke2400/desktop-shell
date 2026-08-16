@@ -12,16 +12,16 @@ ButtonBase {
     required property string fileUrl
 
     height: PathView.view.height
-    width: Math.min(height, PathView.view.width / PathView.view.pathItemCount)
+    width: PathView.view.width / PathView.view.pathItemCount
     clip: true
 
-    border.width: Constant.borderMedium
+    border.width: Constant.borderLarge
     border.color: Color.baseDark
 
     Image {
         id: image
-        height: parent.height - Constant.borderMedium * 2
-        width: parent.width - Constant.borderMedium * 2
+        height: parent.height - Constant.borderLarge * 2
+        width: parent.width - Constant.borderLarge * 2
         anchors.centerIn: parent
         opacity: 0.9
 

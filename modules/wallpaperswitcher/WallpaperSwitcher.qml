@@ -29,12 +29,6 @@ PanelWindow {
         color: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.5)
         border.color: Color.surfaceNormal
         border.width: Constant.borderSmall
-
-        implicitWidth: parent.width + Constant.carouselItemWidth * 2
-        implicitHeight: parent.height
-
-        x: -Constant.carouselItemWidth
-
         anchors.fill: parent
         focus: true
 
