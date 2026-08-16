@@ -21,7 +21,7 @@ PanelWindow {
         left: true
     }
     margins {
-        top: 0
+        top: Constant.marginSmall
         left: GlobalStates.trayButtonPosX + (Constant.iconSizeMedium / 2) - (root.implicitWidth / 2)
     }
     exclusiveZone: 0
@@ -44,8 +44,8 @@ PanelWindow {
 
         implicitWidth: column.implicitWidth + Constant.marginMedium * 2
         implicitHeight: column.implicitHeight + Constant.marginMedium * 2
-        color: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.9)
-        radius: Constant.roundingSmall
+        color: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.4)
+        radius: Constant.roundingMedium
 
         Rectangle {
             anchors.fill: parent
@@ -69,7 +69,7 @@ PanelWindow {
                 }
                 GradientStop {
                     position: 1.0
-                    color: Qt.rgba(0, 0, 0, 0.25)
+                    color: Qt.rgba(0, 0, 0, 0.05)
                 }
             }
         }

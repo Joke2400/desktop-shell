@@ -28,8 +28,8 @@ SliderPanel {
 
         color: "transparent"
 
-        implicitWidth: parent.width
-        implicitHeight: Math.max(Constant.sliderSize, sliderLayout.implicitHeight)
+        implicitWidth: MonitorService.selectedMonitor.width / 7.5
+        implicitHeight: Constant.sliderSize + Constant.paddingSmall * 2
 
         RowLayout {
             id: sliderLayout
@@ -39,6 +39,7 @@ SliderPanel {
 
             Slider {
                 id: slider
+                color: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.6)
                 ratio: root.gamma / 100
 
                 ratioMin: 0.5

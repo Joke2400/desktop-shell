@@ -12,7 +12,7 @@ Singleton {
     readonly property int barHeight: Math.round(32 * uiScaleFactor)
     readonly property int sliderSize: Math.round(36 * uiScaleFactor)
     readonly property int sliderTrackSize: Math.round(10 * uiScaleFactor)
-    readonly property int sliderHandleSize: Math.round(16 * uiScaleFactor)
+    readonly property int sliderHandleSize: Math.round(20 * uiScaleFactor)
 
     readonly property int carouselPanelHeight: MonitorService.selectedMonitor.height * 0.5
     readonly property int carouselPanelWidth: MonitorService.selectedMonitor.width

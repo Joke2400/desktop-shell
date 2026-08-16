@@ -10,9 +10,9 @@ PanelWindow {
     default property alias contents: column.data
 
     screen: MonitorService.selectedMonitor
-    color: Color.baseNormal
-    implicitWidth: Constant.sliderSize * 10
-    implicitHeight: Constant.sliderSize
+    color: "transparent"
+    implicitWidth: MonitorService.selectedMonitor.width / 7.5
+    implicitHeight: Constant.sliderSize + Constant.paddingLarge * 2
     exclusiveZone: 0
 
     anchors {
@@ -20,7 +20,7 @@ PanelWindow {
         right: true
     }
     margins {
-        top: 0
+        top: Constant.marginSmall
         right: Constant.marginLarge
     }
     ColumnLayout {
