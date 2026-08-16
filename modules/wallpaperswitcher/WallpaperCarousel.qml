@@ -12,15 +12,14 @@ PathView {
 
     implicitWidth: Constant.carouselViewWidth + Constant.carouselItemWidth * 2
     implicitHeight: Constant.carouselViewHeight
-    x: -Constant.carouselItemWidth
     anchors.centerIn: parent
     focus: true
 
     model: WallpaperService.model
     pathItemCount: Constant.carouselItemCount + 2
     snapMode: PathView.SnapToItem
-    preferredHighlightBegin: 0.5
-    preferredHighlightEnd: 0.5
+    preferredHighlightBegin: (Constant.carouselItemWidth * 1.5) / root.width
+    preferredHighlightEnd: (Constant.carouselItemWidth * 1.5) / root.width
     highlightRangeMode: PathView.StrictlyEnforceRange
     highlightMoveDuration: 300
 
