@@ -20,7 +20,7 @@
 - [ ] Improve: Do a post-feature-implementation UI overhaul
 - [ ] Improve: Look into styling the context menus for system tray items.
 - [ ] Improve: powermenu is missing a button for logging out
-- [ ] Improve: wallpaperswitcher needs keyboard controls
+- [X] Improve: wallpaperswitcher needs keyboard controls
 - [ ] Improve: WallpaperService needs to be aware of current wallpaper
 - [ ] Improve: Wallpaper carousel items to be displayed as slanted paralellograms
 - [ ] Improve: Add a selector for which monitor the wallpaper is being set for
