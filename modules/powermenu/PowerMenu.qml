@@ -1,11 +1,8 @@
 import qs.services
-import qs.config.style
-import qs.config.settings
 
 import Quickshell
 import Quickshell.Hyprland
 import QtQuick
-import QtQuick.Layouts
 
 PanelWindow {
     id: root
@@ -26,82 +23,24 @@ PanelWindow {
         top: (screen.height - implicitHeight) / 2
         bottom: (screen.height - implicitHeight) / 2
     }
-    implicitWidth: powerMenuContainer.width
-    implicitHeight: powerMenuContainer.height
+    implicitWidth: powerMenuTray.width
+    implicitHeight: powerMenuTray.height
     exclusiveZone: -1
 
     HyprlandFocusGrab {
         id: focusGrab
-        windows: [root]
+        windows: [root, powerMenuTray]
         active: root.visible
         onCleared: GlobalStates.powerMenuIsVisible = false
-    }
 
-    Rectangle {
-        id: powerMenuContainer
-
-        color: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.7)
-        border.color: Color.surfaceNormal
-
-        focus: true
-        border.width: Constant.borderSmall
-        radius: Constant.roundingLarge * 5
-
-        anchors.centerIn: parent
-        implicitWidth: row.implicitWidth + Constant.paddingLarge * 4
-        implicitHeight: row.implicitHeight + Constant.paddingLarge * 3
-
-        RowLayout {
-            id: row
-            anchors.centerIn: parent
-            anchors.margins: Constant.paddingLarge * 2
-            spacing: Constant.spacingSmall
-
-            PowerMenuButton {
-                id: powerBtn
-                buttonIcon: ""
-                tooltipText: "Shutdown"
-
-                onLeftClicked: () => {
-                    Quickshell.execDetached(["systemctl", "poweroff"]);
-                }
-            }
-            PowerMenuButton {
-                id: restartBtn
-                buttonIcon: ""
-                tooltipText: "Restart"
-
-                onLeftClicked: () => {
-                    Quickshell.execDetached(["systemctl", "reboot"]);
-                }
-            }
-            PowerMenuButton {
-                id: lockBtn
-                buttonIcon: "󰌾"
-                tooltipText: "Lock"
-
-                onLeftClicked: () => {
-                    Quickshell.execDetached(["hyprlock"]);
-                }
-            }
-            PowerMenuButton {
-                id: sleepBtn
-                buttonIcon: "󰒲"
-                tooltipText: "Sleep"
-
-                onLeftClicked: () => {
-                    Quickshell.execDetached(["systemctl", "suspend"]);
-                }
-            }
-            PowerMenuButton {
-                id: hibernateBtn
-                buttonIcon: ""
-                tooltipText: "Hibernate"
-
-                onLeftClicked: () => {
-                    Quickshell.execDetached(["systemct l", "hibernate"]);
-                }
+        onActiveChanged: {
+            if (active) {
+                powerMenuTray.forceActiveFocus();
             }
         }
+    }
+
+    PowerMenuTray {
+        id: powerMenuTray
     }
 }

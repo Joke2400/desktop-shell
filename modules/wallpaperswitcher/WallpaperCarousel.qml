@@ -45,7 +45,7 @@ PathView {
             event.accepted = true;
         } else if (event.key === Qt.Key_Right) {
             const inx = root.currentIndex + 1;
-            root.currentIndex = inx > root.model.count ? 0 : inx;
+            root.currentIndex = inx > root.model.count - 1 ? 0 : inx;
             event.accepted = true;
         }
     }
