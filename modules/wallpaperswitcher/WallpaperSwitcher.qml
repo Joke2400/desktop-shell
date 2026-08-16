@@ -18,9 +18,15 @@ PanelWindow {
 
     HyprlandFocusGrab {
         id: focusGrab
-        windows: [root]
+        windows: [root, carousel]
         active: root.visible
         onCleared: GlobalStates.wallpaperSwitcherIsVisible = false
+
+        onActiveChanged: {
+            if (active) {
+                carousel.forceActiveFocus();
+            }
+        }
     }
 
     Rectangle {
@@ -33,6 +39,7 @@ PanelWindow {
         focus: true
 
         WallpaperCarousel {
+            id: carousel
             monitorOutStr: root.screen.name
         }
     }
