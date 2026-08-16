@@ -38,6 +38,8 @@ PathView {
     }
 
     Keys.onPressed: event => {
+        if (event.isAutoRepeat)
+            return;
         if (event.key === Qt.Key_Left) {
             const inx = root.currentIndex - 1;
             root.currentIndex = inx < 0 ? root.model.count - 1 : inx;
