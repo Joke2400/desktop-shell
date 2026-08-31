@@ -12,7 +12,7 @@ Button {
 
     backgroundColor: Qt.hsla(Color.baseDark.hslHue, Color.baseDark.hslSaturation, Color.baseDark.hslLightness, 0.7)
     backgroundColorHover: Color.overlayNormal
-    iconColor: isActive ? Color.accentNormal : Color.overlayNormal
+    iconColor: isActive ? Color.accentLight : Color.overlayNormal
     iconColorHover: Color.baseDark
     borderColor: Color.surfaceDark
     borderColorHover: Color.baseDark
