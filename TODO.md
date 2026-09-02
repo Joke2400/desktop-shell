@@ -25,6 +25,9 @@
 - [ ] Improve: Wallpaper carousel items to be displayed as slanted paralellograms
 - [ ] Improve: Add a selector for which monitor the wallpaper is being set for
 - [ ] Improve: How UI scale factor is determined
+- [ ] Improve: Settle on a consistent look for the dropdown trays/sliders
+- [ ] Improve: Status bar gradients need to be adjusted to be more subtle.
+  - The gradient is too harsh on my laptop screen, looks fine on my desktop
 
 ## Bugs/Issues
 - [X] Bug: The clock widget freezes sometimes.
@@ -34,8 +37,9 @@
 - [ ] Issue: Battery indicator is visually inconsistent with the rest of the indicators
 - [ ] Issue: Brightness service needs to react to hyprsunset schedule
 - [ ] Issue: Implement fix for certain font icons which are visually off-center compared to other icons
-- [X] Issue: Fix problem with Quickshell.screens & multimonitor setups
+- [ ] Issue: Fix problem with Quickshell.screens & multimonitor setups
   - Appears on the wrong monitor sometimes, controls the wrong monitor
+  - Apparently not fixed
 
 ## Ideas (undeveloped/more long-term):
 - [ ] Add: Integrated controls for audio devices
