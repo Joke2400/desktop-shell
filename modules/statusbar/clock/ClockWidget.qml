@@ -3,8 +3,6 @@ import qs.components
 import qs.services
 
 import QtQuick
-import QtQuick.Layouts
-import Quickshell
 
 Button {
     id: root
