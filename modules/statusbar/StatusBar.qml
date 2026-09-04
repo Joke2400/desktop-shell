@@ -1,7 +1,7 @@
-import qs.components
 import qs.services
 import qs.config.style
 import qs.config.settings
+import qs.components.style
 import qs.modules.statusbar.indicators
 import qs.modules.statusbar.controls
 import qs.modules.statusbar.workspaces
@@ -44,59 +44,9 @@ PanelWindow {
             anchors.centerIn: parent
         }
 
-        Rectangle {
-            anchors.fill: parent
-            radius: parent.radius
-            gradient: Gradient {
-                GradientStop {
-                    position: 0.0
-                    color: Qt.rgba(1, 1, 1, 0.07)
-                }
-                GradientStop {
-                    position: 0.4
-                    color: Qt.rgba(1, 1, 1, 0.05)
-                }
-                GradientStop {
-                    position: 0.5
-                    color: Qt.rgba(0, 0, 0, 0.0)
-                }
-                GradientStop {
-                    position: 0.6
-                    color: Qt.rgba(0, 0, 0, 0.05)
-                }
-                GradientStop {
-                    position: 1.0
-                    color: Qt.rgba(0, 0, 0, 0.07)
-                }
-            }
-        }
-
-        Rectangle {
-            anchors.fill: parent
-            radius: parent.radius
-            color: "transparent"
-            border.width: 1
-            border.color: Qt.rgba(1, 1, 1, 0.2)
-        }
-
-        Rectangle {
-            anchors.fill: parent
-            radius: parent.radius
-            gradient: Gradient {
-                GradientStop {
-                    position: 0.0
-                    color: Qt.rgba(0, 0, 0, 0.0)
-                }
-                GradientStop {
-                    position: 0.7
-                    color: Qt.rgba(0, 0, 0, 0.0)
-                }
-                GradientStop {
-                    position: 1.0
-                    color: Qt.rgba(0, 0, 0, 0.08)
-                }
-            }
-        }
+        GradientHighlight {}
+        BorderHighlight {}
+        GradientShadow {}
 
         RowLayout {
             id: rowLayout
