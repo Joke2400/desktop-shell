@@ -27,9 +27,7 @@ Button {
         centerCol: Qt.rgba(1, 1, 1, 0.03)
         bottomCol: Qt.rgba(1, 1, 1, 0.06)
     }
-    BorderHighlight {
-        borderCol: Qt.rgba(1, 1, 1, 0.1)
-    }
+    BorderHighlight {}
 
     onLeftClicked: () => {
         isToggled = !isToggled;

@@ -1,7 +1,7 @@
 import QtQuick
 
 Rectangle {
-    property color borderCol: Qt.rgba(1, 1, 1, 0.2)
+    property color borderCol: Qt.rgba(1, 1, 1, 0.1)
 
     anchors.fill: parent
     radius: parent.radius

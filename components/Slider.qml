@@ -34,9 +34,7 @@ Rectangle {
     Layout.preferredHeight: parent.height
 
     GradientHighlight {}
-    BorderHighlight {
-        borderCol: Qt.rgba(1, 1, 1, 0.1)
-    }
+    BorderHighlight {}
     GradientShadow {}
 
     WheelHandler {
