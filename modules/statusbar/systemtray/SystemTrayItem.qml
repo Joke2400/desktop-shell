@@ -1,5 +1,6 @@
 import qs.config.style
 import qs.components
+import qs.components.style
 
 import QtQuick
 import QtQuick.Layouts
@@ -17,49 +18,23 @@ Button {
     tooltipText: (modelData.tooltipTitle || modelData.title).toUpperCase()
     visible: modelData.status !== SystemTrayItem.Passive
 
-    backgroundColor: Color.baseLight
-    backgroundColorHover: Color.surfaceDark
+    backgroundColor: Qt.hsla(Color.baseLight.hslHue, Color.baseLight.hslSaturation, Color.baseLight.hslLightness, 0.9)
+    backgroundColorHover: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.9)
     iconColor: Color.textNormal
     iconColorHover: Color.textLight
     borderColor: Color.surfaceNormal
     borderColorHover: Color.surfaceLight
 
-    Layout.fillHeight: true
+    iconSize: Constant.iconSizeMedium
+    radius: Constant.roundingMedium
+    buttonPadding: Constant.paddingMedium * 1.8
+    border.width: Constant.borderSmall
 
-    Rectangle {
-        anchors.fill: parent
-        radius: parent.radius
-        gradient: Gradient {
-            GradientStop {
-                position: 0.0
-                color: Qt.rgba(1, 1, 1, 0.07)
-            }
-            GradientStop {
-                position: 0.1
-                color: Qt.rgba(1, 1, 1, 0.05)
-            }
-            GradientStop {
-                position: 0.4
-                color: Qt.rgba(0, 0, 0, 0.0)
-            }
-            GradientStop {
-                position: 0.7
-                color: Qt.rgba(0, 0, 0, 0.05)
-            }
-            GradientStop {
-                position: 1.0
-                color: Qt.rgba(0, 0, 0, 0.25)
-            }
-        }
+    GradientHighlight {}
+    BorderHighlight {
+        borderCol: Qt.rgba(1, 1, 1, 0.02)
     }
-
-    Rectangle {
-        anchors.fill: parent
-        radius: parent.radius
-        color: "transparent"
-        border.width: 1
-        border.color: Qt.rgba(1, 1, 1, 0.2)
-    }
+    GradientShadow {}
 
     onLeftClicked: () => {
         root.menuOpened();

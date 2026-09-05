@@ -1,5 +1,6 @@
 pragma ComponentBehavior: Bound
 import qs.config.style
+import qs.components.style
 import qs.services
 
 import QtQuick
@@ -44,67 +45,21 @@ PanelWindow {
 
         implicitWidth: column.implicitWidth + Constant.marginMedium * 2
         implicitHeight: column.implicitHeight + Constant.marginMedium * 2
-        color: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.4)
-        radius: Constant.roundingMedium
+        color: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.7)
+        radius: Constant.roundingLarge
+        border.width: 1
+        border.color: Color.surfaceNormal
 
-        Rectangle {
-            anchors.fill: parent
-            radius: parent.radius
-            gradient: Gradient {
-                GradientStop {
-                    position: 0.0
-                    color: Qt.rgba(1, 1, 1, 0.07)
-                }
-                GradientStop {
-                    position: 0.1
-                    color: Qt.rgba(1, 1, 1, 0.05)
-                }
-                GradientStop {
-                    position: 0.4
-                    color: Qt.rgba(0, 0, 0, 0.0)
-                }
-                GradientStop {
-                    position: 0.7
-                    color: Qt.rgba(0, 0, 0, 0.05)
-                }
-                GradientStop {
-                    position: 1.0
-                    color: Qt.rgba(0, 0, 0, 0.05)
-                }
-            }
+        GradientHighlight {}
+        BorderHighlight {
+            borderCol: Qt.rgba(1, 1, 1, 0.01)
         }
-
-        Rectangle {
-            anchors.fill: parent
-            radius: parent.radius
-            color: "transparent"
-            border.width: 1
-            border.color: Qt.rgba(1, 1, 1, 0.2)
-        }
-
-        Rectangle {
-            anchors.fill: parent
-            radius: parent.radius
-            gradient: Gradient {
-                GradientStop {
-                    position: 0.0
-                    color: Qt.rgba(0, 0, 0, 0.0)
-                }
-                GradientStop {
-                    position: 0.7
-                    color: Qt.rgba(0, 0, 0, 0.0)
-                }
-                GradientStop {
-                    position: 1.0
-                    color: Qt.rgba(0, 0, 0, 0.08)
-                }
-            }
-        }
+        GradientShadow {}
 
         GridLayout {
             id: column
             columnSpacing: Constant.spacingMedium
-            rowSpacing: Constant.spacingLarge
+            rowSpacing: Constant.spacingMedium
             anchors.centerIn: parent
             columns: 4
 
@@ -112,10 +67,6 @@ PanelWindow {
                 model: SystemTrayService.trayItems
                 delegate: SystemTrayItem {
                     displayIcon: SystemTrayService.getTrayItemIcon(modelData)
-                    iconSize: Constant.iconSizeMedium * 1.1
-                    radius: Constant.roundingMedium
-                    buttonPadding: Constant.paddingMedium
-                    border.width: Constant.borderSmall
 
                     onMenuOpened: root.menuOpen = true
                     onMenuClosed: root.menuOpen = false

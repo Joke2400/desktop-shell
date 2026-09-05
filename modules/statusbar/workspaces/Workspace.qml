@@ -1,5 +1,7 @@
 import qs.config.style
 import qs.components
+import qs.components.style
+
 import QtQuick
 import Quickshell.Hyprland
 
@@ -24,31 +26,10 @@ Button {
     radius: Constant.roundingLarge
     color: isFocused || root.hovered ? backgroundColorHover : backgroundColor
 
-    Rectangle {
-        anchors.fill: parent
-        radius: parent.radius
-        gradient: Gradient {
-            GradientStop {
-                position: 0.0
-                color: Qt.rgba(0, 0, 0, 0.2)
-            }
-            GradientStop {
-                position: 0.3
-                color: Qt.rgba(0, 0, 0, 0.05)
-            }
-            GradientStop {
-                position: 0.5
-                color: Qt.rgba(0.5, 0.5, 0.5, 0.0)
-            }
-            GradientStop {
-                position: 0.8
-                color: Qt.rgba(1, 1, 1, 0.05)
-            }
-            GradientStop {
-                position: 1.0
-                color: Qt.rgba(1, 1, 1, 0.07)
-            }
-        }
+    GradientShadow {
+        topCol: Qt.rgba(1, 1, 1, 0)
+        centerCol: Qt.rgba(1, 1, 1, 0.03)
+        bottomCol: Qt.rgba(1, 1, 1, 0.06)
     }
 
     onIsFocusedChanged: {

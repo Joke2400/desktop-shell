@@ -1,8 +1,8 @@
+import qs.components.style
 import qs.config.style
 
 import QtQuick
 import QtQuick.Layouts
-import Quickshell.Io
 
 Rectangle {
     id: root
@@ -10,6 +10,10 @@ Rectangle {
     property real ratio
     property real ratioMin: 0
     property real ratioMax: 1
+
+    property color trackCol: Qt.hsla(Color.surfaceNormal.hslHue, Color.surfaceNormal.hslSaturation, Color.surfaceNormal.hslLightness, 0.9)
+    property color handleCol: dragHandler.active ? Color.colOrange : (hoverHandler.hovered ? Color.accentLight : Color.accentNormal)
+    property color fillCol: Qt.hsla(Color.overlayDark.hslHue, Color.overlayDark.hslSaturation, Color.overlayDark.hslLightness, 0.9)
 
     property real liveRatio: ratio
     onRatioChanged: {
@@ -25,36 +29,15 @@ Rectangle {
     color: Color.baseLight
     border.color: Color.surfaceDark
 
-    radius: Constant.roundingMedium
+    radius: Constant.roundingLarge
     Layout.fillWidth: true
     Layout.preferredHeight: parent.height
 
-    Rectangle {
-        anchors.fill: parent
-        radius: parent.radius
-        gradient: Gradient {
-            GradientStop {
-                position: 0.0
-                color: Qt.rgba(1, 1, 1, 0.07)
-            }
-            GradientStop {
-                position: 0.1
-                color: Qt.rgba(1, 1, 1, 0.05)
-            }
-            GradientStop {
-                position: 0.4
-                color: Qt.rgba(0, 0, 0, 0.0)
-            }
-            GradientStop {
-                position: 0.7
-                color: Qt.rgba(0, 0, 0, 0.05)
-            }
-            GradientStop {
-                position: 1.0
-                color: Qt.rgba(0, 0, 0, 0.05)
-            }
-        }
+    GradientHighlight {}
+    BorderHighlight {
+        borderCol: Qt.rgba(1, 1, 1, 0.1)
     }
+    GradientShadow {}
 
     WheelHandler {
         id: wheel
@@ -130,7 +113,7 @@ Rectangle {
 
             Rectangle { // track
                 id: track
-                color: Color.surfaceNormal
+                color: root.trackCol
 
                 anchors.centerIn: parent
                 width: parent.width
@@ -138,7 +121,7 @@ Rectangle {
                 radius: Constant.roundingSmall
             }
             Rectangle { // fill
-                color: Color.overlayNormal
+                color: root.fillCol
 
                 anchors.left: track.left
                 anchors.verticalCenter: parent.verticalCenter
@@ -148,7 +131,7 @@ Rectangle {
             }
             Rectangle { // handle
                 id: handle
-                color: dragHandler.active ? Color.colOrange : (hoverHandler.hovered ? Color.accentLight : Color.accentNormal)
+                color: root.handleCol
                 anchors.verticalCenter: parent.verticalCenter
                 x: track.x + root.ratioVisual * (track.width - width)
                 width: Constant.sliderHandleSize

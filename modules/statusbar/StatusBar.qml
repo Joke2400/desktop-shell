@@ -25,8 +25,8 @@ PanelWindow {
 
     margins {
         top: (Constant.marginSmall / 2)
-        left: Constant.marginSmall
-        right: Constant.marginSmall
+        left: Constant.marginSmall / 2
+        right: Constant.marginSmall / 2
         bottom: (Constant.marginSmall / 2)
     }
 
