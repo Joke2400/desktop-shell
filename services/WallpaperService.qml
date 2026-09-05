@@ -1,4 +1,5 @@
 pragma Singleton
+pragma ComponentBehavior: Bound
 import qs.services
 import qs.config.style
 import qs.config.settings
@@ -13,8 +14,9 @@ Singleton {
 
     property alias model: folderModel
 
-    readonly property real preloadImageHeight: Constant.carouselViewHeight
-    readonly property real preloadImageWidth: MonitorService.selectedMonitor.width / Constant.carouselItemCount
+    // This crap is too complicated to read, TODO: simplify the PathView's sizing logic
+    readonly property real preloadImageHeight: Constant.carouselViewHeight - Constant.borderLarge * 2
+    readonly property real preloadImageWidth: ((Constant.carouselViewWidth + Constant.carouselItemWidth * 2) / (Constant.carouselItemCount + 2)) - Constant.borderLarge * 2
 
     function setWallpaper(monitorOutStr, fileUrl) {
         setWallpaperProc.configStr = `${monitorOutStr}, ${fileUrl.replace(/^file:\/\//, '')}, cover`;
@@ -42,8 +44,12 @@ Singleton {
             source: fileUrl
             fillMode: Image.PreserveAspectCrop
             visible: false
+
+            sourceSize.width: root.preloadImageWidth
+            sourceSize.height: root.preloadImageHeight
+
             //onStatusChanged: if (status === Image.Ready)
-            //    console.log("Preloaded image:", fileUrl, "w/h", image.width, image.height)
+            //    console.log("Preloaded image:", fileUrl, "w/h", image.width, image.height, sourceSize.width, sourceSize.height)
         }
     }
 

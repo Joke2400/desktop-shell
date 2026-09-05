@@ -35,8 +35,13 @@ ButtonBase {
         source: root.fileUrl
         fillMode: Image.PreserveAspectCrop
 
+        sourceSize.width: width
+        sourceSize.height: height
+
         //onStatusChanged: if (status === Image.Ready) {
-        //    console.log("Displayed image:", fileUrl, Date.now(), "w/h", image.width, image.height);
+        //console.log("image", image.width, image.height);
+        //console.log("sourceSize", sourceSize.width, sourceSize.height);
+        //console.log("");
         //}
     }
 
