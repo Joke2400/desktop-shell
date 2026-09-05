@@ -25,9 +25,10 @@
 - [ ] Improve: Wallpaper carousel items to be displayed as slanted paralellograms
 - [ ] Improve: Add a selector for which monitor the wallpaper is being set for
 - [ ] Improve: How UI scale factor is determined
-- [ ] Improve: Settle on a consistent look for the dropdown trays/sliders
-- [ ] Improve: Status bar gradients need to be adjusted to be more subtle.
+- [X] Improve: Settle on a consistent look for the dropdown trays/sliders
+- [X] Improve: Status bar gradients need to be adjusted to be more subtle.
   - The gradient is too harsh on my laptop screen, looks fine on my desktop
+- [ ] Improve: The logic for how the wallpaper carousel PathView is sized (hard to read)
 
 ## Bugs/Issues
 - [X] Bug: The clock widget freezes sometimes.
