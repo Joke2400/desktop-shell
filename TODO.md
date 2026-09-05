@@ -38,8 +38,8 @@
 - [ ] Issue: Brightness service needs to react to hyprsunset schedule
 - [ ] Issue: Implement fix for certain font icons which are visually off-center compared to other icons
 - [ ] Issue: Fix problem with Quickshell.screens & multimonitor setups
-  - Appears on the wrong monitor sometimes, controls the wrong monitor
-  - Apparently not fixed
+  - StatusBar appears on the wrong monitor sometimes
+  - Possible cause: some interaction with hyprlock, the machine going to sleep.
 
 ## Ideas (undeveloped/more long-term):
 - [ ] Add: Integrated controls for audio devices
