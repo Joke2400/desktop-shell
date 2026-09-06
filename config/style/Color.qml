@@ -21,7 +21,7 @@ Singleton {
     // accent = accent colors (dull to vibrant)
     property color accentDark: Qt.hsla(216 / 360, 0.65, 0.35, 1.0)
     property color accentNormal: Qt.hsla(216 / 360, 0.55, 0.40, 1.0)
-    property color accentLight: Qt.hsla(216 / 360, 0.45, 0.50, 1.0)
+    property color accentLight: Qt.hsla(208 / 360, 0.45, 0.50, 1.0)
 
     // primary text
     property color textLight: Qt.hsla(220 / 360, 0.40, 0.85, 1.0)
