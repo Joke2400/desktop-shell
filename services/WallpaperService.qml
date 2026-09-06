@@ -1,6 +1,5 @@
 pragma Singleton
 pragma ComponentBehavior: Bound
-import qs.services
 import qs.config.style
 import qs.config.settings
 
