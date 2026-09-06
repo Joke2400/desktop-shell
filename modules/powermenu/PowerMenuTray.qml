@@ -1,5 +1,6 @@
 pragma ComponentBehavior: Bound
 import qs.config.style
+import qs.components.style
 
 import Quickshell
 import QtQuick
@@ -11,9 +12,6 @@ Rectangle {
     property int activeIndex: 0
 
     color: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.7)
-    border.color: Color.surfaceNormal
-
-    border.width: Constant.borderSmall
     radius: Constant.roundingLarge * 5
     focus: true
 
@@ -21,32 +19,9 @@ Rectangle {
     implicitWidth: row.implicitWidth + Constant.marginMedium * 4
     implicitHeight: row.implicitHeight + Constant.marginMedium * 3
 
-    Rectangle {
-        anchors.fill: parent
-        radius: parent.radius
-        gradient: Gradient {
-            GradientStop {
-                position: 0.0
-                color: Qt.rgba(1, 1, 1, 0.07)
-            }
-            GradientStop {
-                position: 0.1
-                color: Qt.rgba(1, 1, 1, 0.05)
-            }
-            GradientStop {
-                position: 0.4
-                color: Qt.rgba(0, 0, 0, 0.0)
-            }
-            GradientStop {
-                position: 0.7
-                color: Qt.rgba(0, 0, 0, 0.05)
-            }
-            GradientStop {
-                position: 1.0
-                color: Qt.rgba(0, 0, 0, 0.05)
-            }
-        }
-    }
+    GradientHighlight {}
+    BorderHighlight {}
+    GradientShadow {}
 
     RowLayout {
         id: row
@@ -60,17 +35,22 @@ Rectangle {
                 ListElement {
                     buttonIcon: ""
                     tooltipText: "Shutdown"
-                    action: "systemctl poweroff"
+                    action: "hyprshutdown --vt 2 -p 'systemctl poweroff'"
                 }
                 ListElement {
                     buttonIcon: ""
                     tooltipText: "Restart"
-                    action: "systemctl reboot"
+                    action: "hyprshutdown --vt 2 -p 'systemctl reboot'"
                 }
                 ListElement {
                     buttonIcon: "󰌾"
                     tooltipText: "Lock"
                     action: "hyprlock"
+                }
+                ListElement {
+                    buttonIcon: "󰗼"
+                    tooltipText: "Logout"
+                    action: "hyprshutdown --vt 2"
                 }
                 ListElement {
                     buttonIcon: "󰒲"

@@ -1,5 +1,6 @@
 import qs.config.style
 import qs.components
+import qs.components.style
 
 import Quickshell
 import QtQuick
@@ -14,14 +15,20 @@ Button {
     backgroundColorHover: Color.overlayNormal
     iconColor: isActive ? Color.accentLight : Color.overlayNormal
     iconColorHover: Color.baseDark
-    borderColor: Color.surfaceDark
     borderColorHover: Color.baseDark
     hoverSizeIncrease: 10
 
     iconSize: Constant.iconSizeLarge * 2
     radius: Constant.roundingLarge * 4
     buttonPadding: Constant.paddingMedium
-    border.width: Constant.borderMedium
+
+    GradientHighlight {
+        inverted: true
+    }
+    BorderHighlight {}
+    GradientShadow {
+        inverted: true
+    }
 
     onLeftClicked: () => {
         Quickshell.execDetached(action.split(" "));
