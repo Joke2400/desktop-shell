@@ -3,6 +3,8 @@ import QtQuick
 Rectangle {
     id: root
 
+    property bool inverted: false
+
     property double topPos: 0.0
     property color topCol: Qt.rgba(1, 1, 1, 0.04)
 
@@ -17,7 +19,7 @@ Rectangle {
     gradient: Gradient {
         GradientStop {
             position: root.topPos
-            color: root.topCol
+            color: root.inverted ? root.bottomCol : root.topCol
         }
         GradientStop {
             position: root.centerPos
@@ -25,7 +27,7 @@ Rectangle {
         }
         GradientStop {
             position: root.bottomPos
-            color: root.bottomCol
+            color: root.inverted ? root.topCol : root.bottomCol
         }
     }
 }
