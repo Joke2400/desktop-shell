@@ -1,9 +1,9 @@
 import qs.config.style
 import qs.components
 import qs.components.style
+import qs.services
 
 import QtQuick
-import Quickshell.Hyprland
 
 Button {
     id: root
@@ -36,6 +36,10 @@ Button {
     }
 
     onLeftClicked: () => {
-        Hyprland.dispatch("exec toggle-rofi");
+        if (!GlobalStates.settingsMenuIsVisible) {
+            GlobalStates.settingsMenuIsVisible = true;
+        } else {
+            GlobalStates.settingsMenuIsVisible = false;
+        }
     }
 }
