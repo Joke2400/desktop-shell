@@ -3,6 +3,7 @@
 - [X] Add: Basic status & task bar
 - [X] Add: System tray menu
 - [X] Add: Wallpaper-switcher module
+- [ ] Add: Settings menu
 - [ ] Add: Calendar display widget
 - [ ] Add: Weather display widget
 - [ ] Add: Controls for screen record, screenshot, etc
@@ -16,10 +17,10 @@
 - [ ] Improve: BrightnessService.qml - implement hardware-dimming controls (preferred for laptops)
 - [ ] Improve: dynamic accent colors based on wallpaper?
 - [ ] Improve: Add keyboard controls to powermenu
-- [ ] Improve: powermenu needs a small UI overhaul
+- [X] Improve: powermenu needs a small UI overhaul
 - [ ] Improve: Do a post-feature-implementation UI overhaul
 - [ ] Improve: Look into styling the context menus for system tray items.
-- [ ] Improve: powermenu is missing a button for logging out
+- [X] Improve: powermenu is missing a button for logging out
 - [X] Improve: wallpaperswitcher needs keyboard controls
 - [ ] Improve: WallpaperService needs to be aware of current wallpaper
 - [ ] Improve: Wallpaper carousel items to be displayed as slanted paralellograms
