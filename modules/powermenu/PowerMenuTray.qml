@@ -10,8 +10,40 @@ Rectangle {
     id: root
 
     property int activeIndex: 0
+    property var buttonData: [
+        {
+            buttonIcon: "",
+            tooltipText: "Shutdown",
+            action: () => Quickshell.execDetached(["hyprshutdown", "--vt", "2", "-p", "systemctl poweroff"])
+        },
+        {
+            buttonIcon: "",
+            tooltipText: "Reboot",
+            action: () => Quickshell.execDetached(["hyprshutdown", "--vt", "2", "-p", "systemctl reboot"])
+        },
+        {
+            buttonIcon: "󰌾",
+            tooltipText: "Lock",
+            action: () => Quickshell.execDetached(["hyprlock"])
+        },
+        {
+            buttonIcon: "󰗼",
+            tooltipText: "Logout",
+            action: () => Quickshell.execDetached(["hyprshutdown", "--vt", "2"])
+        },
+        {
+            buttonIcon: "󰒲",
+            tooltipText: "Sleep",
+            action: () => Quickshell.execDetached(["systemctl", "suspend"])
+        },
+        {
+            buttonIcon: "",
+            tooltipText: "Hibernate",
+            action: () => Quickshell.execDetached(["systemctl", "hibernate"])
+        }
+    ]
 
-    color: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.7)
+    color: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.7)
     radius: Constant.roundingLarge * 5
     focus: true
 
@@ -26,50 +58,16 @@ Rectangle {
     RowLayout {
         id: row
         anchors.centerIn: parent
-        anchors.margins: Constant.paddingLarge * 4
-        spacing: Constant.spacingLarge
+        spacing: Constant.spacingMedium
 
         Repeater {
-            model: ListModel {
-                id: listModel
-                ListElement {
-                    buttonIcon: ""
-                    tooltipText: "Shutdown"
-                    action: "hyprshutdown --vt 2 -p 'systemctl poweroff'"
-                }
-                ListElement {
-                    buttonIcon: ""
-                    tooltipText: "Restart"
-                    action: "hyprshutdown --vt 2 -p 'systemctl reboot'"
-                }
-                ListElement {
-                    buttonIcon: "󰌾"
-                    tooltipText: "Lock"
-                    action: "hyprlock"
-                }
-                ListElement {
-                    buttonIcon: "󰗼"
-                    tooltipText: "Logout"
-                    action: "hyprshutdown --vt 2"
-                }
-                ListElement {
-                    buttonIcon: "󰒲"
-                    tooltipText: "Sleep"
-                    action: "systemctl suspend"
-                }
-                ListElement {
-                    buttonIcon: ""
-                    tooltipText: "Hibernate"
-                    action: "systemctl hibernate"
-                }
-            }
-
+            model: root.buttonData
             delegate: PowerMenuButton {
-                required property var model
+                required property var modelData
                 required property int index
-
-                buttonIcon: model.buttonIcon
-                action: model.action
+                buttonIcon: modelData.buttonIcon
+                tooltipText: modelData.tooltipText
+                action: modelData.action
                 isActive: index == root.activeIndex
             }
         }
@@ -89,7 +87,7 @@ Rectangle {
         } else if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
             const item = listModel.get(root.activeIndex);
             if (item && item.action) {
-                Quickshell.execDetached(item.action.split(" "));
+                item.action();
             }
             event.accepted = true;
         }

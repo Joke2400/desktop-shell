@@ -2,16 +2,15 @@ import qs.config.style
 import qs.components
 import qs.components.style
 
-import Quickshell
 import QtQuick
 
 Button {
     id: root
 
-    required property string action
+    required property var action
     required property bool isActive
 
-    backgroundColor: Qt.hsla(Color.baseDark.hslHue, Color.baseDark.hslSaturation, Color.baseDark.hslLightness, 0.7)
+    backgroundColor: Qt.hsla(Color.baseLight.hslHue, Color.baseLight.hslSaturation, Color.baseLight.hslLightness, 0.9)
     backgroundColorHover: Color.overlayNormal
     iconColor: isActive ? Color.accentLight : Color.overlayNormal
     iconColorHover: Color.baseDark
@@ -31,6 +30,6 @@ Button {
     }
 
     onLeftClicked: () => {
-        Quickshell.execDetached(action.split(" "));
+        root.action();
     }
 }
