@@ -3,7 +3,6 @@ import qs.components
 import qs.components.style
 
 import QtQuick
-import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.SystemTray
 
