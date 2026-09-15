@@ -14,12 +14,12 @@ Rectangle {
         {
             buttonIcon: "",
             tooltipText: "Shutdown",
-            action: () => Quickshell.execDetached(["systemd-run", "--user", "--scope", "--collect", "--", "hyprshutdown", "--vt", "2", "-p", "'systemctl poweroff'"])
+            action: () => Quickshell.execDetached(["systemd-run", "--user", "--scope", "--collect", "--", "hyprshutdown", "--vt", "2", "-p", "systemctl poweroff"])
         },
         {
             buttonIcon: "",
             tooltipText: "Reboot",
-            action: () => Quickshell.execDetached(["systemd-run", "--user", "--scope", "--collect", "--", "hyprshutdown", "--vt", "2", "-p", "'systemctl reboot'"])
+            action: () => Quickshell.execDetached(["systemd-run", "--user", "--scope", "--collect", "--", "hyprshutdown", "--vt", "2", "-p", "systemctl reboot"])
         },
         {
             buttonIcon: "󰌾",
