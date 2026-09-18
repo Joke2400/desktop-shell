@@ -43,7 +43,7 @@ Rectangle {
         }
     ]
 
-    color: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.7)
+    color: Qt.hsla(Color.baseLight.hslHue, Color.baseLight.hslSaturation, Color.baseLight.hslLightness, 0.7)
     radius: Constant.roundingLarge * 5
     focus: true
 
@@ -78,14 +78,14 @@ Rectangle {
             return;
         if (event.key === Qt.Key_Left) {
             const inx = root.activeIndex - 1;
-            root.activeIndex = inx < 0 ? listModel.count - 1 : inx;
+            root.activeIndex = inx < 0 ? root.buttonData.length - 1 : inx;
             event.accepted = true;
         } else if (event.key === Qt.Key_Right) {
             const inx = root.activeIndex + 1;
-            root.activeIndex = inx > listModel.count - 1 ? 0 : inx;
+            root.activeIndex = inx > root.buttonData.length - 1 ? 0 : inx;
             event.accepted = true;
         } else if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
-            const item = listModel.get(root.activeIndex);
+            const item = root.buttonData[root.activeIndex];
             if (item && item.action) {
                 item.action();
             }
