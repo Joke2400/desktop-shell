@@ -3,7 +3,7 @@ import qs.modules.statusbar
 import qs.modules.sliders
 import qs.modules.powermenu
 import qs.modules.systemtray
-import qs.modules.sidebarmenu
+import qs.modules.sidebar
 import qs.modules.wallpaperswitcher
 
 import Quickshell
@@ -16,5 +16,5 @@ ShellRoot {
     BrightnessSlider {}
     VolumeSlider {}
     SystemTrayMenu {}
-    SidebarMenu {}
+    SidebarPanel {}
 }

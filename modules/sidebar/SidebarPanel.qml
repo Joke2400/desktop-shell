@@ -43,7 +43,8 @@ PanelWindow {
     Rectangle {
         id: sidebarContainer
 
-        color: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.7)
+        color: Qt.hsla(Color.baseLight.hslHue, Color.baseLight.hslSaturation, Color.baseLight.hslLightness, 0.7)
+        border.color: Color.surfaceDark
         radius: Constant.roundingMedium
         focus: true
 

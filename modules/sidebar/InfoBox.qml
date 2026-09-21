@@ -12,7 +12,8 @@ Rectangle {
     implicitHeight: content.implicitHeight + Constant.marginMedium * 2
     Layout.fillWidth: true
 
-    color: Qt.hsla(Color.surfaceNormal.hslHue, Color.surfaceNormal.hslSaturation, Color.surfaceNormal.hslLightness, 0.9)
+    color: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.9)
+    border.color: Color.surfaceNormal
     radius: Constant.roundingMedium
 
     GradientHighlight {}
