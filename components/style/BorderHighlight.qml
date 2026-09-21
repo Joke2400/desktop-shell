@@ -1,5 +1,6 @@
 import QtQuick
 
+// Note: this can be used simultaneosly with a border color
 Rectangle {
     property color borderCol: Qt.rgba(1, 1, 1, 0.1)
 
