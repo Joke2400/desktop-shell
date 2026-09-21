@@ -1,4 +1,5 @@
 import qs.config.style
+import qs.config.settings
 import qs.components
 import qs.components.style
 
@@ -15,7 +16,7 @@ Button {
 
     buttonIcon: displayIcon
     tooltipText: (modelData.tooltipTitle || modelData.title).toUpperCase()
-    visible: modelData.status !== SystemTrayItem.Passive
+    visible: Settings.showPassiveTrayIcons ? true : modelData.status !== SystemTrayItem.Passive
 
     backgroundColor: Qt.hsla(Color.baseLight.hslHue, Color.baseLight.hslSaturation, Color.baseLight.hslLightness, 0.9)
     backgroundColorHover: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.9)

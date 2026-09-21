@@ -32,13 +32,16 @@ Singleton {
             return "󰂯";
         case "steam":
             return "󰓓";
-        case "chrome_status_icon_1":
+        case "discord_status_icon_1":
             return "";
+        case "spotify-client":
+            return "󰓇";
         case "udiskie":
             return "󱊞";
         case "easyeffects":
             return "󰺢";
         default:
+            console.log("Could not find icon-preset for icon ID:", trayItem.id, "- using the default icon.");
             return trayItem.icon;
         }
     }
