@@ -21,6 +21,7 @@ PanelWindow {
         left: true
     }
     margins {
+        top: Constant.marginSmall
         left: Constant.marginSmall
         bottom: Constant.marginSmall
     }
@@ -45,7 +46,7 @@ PanelWindow {
 
         color: Qt.hsla(Color.baseLight.hslHue, Color.baseLight.hslSaturation, Color.baseLight.hslLightness, 0.7)
         border.color: Color.surfaceDark
-        radius: Constant.roundingMedium
+        radius: Constant.roundingSmall
         focus: true
 
         implicitWidth: parent.width

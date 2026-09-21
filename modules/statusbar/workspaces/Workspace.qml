@@ -34,10 +34,10 @@ Button {
 
     onIsFocusedChanged: {
         if (isFocused) {
-            root.iconColor = Color.colOrange;
-            root.iconColorHover = Color.colOrange;
-            root.borderColor = Color.colDarkOrange;
-            root.borderColorHover = Color.colOrange;
+            root.iconColor = Color.accentNormal;
+            root.iconColorHover = Color.accentLight;
+            root.borderColor = Color.accentDark;
+            root.borderColorHover = Color.accentNormal;
         } else {
             root.iconColor = Color.textNormal;
             root.iconColorHover = Color.textLight;
