@@ -12,7 +12,7 @@ PanelWindow {
     id: root
 
     screen: MonitorService.selectedMonitor
-    visible: GlobalStates.settingsMenuIsVisible
+    visible: GlobalStates.sidebarIsVisible
     color: "transparent"
 
     anchors {
@@ -33,7 +33,7 @@ PanelWindow {
         id: focusGrab
         windows: [root]
         active: root.visible
-        onCleared: GlobalStates.settingsMenuIsVisible = false
+        onCleared: GlobalStates.sidebarIsVisible = false
 
         onActiveChanged: {
             if (active) {}

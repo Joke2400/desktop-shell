@@ -28,14 +28,17 @@ Button {
     }
     tooltipText: "Notifications"
     backgroundColorHover: Color.baseLight
-    iconColor: isMuted || isInhibited ? Color.colRed : Color.textNormal
-    iconColorHover: isMuted || isInhibited ? Color.colRed : Color.textLight
+    iconColor: GlobalStates.notificationPanelIsVisible ? Color.colYellow : (isMuted || isInhibited ? Color.colMaroon : Color.textNormal)
+    iconColorHover: GlobalStates.notificationPanelIsVisible ? Color.colYellow : (isMuted || isInhibited ? Color.colRed : Color.textLight)
 
     radius: Constant.roundingLarge
     iconSize: Constant.iconSizeMedium
 
     onLeftClicked: () => {
         Hyprland.dispatch("exec swaync-client -t");
+        GlobalStates.notificationPanelIsVisible = !GlobalStates.notificationPanelIsVisible;
+    // This toggle will not work correctly as it is currently implemented,
+    // the plan, however, is to stop using swaync for the GUI entirely
     }
     onMiddleClicked: () => {
         Hyprland.dispatch("exec swaync-client -C");

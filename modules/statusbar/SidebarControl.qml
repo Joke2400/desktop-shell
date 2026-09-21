@@ -36,10 +36,10 @@ Button {
     }
 
     onLeftClicked: () => {
-        if (!GlobalStates.settingsMenuIsVisible) {
-            GlobalStates.settingsMenuIsVisible = true;
+        if (!GlobalStates.sidebarIsVisible) {
+            GlobalStates.sidebarIsVisible = true;
         } else {
-            GlobalStates.settingsMenuIsVisible = false;
+            GlobalStates.sidebarIsVisible = false;
         }
     }
 }

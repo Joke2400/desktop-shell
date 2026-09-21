@@ -57,7 +57,7 @@ PanelWindow {
             anchors.bottomMargin: Constant.paddingSmall
             spacing: 0
 
-            SettingsControl {}
+            SidebarControl {}
             WorkspaceWidget {}
             // ColorTestTray {}
 
