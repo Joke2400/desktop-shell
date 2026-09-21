@@ -41,9 +41,9 @@ Button {
     // the plan, however, is to stop using swaync for the GUI entirely
     }
     onMiddleClicked: () => {
-        Hyprland.dispatch("exec swaync-client -C");
+        Hyprland.dispatch("exec swaync-client -d");
     }
     onRightClicked: () => {
-        Hyprland.dispatch("exec swaync-client -d");
+        Hyprland.dispatch("exec swaync-client -C");
     }
 }
