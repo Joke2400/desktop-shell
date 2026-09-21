@@ -9,9 +9,9 @@ Button {
 
     buttonIcon: ""
     tooltipText: "Power Menu"
-    backgroundColorHover: Color.baseLight
+    bgColHover: Color.baseLight
     iconColorHover: Color.textLight
-    borderColor: Color.accentLight
+    brCol: Color.accentLight
 
     radius: Constant.roundingLarge
     iconSize: Constant.iconSizeMedium

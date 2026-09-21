@@ -23,7 +23,7 @@ Button {
         }
     }
     tooltipText: "Volume"
-    backgroundColorHover: Color.baseLight
+    bgColHover: Color.baseLight
     iconColor: GlobalStates.volumeSliderIsVisible ? Color.colYellow : (root.muted ? Color.colMaroon : Color.textNormal)
     iconColorHover: GlobalStates.volumeSliderIsVisible ? Color.colYellow : (root.muted ? Color.colRed : Color.textLight)
 

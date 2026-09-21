@@ -16,8 +16,8 @@ Button {
     buttonText: root.isToggled ? root.date : root.time
     tooltipText: "Clock"
 
-    backgroundColor: Color.baseDark
-    backgroundColorHover: Color.baseLight
+    bgCol: Color.baseDark
+    bgColHover: Color.baseLight
 
     iconColor: Color.textNormal
     iconColorHover: Color.textLight

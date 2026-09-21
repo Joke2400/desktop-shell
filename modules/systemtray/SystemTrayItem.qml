@@ -18,12 +18,12 @@ Button {
     tooltipText: (modelData.tooltipTitle || modelData.title).toUpperCase()
     visible: Settings.showPassiveTrayIcons ? true : modelData.status !== SystemTrayItem.Passive
 
-    backgroundColor: Qt.hsla(Color.baseLight.hslHue, Color.baseLight.hslSaturation, Color.baseLight.hslLightness, 0.9)
-    backgroundColorHover: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.9)
+    bgCol: Qt.hsla(Color.baseLight.hslHue, Color.baseLight.hslSaturation, Color.baseLight.hslLightness, 0.9)
+    bgColHover: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.9)
     iconColor: Color.textNormal
     iconColorHover: Color.textLight
-    borderColor: Color.surfaceNormal
-    borderColorHover: Color.surfaceLight
+    brCol: Color.surfaceNormal
+    brColHover: Color.surfaceLight
 
     iconSize: Constant.iconSizeMedium
     radius: Constant.roundingMedium

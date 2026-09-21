@@ -6,10 +6,10 @@ import QtQuick.Layouts
 Rectangle {
     id: root
     default property alias contents: row.data
-    property color backgroundColor: "transparent"
+    property color bgCol: "transparent"
     property int innerSpacing: Constant.spacingSmall
 
-    color: backgroundColor
+    color: bgCol
     border.color: "transparent"
 
     border.width: 0

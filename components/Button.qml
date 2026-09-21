@@ -46,8 +46,8 @@ ButtonBase {
     implicitWidth: getButtonMinWidth()
     implicitHeight: getButtonMinHeight()
 
-    color: hovered ? backgroundColorHover : backgroundColor
-    border.color: hovered ? borderColorHover : borderColor
+    color: hovered ? bgColHover : bgCol
+    border.color: hovered ? brColHover : brCol
     onHoveredChanged: () => {
         if (hovered) {
             iconElement.font.pixelSize = root.iconSize + hoverSizeIncrease;

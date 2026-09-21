@@ -21,7 +21,7 @@ Button {
         }
     }
     tooltipText: "Brightness"
-    backgroundColorHover: Color.baseLight
+    bgColHover: Color.baseLight
     iconColor: GlobalStates.brightnessSliderIsVisible ? Color.colYellow : (root.dimmed ? Color.colDarkOrange : Color.textNormal)
     iconColorHover: GlobalStates.brightnessSliderIsVisible ? Color.colYellow : (root.dimmed ? Color.colOrange : Color.textLight)
 

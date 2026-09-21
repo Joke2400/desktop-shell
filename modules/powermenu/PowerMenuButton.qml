@@ -10,11 +10,11 @@ Button {
     required property var action
     required property bool isActive
 
-    backgroundColor: Qt.hsla(Color.baseLight.hslHue, Color.baseLight.hslSaturation, Color.baseLight.hslLightness, 0.9)
-    backgroundColorHover: Color.overlayNormal
+    bgCol: Qt.hsla(Color.baseLight.hslHue, Color.baseLight.hslSaturation, Color.baseLight.hslLightness, 0.9)
+    bgColHover: Color.overlayNormal
     iconColor: isActive ? Color.accentLight : Color.overlayNormal
     iconColorHover: Color.baseDark
-    borderColorHover: Color.baseDark
+    brColHover: Color.baseDark
     hoverSizeIncrease: 10
 
     iconSize: Constant.iconSizeLarge * 2

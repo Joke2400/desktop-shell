@@ -9,7 +9,7 @@ Button {
 
     buttonIcon: GlobalStates.systemTrayIsVisible ? "" : ""
     tooltipText: "System Tray"
-    backgroundColorHover: Color.baseLight
+    bgColHover: Color.baseLight
     iconColor: Color.textNormal
     iconColorHover: Color.textLight
     radius: Constant.roundingLarge

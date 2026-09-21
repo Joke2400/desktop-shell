@@ -27,7 +27,7 @@ Button {
         }
     }
     tooltipText: "Notifications"
-    backgroundColorHover: Color.baseLight
+    bgColHover: Color.baseLight
     iconColor: GlobalStates.notificationPanelIsVisible ? Color.colYellow : (isMuted || isInhibited ? Color.colMaroon : Color.textNormal)
     iconColorHover: GlobalStates.notificationPanelIsVisible ? Color.colYellow : (isMuted || isInhibited ? Color.colRed : Color.textLight)
 

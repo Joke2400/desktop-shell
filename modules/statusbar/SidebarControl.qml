@@ -11,8 +11,8 @@ Button {
     buttonIcon: "󱄅"
     tooltipText: "Launcher"
 
-    backgroundColor: Color.accentNormal
-    backgroundColorHover: Color.accentLight
+    bgCol: Color.accentNormal
+    bgColHover: Color.accentLight
 
     iconColor: Color.textNormal
     iconColorHover: Color.textLight

@@ -15,16 +15,16 @@ Button {
 
     iconColor: Color.textNormal
     iconColorHover: Color.textLight
-    borderColor: Color.surfaceDark
-    borderColorHover: Color.overlayDark
-    backgroundColor: Color.baseDark
-    backgroundColorHover: Color.baseLight
+    brCol: Color.surfaceDark
+    brColHover: Color.overlayDark
+    bgCol: Color.baseDark
+    bgColHover: Color.baseLight
     iconSize: Constant.iconSizeMedium
     hoverSizeIncrease: 4
 
     border.width: Constant.borderMedium
     radius: Constant.roundingLarge
-    color: isFocused || root.hovered ? backgroundColorHover : backgroundColor
+    color: isFocused || root.hovered ? bgColHover : bgCol
 
     GradientShadow {
         topCol: Qt.rgba(1, 1, 1, 0)
@@ -36,13 +36,13 @@ Button {
         if (isFocused) {
             root.iconColor = Color.accentNormal;
             root.iconColorHover = Color.accentLight;
-            root.borderColor = Color.accentDark;
-            root.borderColorHover = Color.accentNormal;
+            root.brCol = Color.accentDark;
+            root.brColHover = Color.accentNormal;
         } else {
             root.iconColor = Color.textNormal;
             root.iconColorHover = Color.textLight;
-            root.borderColor = Color.surfaceDark;
-            root.borderColorHover = Color.overlayDark;
+            root.brCol = Color.surfaceDark;
+            root.brColHover = Color.overlayDark;
         }
     }
 

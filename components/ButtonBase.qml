@@ -4,22 +4,20 @@ Rectangle {
     id: root
 
     readonly property bool hovered: hover.hovered
-    property color backgroundColor: "transparent"
-    property color backgroundColorHover: backgroundColor
-    property color borderColor: "transparent"
-    property color borderColorHover: borderColor
+    property color bgCol: "transparent"
+    property color brCol: "transparent"
+
+    property color bgColHover: bgCol
+    property color brColHover: brCol
 
     signal leftClicked
     signal middleClicked
     signal rightClicked
     signal scrolled(int scrollDelta)
 
-    color: hovered ? backgroundColorHover : backgroundColor
-    border.color: hovered ? borderColorHover : borderColor
-
+    color: hovered ? bgColHover : bgCol
+    border.color: hovered ? brColHover : brCol
     border.width: 0
-    implicitWidth: 24
-    implicitHeight: 24
 
     HoverHandler {
         id: hover

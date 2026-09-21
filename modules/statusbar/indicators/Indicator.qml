@@ -9,8 +9,8 @@ Button {
 
     property bool isToggled: false
 
-    backgroundColor: Color.baseDark
-    backgroundColorHover: Color.baseLight
+    bgCol: Color.baseDark
+    bgColHover: Color.baseLight
     textColor: Color.subTextNormal
     textColorHover: Color.accentLight
     iconColor: Color.subTextNormal

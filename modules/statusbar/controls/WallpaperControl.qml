@@ -9,9 +9,9 @@ Button {
 
     buttonIcon: "󰸉"
     tooltipText: "Wallpaper Switcher"
-    backgroundColorHover: Color.baseLight
+    bgColHover: Color.baseLight
     iconColorHover: Color.textLight
-    borderColor: Color.accentLight
+    brCol: Color.accentLight
     visible: WallpaperService.model.count >= 2
 
     radius: Constant.roundingLarge
