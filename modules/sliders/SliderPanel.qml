@@ -9,8 +9,8 @@ PanelWindow {
 
     screen: MonitorService.selectedMonitor
     color: "transparent"
-    implicitWidth: Constant.sliderSize * 12
-    implicitHeight: Constant.sliderSize + Constant.paddingLarge * 1.5
+    implicitWidth: Constant.sliderWidth
+    implicitHeight: Constant.sliderHeight + Constant.paddingLarge * 1.5
     exclusiveZone: 0
 
     anchors {

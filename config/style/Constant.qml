@@ -10,7 +10,11 @@ Singleton {
 
     // Component sizes
     readonly property int barHeight: Math.round(32 * uiScaleFactor)
-    readonly property int sliderSize: Math.round(32 * uiScaleFactor)
+
+    readonly property int sidebarWidth: Math.round(340 * uiScaleFactor)
+
+    readonly property int sliderWidth: Math.round(380 * uiScaleFactor)
+    readonly property int sliderHeight: Math.round(32 * uiScaleFactor)
     readonly property int sliderTrackSize: Math.round(12 * uiScaleFactor)
     readonly property int sliderHandleSize: Math.round(22 * uiScaleFactor)
 
@@ -18,7 +22,6 @@ Singleton {
     readonly property int carouselPanelWidth: MonitorService.selectedMonitor.width
     readonly property int carouselViewHeight: carouselPanelHeight - borderLarge * 2
     readonly property int carouselViewWidth: carouselPanelWidth - borderLarge * 2
-
     readonly property int carouselItemCount: Math.max(2, Math.min(WallpaperService.model.count - 2, Settings.maxWallpapersDisplayed))
     readonly property real carouselItemWidth: carouselViewWidth / carouselItemCount
 

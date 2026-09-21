@@ -24,8 +24,9 @@ PanelWindow {
         left: Constant.marginSmall
         bottom: Constant.marginSmall
     }
-    implicitWidth: Constant.sliderSize * 12
-    implicitHeight: settingsMenuContainer.implicitHeight
+    implicitWidth: Constant.sidebarWidth
+    implicitHeight: sidebarContainer.implicitHeight
+
     exclusiveZone: 0
 
     HyprlandFocusGrab {
@@ -40,42 +41,28 @@ PanelWindow {
     }
 
     Rectangle {
-        id: settingsMenuContainer
+        id: sidebarContainer
 
         color: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.7)
         radius: Constant.roundingMedium
         focus: true
 
         implicitWidth: parent.width
-        implicitHeight: settingsLayout.implicitHeight
+        implicitHeight: sidebarLayout.implicitHeight + Constant.marginMedium * 2
 
         GradientHighlight {}
         BorderHighlight {}
         GradientShadow {}
 
         ColumnLayout {
-            id: settingsLayout
+            id: sidebarLayout
 
             anchors.centerIn: parent
-            implicitWidth: parent.width - Constant.marginSmall * 2
+            implicitWidth: parent.width - Constant.marginMedium * 2
 
             spacing: Constant.spacingMedium
 
-            Rectangle {
-                color: "red"
-                Layout.preferredWidth: 40
-                Layout.preferredHeight: 40
-            }
-            Rectangle {
-                color: "green"
-                Layout.preferredWidth: 40
-                Layout.preferredHeight: 40
-            }
-            Rectangle {
-                color: "blue"
-                Layout.preferredWidth: 40
-                Layout.preferredHeight: 40
-            }
+            InfoBox {}
         }
     }
 }
