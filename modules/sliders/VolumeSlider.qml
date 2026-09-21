@@ -37,7 +37,7 @@ SliderPanel {
 
             Slider {
                 id: slider
-                color: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.7)
+                color: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.9)
                 ratio: root.volume / 100
 
                 onApplied: ratio => {

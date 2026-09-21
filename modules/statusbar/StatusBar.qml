@@ -35,6 +35,7 @@ PanelWindow {
 
         radius: Constant.roundingMedium
         color: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.9)
+        border.color: Color.surfaceDark
 
         anchors.fill: parent
         width: parent.width
