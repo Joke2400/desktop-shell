@@ -20,9 +20,7 @@ Button {
     btnText: ""
 
     iconSize: Constant.iconSizeMedium
-
-    padding: Constant.paddingSmall * 1.4
-    hoverIncreaseAmount: 4
+    padding: Constant.paddingSmall
 
     radius: Constant.roundingLarge
     border.width: Constant.borderMedium

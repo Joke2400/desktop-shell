@@ -18,8 +18,6 @@ Button {
     btnText: ""
 
     iconSize: Constant.iconSizeLarge
-
-    spacing: Constant.spacingSmall
     padding: 0
 
     radius: Constant.roundingLarge
