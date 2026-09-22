@@ -15,6 +15,11 @@ Singleton {
     readonly property bool showPassiveTrayIcons: true
 
     // UI components
+    readonly property real uiScaleFactor: {
+        const envValue = Quickshell.env("QS_UI_SCALE_FACTOR");
+        const parsed = parseFloat(envValue);
+        return !isNaN(parsed) ? parsed : 1.0;
+    }
     readonly property string statusbarPosition: "top" // is not used yet
     readonly property int maxWallpapersDisplayed: 5
 }

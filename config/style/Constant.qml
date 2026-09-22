@@ -6,28 +6,19 @@ import QtQuick
 import Quickshell
 
 Singleton {
-    // Logical height of dev monitor (physical 3840x2160 @ scale 1.5)
-    readonly property int referencePhysicalHeight: 2160
-    readonly property real referenceScale: 1.5
-    readonly property real referenceHeight: referencePhysicalHeight / referenceScale
-    readonly property int monitorHeight: MonitorService.selectedMonitor.height
-
-    readonly property real densityExponent: 0.5
-    readonly property real uiScaleFactor: Math.pow(referenceHeight / monitorHeight, densityExponent)
-
-    function scaleByDensity(baseValue: real): real {
-        return Math.max(1, Math.round(baseValue * uiScaleFactor));
+    function scale(value: int): int {
+        return Math.max(1, Math.round(value * Settings.uiScaleFactor));
     }
 
     // Component sizes
-    readonly property int barHeight: scaleByDensity(32)
+    readonly property int barHeight: scale(32)
 
-    readonly property int sidebarWidth: scaleByDensity(340)
+    readonly property int sidebarWidth: scale(340)
 
-    readonly property int sliderWidth: scaleByDensity(380)
-    readonly property int sliderHeight: scaleByDensity(32)
-    readonly property int sliderTrackSize: scaleByDensity(12)
-    readonly property int sliderHandleSize: scaleByDensity(22)
+    readonly property int sliderWidth: scale(380)
+    readonly property int sliderHeight: scale(32)
+    readonly property int sliderTrackSize: scale(12)
+    readonly property int sliderHandleSize: scale(22)
 
     readonly property int carouselPanelHeight: MonitorService.selectedMonitor.height * 0.5
     readonly property int carouselPanelWidth: MonitorService.selectedMonitor.width
@@ -37,33 +28,33 @@ Singleton {
     readonly property real carouselItemWidth: carouselViewWidth / carouselItemCount
 
     // Basic sizes
-    readonly property int spacingSmall: scaleByDensity(4)
-    readonly property int spacingMedium: scaleByDensity(8)
-    readonly property int spacingLarge: scaleByDensity(16)
+    readonly property int spacingSmall: scale(4)
+    readonly property int spacingMedium: scale(8)
+    readonly property int spacingLarge: scale(12)
 
-    readonly property int paddingSmall: scaleByDensity(3)
-    readonly property int paddingMedium: scaleByDensity(4)
-    readonly property int paddingLarge: scaleByDensity(8)
+    readonly property int paddingSmall: scale(3)
+    readonly property int paddingMedium: scale(4)
+    readonly property int paddingLarge: scale(6)
 
-    readonly property int marginSmall: scaleByDensity(6)
-    readonly property int marginMedium: scaleByDensity(12)
-    readonly property int marginLarge: scaleByDensity(20)
+    readonly property int marginSmall: scale(6)
+    readonly property int marginMedium: scale(10)
+    readonly property int marginLarge: scale(16)
 
-    readonly property int textSizeTiny: scaleByDensity(12)
-    readonly property int textSizeSmall: scaleByDensity(14)
-    readonly property int textSizeMedium: scaleByDensity(16)
-    readonly property int textSizeLarge: scaleByDensity(18)
-    readonly property int textSizeHuge: scaleByDensity(20)
+    readonly property int textSizeTiny: scale(12)
+    readonly property int textSizeSmall: scale(14)
+    readonly property int textSizeMedium: scale(16)
+    readonly property int textSizeLarge: scale(18)
+    readonly property int textSizeHuge: scale(20)
 
-    readonly property int iconSizeTiny: scaleByDensity(18)
-    readonly property int iconSizeSmall: scaleByDensity(20)
-    readonly property int iconSizeMedium: scaleByDensity(24)
-    readonly property int iconSizeLarge: scaleByDensity(30)
-    readonly property int iconSizeHuge: scaleByDensity(36)
+    readonly property int iconSizeTiny: scale(18)
+    readonly property int iconSizeSmall: scale(20)
+    readonly property int iconSizeMedium: scale(24)
+    readonly property int iconSizeLarge: scale(30)
+    readonly property int iconSizeHuge: scale(36)
 
-    readonly property int roundingSmall: scaleByDensity(6)
-    readonly property int roundingMedium: scaleByDensity(12)
-    readonly property int roundingLarge: scaleByDensity(18)
+    readonly property int roundingSmall: 6
+    readonly property int roundingMedium: 12
+    readonly property int roundingLarge: 18
 
     readonly property int borderSmall: 1
     readonly property int borderMedium: 2
