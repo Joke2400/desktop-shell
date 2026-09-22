@@ -28,18 +28,6 @@ Singleton {
     readonly property real carouselItemWidth: carouselViewWidth / carouselItemCount
 
     // Basic sizes
-    readonly property int spacingSmall: scale(4)
-    readonly property int spacingMedium: scale(8)
-    readonly property int spacingLarge: scale(12)
-
-    readonly property int paddingSmall: scale(3)
-    readonly property int paddingMedium: scale(4)
-    readonly property int paddingLarge: scale(6)
-
-    readonly property int marginSmall: scale(6)
-    readonly property int marginMedium: scale(10)
-    readonly property int marginLarge: scale(16)
-
     readonly property int textSizeTiny: scale(12)
     readonly property int textSizeSmall: scale(14)
     readonly property int textSizeMedium: scale(16)
@@ -51,6 +39,18 @@ Singleton {
     readonly property int iconSizeMedium: scale(24)
     readonly property int iconSizeLarge: scale(30)
     readonly property int iconSizeHuge: scale(36)
+
+    readonly property int spacingSmall: scale(4)
+    readonly property int spacingMedium: scale(8)
+    readonly property int spacingLarge: scale(12)
+
+    readonly property int paddingSmall: scale(4)
+    readonly property int paddingMedium: scale(5)
+    readonly property int paddingLarge: scale(6)
+
+    readonly property int marginSmall: 6
+    readonly property int marginMedium: 8
+    readonly property int marginLarge: 10
 
     readonly property int roundingSmall: 6
     readonly property int roundingMedium: 12
