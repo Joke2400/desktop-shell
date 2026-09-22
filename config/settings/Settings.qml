@@ -11,7 +11,7 @@ Singleton {
     // Behavior
     readonly property string selectedMonitorOutput: Quickshell.env("QS_MAIN_MONITOR_OUT")
     readonly property string selectedMonitorDesc: Quickshell.env("QS_MAIN_MONITOR_DESC")
-    readonly property bool adjustBrightnessOnLoad: false
+    readonly property bool adjustBrightnessOnLoad: true
     readonly property bool showPassiveTrayIcons: true
 
     // UI components
