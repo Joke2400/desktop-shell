@@ -10,7 +10,7 @@ ControlButton {
     btnIcon: GlobalStates.systemTrayIsVisible ? "" : ""
     btnText: ""
 
-    iconSize: Constant.iconSizeMedium * 1.05
+    iconSize: Constant.iconSizeLarge * 1.05
 
     function readPos() {
         var pos = root.mapToGlobal(root.width / 2, root.height / 2);

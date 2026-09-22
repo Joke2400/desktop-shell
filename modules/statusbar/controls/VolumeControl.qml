@@ -24,7 +24,7 @@ ControlButton {
     }
     btnText: ""
 
-    iconSize: Constant.iconSizeMedium * 0.95 // accounting for differences in apparent font size
+    iconSize: Constant.iconSizeLarge * 0.95 // accounting for differences in apparent font size
 
     iconCol: GlobalStates.volumeSliderIsVisible ? Color.colYellow : (root.muted ? Color.colMaroon : Color.textNormal)
     iconColHover: GlobalStates.volumeSliderIsVisible ? Color.colYellow : (root.muted ? Color.colRed : Color.textLight)

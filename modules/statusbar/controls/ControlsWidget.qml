@@ -14,7 +14,7 @@ Rectangle {
     RowLayout {
         id: rowLayout
         anchors.centerIn: parent
-        spacing: Constant.spacingSmall
+        spacing: 0
 
         SystemTrayControl {}
         WallpaperControl {}

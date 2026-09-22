@@ -9,7 +9,7 @@ Button {
     bgCol: "transparent"
     bgColHover: "transparent"
 
-    iconSize: Constant.iconSizeMedium
+    iconSize: Constant.iconSizeLarge
 
     padding: Constant.paddingSmall
     radius: Constant.roundingLarge

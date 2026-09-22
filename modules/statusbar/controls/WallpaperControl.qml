@@ -12,7 +12,7 @@ ControlButton {
     btnIcon: "󰸉"
     btnText: ""
 
-    iconSize: Constant.iconSizeMedium * 0.95
+    iconSize: Constant.iconSizeLarge * 0.95
 
     onLeftClicked: {
         GlobalStates.wallpaperSwitcherIsVisible = !GlobalStates.wallpaperSwitcherIsVisible;
