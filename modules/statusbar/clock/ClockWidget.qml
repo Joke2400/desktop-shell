@@ -22,14 +22,11 @@ Button {
     btnText: root.isToggled ? root.date : root.time
 
     spacing: Constant.spacingSmall
-    padding: Constant.paddingSmall
+    padding: Constant.paddingMedium * 1.25
     alignTextToBaseline: false
 
     radius: Constant.roundingLarge
     border.width: Constant.borderSmall
-
-    height: Constant.barHeight + padding * 2
-    width: implicitWidth + padding * 2
 
     GradientShadow {
         topCol: Qt.rgba(1, 1, 1, 0)
