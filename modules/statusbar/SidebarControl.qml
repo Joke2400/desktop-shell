@@ -8,32 +8,29 @@ import QtQuick
 Button {
     id: root
 
-    buttonIcon: "󱄅"
-    tooltipText: "Launcher"
-
     bgCol: Color.accentNormal
+    brCol: Color.accentNormal
     bgColHover: Color.accentLight
+    brColHover: Color.overlayDark
 
-    iconColor: Color.textNormal
-    iconColorHover: Color.textLight
+    tooltip: "Open Sidebar"
+    btnIcon: "󱄅"
+    btnText: ""
 
     iconSize: Constant.iconSizeLarge
+
+    spacing: Constant.spacingSmall
+    padding: 0
+
     radius: Constant.roundingLarge
-    buttonPadding: 0
+    border.width: Constant.borderMedium
 
     GradientShadow {
         topCol: Qt.rgba(1, 1, 1, 0)
         centerCol: Qt.rgba(1, 1, 1, 0.03)
         bottomCol: Qt.rgba(1, 1, 1, 0.06)
     }
-
-    Rectangle {
-        anchors.fill: parent
-        radius: parent.radius
-        color: "transparent"
-        border.width: 1
-        border.color: Qt.rgba(1, 1, 1, 0.1)
-    }
+    BorderHighlight {}
 
     onLeftClicked: () => {
         if (!GlobalStates.sidebarIsVisible) {

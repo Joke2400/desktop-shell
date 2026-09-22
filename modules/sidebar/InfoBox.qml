@@ -1,5 +1,6 @@
 import qs.services
 import qs.config.style
+import qs.components
 import qs.components.style
 
 import QtQuick
@@ -31,32 +32,21 @@ Rectangle {
             id: systemInfo
             spacing: Constant.spacingSmall
 
-            Text {
-                font {
-                    family: Theme.fontFamily
-                    pixelSize: Constant.fontSizeMedium
-                    bold: true
-                }
-                color: Color.textNormal
-                text: "Running: " + SystemDataService.osName
+            TextCustom {
+                txt: "Running: " + SystemDataService.osName
+                size: Constant.textSizeMedium
             }
-            Text {
-                font {
-                    family: Theme.fontFamily
-                    pixelSize: Constant.fontSizeSmall
-                    bold: false
-                }
-                color: Color.textNormal
-                text: " " + SystemDataService.kernelName + " " + SystemDataService.kernelVersion + "-" + SystemDataService.architecture
+
+            TextCustom {
+                txt: " " + SystemDataService.kernelName + " " + SystemDataService.kernelVersion + "-" + SystemDataService.architecture
+                size: Constant.textSizeSmall
+                bold: false
             }
-            Text {
-                font {
-                    family: Theme.fontFamily
-                    pixelSize: Constant.fontSizeSmall
-                    bold: false
-                }
-                color: Color.textNormal
-                text: " " + "Quickshell" + " " + SystemDataService.quickshellVersion
+
+            TextCustom {
+                txt: " " + "Quickshell" + " " + SystemDataService.quickshellVersion
+                size: Constant.textSizeSmall
+                bold: false
             }
         }
 
@@ -64,43 +54,27 @@ Rectangle {
             id: connectionInfo
             spacing: Constant.spacingSmall
 
-            Text {
-                font {
-                    family: Theme.fontFamily
-                    pixelSize: Constant.fontSizeMedium
-                    bold: true
-                }
-                color: Color.textNormal
-                text: "Host: " + SystemDataService.userName + "@" + SystemDataService.hostName
+            TextCustom {
+                txt: "Host: " + SystemDataService.userName + "@" + SystemDataService.hostName
+                size: Constant.textSizeMedium
             }
 
-            Text {
-                font {
-                    family: Theme.fontFamily
-                    pixelSize: Constant.fontSizeSmall
-                    bold: false
-                }
-                color: Color.textNormal
-                text: " Local IP: " + SystemDataService.localIp
+            TextCustom {
+                txt: " Local IP: " + SystemDataService.localIp
+                size: Constant.textSizeSmall
+                bold: false
             }
 
-            Text {
-                font {
-                    family: Theme.fontFamily
-                    pixelSize: Constant.fontSizeSmall
-                    bold: false
-                }
-                color: Color.textNormal
-                text: " Global IP: " + SystemDataService.globalIp
+            TextCustom {
+                txt: " Global IP: " + SystemDataService.globalIp
+                size: Constant.textSizeSmall
+                bold: false
             }
-            Text {
-                font {
-                    family: Theme.fontFamily
-                    pixelSize: Constant.fontSizeSmall
-                    bold: false
-                }
-                color: Color.textNormal
-                text: " Uptime: " + SystemDataService.uptime
+
+            TextCustom {
+                txt: " Uptime: " + SystemDataService.uptime
+                size: Constant.textSizeSmall
+                bold: false
             }
         }
     }

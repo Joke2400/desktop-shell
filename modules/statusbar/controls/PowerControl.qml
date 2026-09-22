@@ -1,20 +1,17 @@
 import qs.config.style
-import qs.components
 import qs.services
 
 import QtQuick
 
-Button {
+ControlButton {
     id: root
 
-    buttonIcon: ""
-    tooltipText: "Power Menu"
-    bgColHover: Color.baseLight
-    iconColorHover: Color.textLight
-    brCol: Color.accentLight
+    tooltip: "Power Menu"
+    btnIcon: ""
+    btnText: ""
 
-    radius: Constant.roundingLarge
-    iconSize: Constant.iconSizeMedium
+    iconCol: GlobalStates.powerMenuIsVisible ? Color.colYellow : Color.textNormal
+    iconColHover: GlobalStates.powerMenuIsVisible ? Color.colYellow : Color.textLight
 
     onLeftClicked: () => {
         GlobalStates.powerMenuIsVisible = !GlobalStates.powerMenuIsVisible;

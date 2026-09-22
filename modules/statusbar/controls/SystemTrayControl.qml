@@ -1,20 +1,16 @@
 import qs.config.style
-import qs.components
 import qs.services
 
 import QtQuick
 
-Button {
+ControlButton {
     id: root
 
-    buttonIcon: GlobalStates.systemTrayIsVisible ? "" : ""
-    tooltipText: "System Tray"
-    bgColHover: Color.baseLight
-    iconColor: Color.textNormal
-    iconColorHover: Color.textLight
-    radius: Constant.roundingLarge
-    iconSize: Constant.iconSizeMedium * 1.1
-    buttonPadding: Constant.paddingSmall * 0.5
+    tooltip: "System Tray"
+    btnIcon: GlobalStates.systemTrayIsVisible ? "" : ""
+    btnText: ""
+
+    iconSize: Constant.iconSizeMedium * 1.05
 
     function readPos() {
         var pos = root.mapToGlobal(root.width / 2, root.height / 2);
@@ -22,9 +18,10 @@ Button {
         GlobalStates.trayButtonPosY = pos.y;
     }
 
+    // This is to let the other qml files load in first
     Timer {
         id: settleTimer
-        interval: 16
+        interval: 50
         running: true
         onTriggered: root.readPos()
     }

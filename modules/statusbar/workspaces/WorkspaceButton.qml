@@ -10,20 +10,24 @@ Button {
     required property int workspaceId
     required property bool isFocused
 
-    buttonIcon: workspaceId
-    tooltipText: "Workspace: " + workspaceId
-
-    iconColor: Color.textNormal
-    iconColorHover: Color.textLight
-    brCol: Color.surfaceDark
-    brColHover: Color.overlayDark
     bgCol: Color.baseDark
+    brCol: Color.surfaceDark
     bgColHover: Color.baseLight
-    iconSize: Constant.iconSizeMedium
-    hoverSizeIncrease: 4
+    brColHover: Color.overlayDark
 
-    border.width: Constant.borderMedium
+    tooltip: "Workspace: " + workspaceId
+    btnIcon: workspaceId // We're simply treating a number as an icon here
+    btnText: ""
+
+    iconSize: Constant.iconSizeMedium
+
+    padding: Constant.paddingSmall * 1.4
+    hoverIncreaseAmount: 4
+
     radius: Constant.roundingLarge
+    border.width: Constant.borderMedium
+
+    // Note the override here
     color: isFocused || root.hovered ? bgColHover : bgCol
 
     GradientShadow {
@@ -34,13 +38,13 @@ Button {
 
     onIsFocusedChanged: {
         if (isFocused) {
-            root.iconColor = Color.accentNormal;
-            root.iconColorHover = Color.accentLight;
+            root.iconCol = Color.accentNormal;
+            root.iconColHover = Color.accentLight;
             root.brCol = Color.accentDark;
-            root.brColHover = Color.accentNormal;
+            root.brColHover = Color.accentLight;
         } else {
-            root.iconColor = Color.textNormal;
-            root.iconColorHover = Color.textLight;
+            root.iconCol = Color.textNormal;
+            root.iconColHover = Color.textLight;
             root.brCol = Color.surfaceDark;
             root.brColHover = Color.overlayDark;
         }

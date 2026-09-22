@@ -7,32 +7,29 @@ import QtQuick
 
 Button {
     id: root
-    property bool isToggled: false
 
+    property bool isToggled: false
     property string time: Qt.formatTime(ClockService.date, "HH:mm:ss")
     property string date: Qt.formatDate(ClockService.date, "dd.MM.yyyy")
 
-    buttonIcon: root.isToggled ? "" : ""
-    buttonText: root.isToggled ? root.date : root.time
-    tooltipText: "Clock"
-
     bgCol: Color.baseDark
+    brCol: Color.baseLight
     bgColHover: Color.baseLight
+    brColHover: Color.surfaceDark
 
-    iconColor: Color.textNormal
-    iconColorHover: Color.textLight
-    textColor: Color.textNormal
-    textColorHover: Color.textLight
-    textSize: Constant.fontSizeMedium
-    iconSize: Constant.iconSizeSmall
-    innerSpacing: Constant.spacingSmall
+    tooltip: root.isToggled ? "Date" : "Clock"
+    btnIcon: root.isToggled ? "" : ""
+    btnText: root.isToggled ? root.date : root.time
+
+    spacing: Constant.spacingSmall
+    padding: Constant.paddingSmall
+    alignTextToBaseline: false
+
     radius: Constant.roundingLarge
-    buttonPadding: Constant.paddingSmall
+    border.width: Constant.borderSmall
 
-    alignToBaseline: false
-
-    height: Constant.barHeight + buttonPadding * 2
-    width: implicitWidth + buttonPadding * 2
+    height: Constant.barHeight + padding * 2
+    width: implicitWidth + padding * 2
 
     GradientShadow {
         topCol: Qt.rgba(1, 1, 1, 0)

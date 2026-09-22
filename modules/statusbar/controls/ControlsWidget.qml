@@ -1,18 +1,26 @@
 import qs.config.style
-import qs.components
 
 import QtQuick
+import QtQuick.Layouts
 
-Tray {
+Rectangle {
     id: root
 
-    innerSpacing: 0
-    implicitHeight: Constant.barHeight
+    color: "transparent"
 
-    SystemTrayControl {}
-    WallpaperControl {}
-    BrightnessControl {}
-    VolumeControl {}
-    NotificationControl {}
-    PowerControl {}
+    implicitWidth: rowLayout.implicitWidth
+    implicitHeight: Constant.barHeight + Constant.paddingSmall * 2
+
+    RowLayout {
+        id: rowLayout
+        anchors.centerIn: parent
+        spacing: Constant.spacingSmall
+
+        SystemTrayControl {}
+        WallpaperControl {}
+        BrightnessControl {}
+        VolumeControl {}
+        NotificationControl {}
+        PowerControl {}
+    }
 }

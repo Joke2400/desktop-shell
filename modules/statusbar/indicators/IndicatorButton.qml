@@ -10,17 +10,19 @@ Button {
     property bool isToggled: false
 
     bgCol: Color.baseDark
+    brCol: Color.baseLight
     bgColHover: Color.baseLight
-    textColor: Color.subTextNormal
-    textColorHover: Color.accentLight
-    iconColor: Color.subTextNormal
-    iconColorHover: Color.accentLight
+    brColHover: Color.surfaceDark
 
-    textSize: Constant.fontSizeMedium
-    iconSize: Constant.iconSizeSmall
-    innerSpacing: Constant.spacingSmall
+    iconCol: Color.subTextNormal
+    textCol: Color.subTextNormal
+    iconColHover: Color.accentLight
+    textColHover: Color.accentLight
+
+    spacing: Constant.spacingSmall
+    padding: Constant.paddingMedium * 1.25
+
     radius: Constant.roundingLarge
-    buttonPadding: Constant.paddingMedium * 1.25
 
     GradientShadow {
         topCol: Qt.rgba(1, 1, 1, 0)

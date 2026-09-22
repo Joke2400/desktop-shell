@@ -10,25 +10,23 @@ import Quickshell.Services.SystemTray
 Button {
     id: root
     required property SystemTrayItem modelData
-    required property string displayIcon
+
+    bgCol: Qt.hsla(Color.baseLight.hslHue, Color.baseLight.hslSaturation, Color.baseLight.hslLightness, 0.9)
+    brCol: Color.surfaceNormal
+    bgColHover: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.9)
+    brColHover: Color.surfaceLight
+
+    tooltip: (modelData.tooltipTitle || modelData.title).toUpperCase()
+    iconSize: Constant.iconSizeMedium
+
     signal menuOpened
     signal menuClosed
 
-    buttonIcon: displayIcon
-    tooltipText: (modelData.tooltipTitle || modelData.title).toUpperCase()
-    visible: Settings.showPassiveTrayIcons ? true : modelData.status !== SystemTrayItem.Passive
-
-    bgCol: Qt.hsla(Color.baseLight.hslHue, Color.baseLight.hslSaturation, Color.baseLight.hslLightness, 0.9)
-    bgColHover: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.9)
-    iconColor: Color.textNormal
-    iconColorHover: Color.textLight
-    brCol: Color.surfaceNormal
-    brColHover: Color.surfaceLight
-
-    iconSize: Constant.iconSizeMedium
+    padding: Constant.paddingMedium * 1.8
     radius: Constant.roundingMedium
-    buttonPadding: Constant.paddingMedium * 1.8
     border.width: Constant.borderSmall
+
+    visible: Settings.showPassiveTrayIcons ? true : modelData.status !== SystemTrayItem.Passive
 
     GradientHighlight {}
     BorderHighlight {

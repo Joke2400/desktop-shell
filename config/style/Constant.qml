@@ -54,11 +54,11 @@ Singleton {
     readonly property int marginMedium: scaleByMonitorHeight(12)
     readonly property int marginLarge: scaleByMonitorHeight(20)
 
-    readonly property int fontSizeTiny: scaleByMonitorHeight(12)
-    readonly property int fontSizeSmall: scaleByMonitorHeight(14)
-    readonly property int fontSizeMedium: scaleByMonitorHeight(16)
-    readonly property int fontSizeLarge: scaleByMonitorHeight(18)
-    readonly property int fontSizeHuge: scaleByMonitorHeight(20)
+    readonly property int textSizeTiny: scaleByMonitorHeight(12)
+    readonly property int textSizeSmall: scaleByMonitorHeight(14)
+    readonly property int textSizeMedium: scaleByMonitorHeight(16)
+    readonly property int textSizeLarge: scaleByMonitorHeight(18)
+    readonly property int textSizeHuge: scaleByMonitorHeight(20)
 
     readonly property int iconSizeTiny: scaleByMonitorHeight(18)
     readonly property int iconSizeSmall: scaleByMonitorHeight(20)

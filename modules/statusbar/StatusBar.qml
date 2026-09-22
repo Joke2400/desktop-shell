@@ -39,7 +39,7 @@ PanelWindow {
 
         anchors.fill: parent
         width: parent.width
-        implicitHeight: rowLayout.implicitHeight + Constant.paddingSmall * 2
+        implicitHeight: Constant.barHeight + Constant.paddingSmall * 2
 
         ClockWidget {
             anchors.centerIn: parent

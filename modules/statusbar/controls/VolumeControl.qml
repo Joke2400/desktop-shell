@@ -1,17 +1,17 @@
 import qs.config.style
-import qs.components
 import qs.services
 
 import QtQuick
 import Quickshell.Hyprland
 
-Button {
+ControlButton {
     id: root
 
     property int volume: AudioService.volume
     property bool muted: AudioService.muted
 
-    buttonIcon: {
+    tooltip: "Volume"
+    btnIcon: {
         if (root.muted || root.volume === 0) {
             return "";
         } else if (root.volume < 33) {
@@ -22,13 +22,12 @@ Button {
             return "";
         }
     }
-    tooltipText: "Volume"
-    bgColHover: Color.baseLight
-    iconColor: GlobalStates.volumeSliderIsVisible ? Color.colYellow : (root.muted ? Color.colMaroon : Color.textNormal)
-    iconColorHover: GlobalStates.volumeSliderIsVisible ? Color.colYellow : (root.muted ? Color.colRed : Color.textLight)
+    btnText: ""
 
-    radius: Constant.roundingLarge
-    iconSize: Constant.iconSizeMedium * 0.95
+    iconSize: Constant.iconSizeMedium * 0.95 // accounting for differences in apparent font size
+
+    iconCol: GlobalStates.volumeSliderIsVisible ? Color.colYellow : (root.muted ? Color.colMaroon : Color.textNormal)
+    iconColHover: GlobalStates.volumeSliderIsVisible ? Color.colYellow : (root.muted ? Color.colRed : Color.textLight)
 
     onLeftClicked: () => {
         if (!GlobalStates.volumeSliderIsVisible) {

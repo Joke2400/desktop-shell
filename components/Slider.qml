@@ -151,7 +151,7 @@ Rectangle {
             verticalAlignment: Text.AlignVCenter
             font {
                 family: Theme.fontFamily
-                pixelSize: Constant.fontSizeHuge
+                pixelSize: Constant.textSizeHuge
                 bold: true
             }
             color: Color.textNormal

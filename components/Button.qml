@@ -6,97 +6,103 @@ import QtQuick.Layouts
 ButtonBase {
     id: root
 
-    property bool alignToBaseline: true
+    required property string tooltip
 
-    property string buttonText: ""
-    property string buttonIcon: ""
-    property string tooltipText: ""
+    // Note: you don´t actually need to provide both, the required properties are for explicitness
+    required property string btnIcon
+    required property string btnText
 
-    property color textColor: Color.textNormal
-    property color textColorHover: textColor
-    property color iconColor: Color.textNormal
-    property color iconColorHover: iconColor
+    property int iconSize: Constant.iconSizeSmall
+    property int textSize: Constant.textSizeMedium
 
-    property int textSize: Constant.fontSizeMedium
-    property int iconSize: Constant.iconSizeMedium
-    property int innerSpacing: 0
-    property int buttonPadding: Constant.paddingSmall
-    property int hoverSizeIncrease: 2
+    property color iconCol: Color.textNormal
+    property color textCol: Color.textNormal
+    property color iconColHover: Color.textLight
+    property color textColHover: Color.textLight
 
-    function getButtonMinWidth(): int {
-        if (root.buttonText.length > 0 && root.buttonIcon.length > 0) {
-            return iconSize + hoverSizeIncrease + innerSpacing + textMetricsHovered.advanceWidth(root.buttonText) + buttonPadding * 2;
-        } else if (root.buttonText.length > 0) {
-            return textMetricsHovered.advanceWidth(root.buttonText) + buttonPadding * 2;
+    property int spacing: 0 // default is 0 so calc functions still work when either the icon or text are omitted
+    property int padding: Constant.paddingSmall
+    property int hoverIncreaseAmount: 2
+    property bool increaseSizeOnHover: true
+    property bool alignTextToBaseline: true
+
+    function calcReservedButtonMinWidth(): int {
+        let hasIcon = root.btnIcon.length > 0;
+        let hasText = root.btnText.length > 0;
+
+        // advanceWidth() is required to account for the width of the text, since fonts don't necessarily scale linearly
+        let minBtnSize = 0;
+        if (hasIcon && hasText) {
+            minBtnSize += hoveredFontMetrics.advanceWidth(root.btnText) + (root.iconSize + root.hoverIncreaseAmount) + root.spacing;
+        } else if (hasText) {
+            minBtnSize += hoveredFontMetrics.advanceWidth(root.btnText); // hoverIncreaseAmount is already applied via FontMetrics
         } else {
-            return iconSize + hoverSizeIncrease * 2 + buttonPadding * 2;
+            minBtnSize += root.iconSize + root.hoverIncreaseAmount;
         }
+        return minBtnSize;
     }
 
-    function getButtonMinHeight(): int {
-        if (root.buttonText.length > 0 && root.buttonIcon.length > 0) {
-            return Math.max(iconSize, textSize) + hoverSizeIncrease * 2 + buttonPadding * 2;
-        } else if (root.buttonText.length > 0) {
-            return textSize + hoverSizeIncrease * 2 + buttonPadding * 2;
+    function calcReservedButtonMinHeight(): int {
+        let hasIcon = root.btnIcon.length > 0;
+        let hasText = root.btnText.length > 0;
+
+        let minBtnSize = 0;
+        if (hasIcon && hasText) {
+            minBtnSize += (Math.max(root.iconSize, root.textSize) + root.hoverIncreaseAmount);
+        } else if (hasText) {
+            minBtnSize += root.textSize + root.hoverIncreaseAmount;
         } else {
-            return iconSize + hoverSizeIncrease * 2 + buttonPadding * 2;
+            minBtnSize += root.iconSize + root.hoverIncreaseAmount;
         }
+        return minBtnSize;
     }
 
-    implicitWidth: getButtonMinWidth()
-    implicitHeight: getButtonMinHeight()
+    implicitWidth: calcReservedButtonMinWidth() + root.padding * 2
+    implicitHeight: calcReservedButtonMinHeight() + root.padding * 2
 
     color: hovered ? bgColHover : bgCol
     border.color: hovered ? brColHover : brCol
-    onHoveredChanged: () => {
-        if (hovered) {
-            iconElement.font.pixelSize = root.iconSize + hoverSizeIncrease;
-            textElement.font.pixelSize = root.textSize + hoverSizeIncrease;
-        } else {
-            iconElement.font.pixelSize = root.iconSize;
-            textElement.font.pixelSize = root.textSize;
-        }
-    }
 
     FontMetrics {
-        id: textMetricsHovered
+        id: hoveredFontMetrics
         font.family: Theme.fontFamily
-        font.pixelSize: root.textSize + root.hoverSizeIncrease
+        font.pixelSize: root.textSize + root.hoverIncreaseAmount
         font.bold: true
     }
 
     RowLayout {
         id: rowLayout
-        spacing: root.innerSpacing
+        spacing: root.spacing
         anchors.centerIn: parent
-
-        width: iconElement.implicitWidth + textElement.implicitWidth + root.innerSpacing
+        width: iconElement.implicitWidth + textElement.implicitWidth + root.spacing
         height: iconElement.implicitHeight + textElement.implicitHeight
 
-        Text {
+        TextCustom {
             id: iconElement
-            visible: root.buttonIcon.length > 0
-            Layout.alignment: root.alignToBaseline ? Qt.AlignBaseline | Qt.AlignHCenter : Qt.AlignVCenter | Qt.AlignHCenter
-            font {
-                family: Theme.fontFamily
-                pixelSize: root.iconSize
-                bold: true
-            }
-            color: root.hovered ? root.iconColorHover : root.iconColor
-            text: root.buttonIcon
+
+            txt: root.btnIcon
+            col: root.iconCol
+            colHover: root.iconColHover
+
+            hovered: root.hovered
+            visible: root.btnIcon.length > 0
+
+            size: root.hovered ? (root.increaseSizeOnHover ? root.iconSize + root.hoverIncreaseAmount : root.iconSize) : root.iconSize
+            Layout.alignment: root.alignTextToBaseline ? Qt.AlignBaseline | Qt.AlignHCenter : Qt.AlignVCenter | Qt.AlignHCenter
         }
 
-        Text {
+        TextCustom {
             id: textElement
-            visible: root.buttonText.length > 0
-            Layout.alignment: root.alignToBaseline ? Qt.AlignBaseline | Qt.AlignHCenter : Qt.AlignVCenter | Qt.AlignHCenter
-            font {
-                family: Theme.fontFamily
-                pixelSize: root.textSize
-                bold: true
-            }
-            color: root.hovered ? root.textColorHover : root.textColor
-            text: root.buttonText
+
+            txt: root.btnText
+            col: root.textCol
+            colHover: root.textColHover
+
+            hovered: root.hovered
+            visible: root.btnText.length > 0
+
+            size: root.hovered ? (root.increaseSizeOnHover ? root.textSize + root.hoverIncreaseAmount : root.textSize) : root.textSize
+            Layout.alignment: root.alignTextToBaseline ? Qt.AlignBaseline | Qt.AlignHCenter : Qt.AlignVCenter | Qt.AlignHCenter
         }
     }
 }

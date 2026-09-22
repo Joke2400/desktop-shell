@@ -1,17 +1,17 @@
 import qs.config.style
-import qs.components
 import qs.services
 
 import QtQuick
 
-Button {
+ControlButton {
     id: root
 
     property int gamma: BrightnessService.gamma
     property int temperature: BrightnessService.temperature
     property bool dimmed: BrightnessService.temperature !== 6000
 
-    buttonIcon: {
+    tooltip: "Brightness"
+    btnIcon: {
         if (root.gamma < 70) {
             return "󰃞";
         } else if (root.gamma < 85) {
@@ -20,13 +20,10 @@ Button {
             return "󰃠";
         }
     }
-    tooltipText: "Brightness"
-    bgColHover: Color.baseLight
-    iconColor: GlobalStates.brightnessSliderIsVisible ? Color.colYellow : (root.dimmed ? Color.colDarkOrange : Color.textNormal)
-    iconColorHover: GlobalStates.brightnessSliderIsVisible ? Color.colYellow : (root.dimmed ? Color.colOrange : Color.textLight)
+    btnText: ""
 
-    radius: Constant.roundingLarge
-    iconSize: Constant.iconSizeMedium
+    iconCol: GlobalStates.brightnessSliderIsVisible ? Color.colYellow : (root.dimmed ? Color.colDarkOrange : Color.textNormal)
+    iconColHover: GlobalStates.brightnessSliderIsVisible ? Color.colYellow : (root.dimmed ? Color.colOrange : Color.textLight)
 
     onLeftClicked: () => {
         if (!GlobalStates.brightnessSliderIsVisible) {

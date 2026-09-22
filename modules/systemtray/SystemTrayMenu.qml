@@ -66,7 +66,8 @@ PanelWindow {
             Repeater {
                 model: SystemTrayService.trayItems
                 delegate: SystemTrayItem {
-                    displayIcon: SystemTrayService.getTrayItemIcon(modelData)
+                    btnIcon: SystemTrayService.getTrayItemIcon(modelData)
+                    btnText: ""
 
                     onMenuOpened: root.menuOpen = true
                     onMenuClosed: root.menuOpen = false

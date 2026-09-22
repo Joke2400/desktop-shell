@@ -11,15 +11,20 @@ Button {
     required property bool isActive
 
     bgCol: Qt.hsla(Color.baseLight.hslHue, Color.baseLight.hslSaturation, Color.baseLight.hslLightness, 0.9)
-    bgColHover: Color.overlayNormal
-    iconColor: isActive ? Color.accentLight : Color.overlayNormal
-    iconColorHover: Color.baseDark
-    brColHover: Color.baseDark
-    hoverSizeIncrease: 10
+    brCol: Color.surfaceDark
+
+    bgColHover: Qt.hsla(Color.overlayNormal.hslHue, Color.overlayNormal.hslSaturation, Color.overlayNormal.hslLightness, 0.9)
+    brColHover: Color.surfaceLight
 
     iconSize: Constant.iconSizeLarge * 2
+
+    iconCol: isActive ? Color.accentLight : Color.overlayNormal
+    iconColHover: Color.baseDark
+
+    padding: Constant.paddingMedium
+    hoverIncreaseAmount: 10
+    increaseSizeOnHover: true
     radius: Constant.roundingLarge * 4
-    buttonPadding: Constant.paddingMedium
 
     GradientHighlight {
         inverted: true

@@ -1,18 +1,18 @@
 import qs.config.style
-import qs.components
 import qs.services
 
 import QtQuick
 import Quickshell.Hyprland
 
-Button {
+ControlButton {
     id: root
 
     property bool isMuted: NotificationService.isMuted
     property bool isInhibited: NotificationService.isInhibited
     property int notificationCount: NotificationService.notificationCount
 
-    buttonIcon: {
+    tooltip: "Notifications"
+    btnIcon: {
         if (isMuted || isInhibited) {
             if (notificationCount > 0) {
                 return "";
@@ -26,13 +26,10 @@ Button {
             return "";
         }
     }
-    tooltipText: "Notifications"
-    bgColHover: Color.baseLight
-    iconColor: GlobalStates.notificationPanelIsVisible ? Color.colYellow : (isMuted || isInhibited ? Color.colMaroon : Color.textNormal)
-    iconColorHover: GlobalStates.notificationPanelIsVisible ? Color.colYellow : (isMuted || isInhibited ? Color.colRed : Color.textLight)
+    btnText: ""
 
-    radius: Constant.roundingLarge
-    iconSize: Constant.iconSizeMedium
+    iconCol: GlobalStates.notificationPanelIsVisible ? Color.colYellow : (isMuted || isInhibited ? Color.colMaroon : Color.textNormal)
+    iconColHover: GlobalStates.notificationPanelIsVisible ? Color.colYellow : (isMuted || isInhibited ? Color.colRed : Color.textLight)
 
     onLeftClicked: () => {
         Hyprland.dispatch("exec swaync-client -t");

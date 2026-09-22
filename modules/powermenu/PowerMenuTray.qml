@@ -12,33 +12,33 @@ Rectangle {
     property int activeIndex: 0
     property var buttonData: [
         {
-            buttonIcon: "",
-            tooltipText: "Shutdown",
+            tooltip: "Shutdown",
+            btnIcon: "",
             action: () => Quickshell.execDetached(["systemd-run", "--user", "--scope", "--collect", "--", "hyprshutdown", "--vt", "2", "-p", "systemctl poweroff"])
         },
         {
-            buttonIcon: "",
-            tooltipText: "Reboot",
+            tooltip: "Reboot",
+            btnIcon: "",
             action: () => Quickshell.execDetached(["systemd-run", "--user", "--scope", "--collect", "--", "hyprshutdown", "--vt", "2", "-p", "systemctl reboot"])
         },
         {
-            buttonIcon: "󰌾",
-            tooltipText: "Lock",
+            tooltip: "Lock",
+            btnIcon: "󰌾",
             action: () => Quickshell.execDetached(["hyprlock"])
         },
         {
-            buttonIcon: "󰗼",
-            tooltipText: "Logout",
+            tooltip: "Logout",
+            btnIcon: "󰗼",
             action: () => Quickshell.execDetached(["systemd-run", "--user", "--scope", "--collect", "--", "hyprshutdown", "--vt", "2"])
         },
         {
-            buttonIcon: "󰒲",
-            tooltipText: "Sleep",
+            tooltip: "Sleep",
+            btnIcon: "󰒲",
             action: () => Quickshell.execDetached(["systemctl", "suspend"])
         },
         {
-            buttonIcon: "",
-            tooltipText: "Hibernate",
+            tooltip: "Hibernate",
+            btnIcon: "",
             action: () => Quickshell.execDetached(["systemctl", "hibernate"])
         }
     ]
@@ -65,9 +65,12 @@ Rectangle {
             delegate: PowerMenuButton {
                 required property var modelData
                 required property int index
-                buttonIcon: modelData.buttonIcon
-                tooltipText: modelData.tooltipText
+
+                tooltip: modelData.tooltip
+                btnIcon: modelData.btnIcon
+                btnText: ""
                 action: modelData.action
+
                 isActive: index == root.activeIndex
             }
         }

@@ -1,11 +1,10 @@
 import qs.config.style
-import qs.components
 
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Hyprland
 
-Tray {
+Rectangle {
     id: root
 
     readonly property int activeWorkspace: Hyprland.focusedWorkspace?.id ?? 1
@@ -17,16 +16,25 @@ Tray {
         return base;
     }
 
-    Layout.leftMargin: Constant.marginMedium
-    innerSpacing: Constant.spacingSmall
+    color: "transparent"
+
+    implicitWidth: rowLayout.implicitWidth
     implicitHeight: Constant.barHeight + Constant.paddingSmall * 2
 
-    Repeater {
-        model: root.workspaces
-        delegate: Workspace {
-            required property int modelData
-            workspaceId: modelData
-            isFocused: workspaceId == root.activeWorkspace
+    Layout.leftMargin: Constant.marginSmall
+
+    RowLayout {
+        id: rowLayout
+        anchors.centerIn: parent
+        spacing: Constant.spacingSmall * 0.6
+
+        Repeater {
+            model: root.workspaces
+            delegate: WorkspaceButton {
+                required property int modelData
+                workspaceId: modelData
+                isFocused: workspaceId == root.activeWorkspace
+            }
         }
     }
 }

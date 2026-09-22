@@ -1,21 +1,18 @@
-import qs.config.style
-import qs.components
 import qs.services
+import qs.config.style
 
 import QtQuick
 
-Button {
+ControlButton {
     id: root
 
-    buttonIcon: "󰸉"
-    tooltipText: "Wallpaper Switcher"
-    bgColHover: Color.baseLight
-    iconColorHover: Color.textLight
-    brCol: Color.accentLight
     visible: WallpaperService.model.count >= 2
 
-    radius: Constant.roundingLarge
-    iconSize: Constant.iconSizeMedium
+    tooltip: "Wallpaper Switcher"
+    btnIcon: "󰸉"
+    btnText: ""
+
+    iconSize: Constant.iconSizeMedium * 0.95
 
     onLeftClicked: {
         GlobalStates.wallpaperSwitcherIsVisible = !GlobalStates.wallpaperSwitcherIsVisible;
