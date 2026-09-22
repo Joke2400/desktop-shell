@@ -10,29 +10,24 @@ Singleton {
     readonly property int referencePhysicalHeight: 2160
     readonly property real referenceScale: 1.5
     readonly property real referenceHeight: referencePhysicalHeight / referenceScale
-
     readonly property int monitorHeight: MonitorService.selectedMonitor.height
 
-    function scaleByMonitorHeight(baseValue: int): real {
-        return Math.max(1, Math.round((baseValue * monitorHeight) / referenceHeight));
-    }
+    readonly property real densityExponent: 0.5
+    readonly property real uiScaleFactor: Math.pow(referenceHeight / monitorHeight, densityExponent)
 
-    property real uiScaleFactor: { // needs improvement
-        if (MonitorService.selectedMonitor.height <= 1920) {
-            return 1.0;
-        } else
-            return 0.8;
+    function scaleByDensity(baseValue: real): real {
+        return Math.max(1, Math.round(baseValue * uiScaleFactor));
     }
 
     // Component sizes
-    readonly property int barHeight: scaleByMonitorHeight(32)
+    readonly property int barHeight: scaleByDensity(32)
 
-    readonly property int sidebarWidth: scaleByMonitorHeight(340)
+    readonly property int sidebarWidth: scaleByDensity(340)
 
-    readonly property int sliderWidth: scaleByMonitorHeight(380)
-    readonly property int sliderHeight: scaleByMonitorHeight(32)
-    readonly property int sliderTrackSize: scaleByMonitorHeight(12)
-    readonly property int sliderHandleSize: scaleByMonitorHeight(22)
+    readonly property int sliderWidth: scaleByDensity(380)
+    readonly property int sliderHeight: scaleByDensity(32)
+    readonly property int sliderTrackSize: scaleByDensity(12)
+    readonly property int sliderHandleSize: scaleByDensity(22)
 
     readonly property int carouselPanelHeight: MonitorService.selectedMonitor.height * 0.5
     readonly property int carouselPanelWidth: MonitorService.selectedMonitor.width
@@ -42,35 +37,35 @@ Singleton {
     readonly property real carouselItemWidth: carouselViewWidth / carouselItemCount
 
     // Basic sizes
-    readonly property int spacingSmall: scaleByMonitorHeight(4)
-    readonly property int spacingMedium: scaleByMonitorHeight(8)
-    readonly property int spacingLarge: scaleByMonitorHeight(16)
+    readonly property int spacingSmall: scaleByDensity(4)
+    readonly property int spacingMedium: scaleByDensity(8)
+    readonly property int spacingLarge: scaleByDensity(16)
 
-    readonly property int paddingSmall: scaleByMonitorHeight(2)
-    readonly property int paddingMedium: scaleByMonitorHeight(4)
-    readonly property int paddingLarge: scaleByMonitorHeight(8)
+    readonly property int paddingSmall: scaleByDensity(3)
+    readonly property int paddingMedium: scaleByDensity(4)
+    readonly property int paddingLarge: scaleByDensity(8)
 
-    readonly property int marginSmall: scaleByMonitorHeight(6)
-    readonly property int marginMedium: scaleByMonitorHeight(12)
-    readonly property int marginLarge: scaleByMonitorHeight(20)
+    readonly property int marginSmall: scaleByDensity(6)
+    readonly property int marginMedium: scaleByDensity(12)
+    readonly property int marginLarge: scaleByDensity(20)
 
-    readonly property int textSizeTiny: scaleByMonitorHeight(12)
-    readonly property int textSizeSmall: scaleByMonitorHeight(14)
-    readonly property int textSizeMedium: scaleByMonitorHeight(16)
-    readonly property int textSizeLarge: scaleByMonitorHeight(18)
-    readonly property int textSizeHuge: scaleByMonitorHeight(20)
+    readonly property int textSizeTiny: scaleByDensity(12)
+    readonly property int textSizeSmall: scaleByDensity(14)
+    readonly property int textSizeMedium: scaleByDensity(16)
+    readonly property int textSizeLarge: scaleByDensity(18)
+    readonly property int textSizeHuge: scaleByDensity(20)
 
-    readonly property int iconSizeTiny: scaleByMonitorHeight(18)
-    readonly property int iconSizeSmall: scaleByMonitorHeight(20)
-    readonly property int iconSizeMedium: scaleByMonitorHeight(24)
-    readonly property int iconSizeLarge: scaleByMonitorHeight(30)
-    readonly property int iconSizeHuge: scaleByMonitorHeight(36)
+    readonly property int iconSizeTiny: scaleByDensity(18)
+    readonly property int iconSizeSmall: scaleByDensity(20)
+    readonly property int iconSizeMedium: scaleByDensity(24)
+    readonly property int iconSizeLarge: scaleByDensity(30)
+    readonly property int iconSizeHuge: scaleByDensity(36)
 
-    readonly property int roundingSmall: scaleByMonitorHeight(6)
-    readonly property int roundingMedium: scaleByMonitorHeight(12)
-    readonly property int roundingLarge: scaleByMonitorHeight(18)
+    readonly property int roundingSmall: scaleByDensity(6)
+    readonly property int roundingMedium: scaleByDensity(12)
+    readonly property int roundingLarge: scaleByDensity(18)
 
-    readonly property int borderSmall: scaleByMonitorHeight(1)
-    readonly property int borderMedium: scaleByMonitorHeight(2)
-    readonly property int borderLarge: scaleByMonitorHeight(3)
+    readonly property int borderSmall: 1
+    readonly property int borderMedium: 2
+    readonly property int borderLarge: 3
 }
