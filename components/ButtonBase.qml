@@ -34,9 +34,4 @@ Rectangle {
                 root.rightClicked();
         }
     }
-    WheelHandler {
-        id: wheel
-        acceptedDevices: PointerDevice.AllDevices
-        onWheel: event => root.scrolled(event.angleDelta.y)
-    }
 }
