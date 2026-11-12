@@ -41,6 +41,7 @@
 - [ ] Issue: SystemDataService.qml needs a better implementation for how mountpoints are specified (needs checks for example).
 - [ ] Issue: Brightness service needs to react to the hyprsunset schedule
 - [ ] Issue: Implement fix for certain font icons which are visually off-center compared to other icons (its font-related)
+- [ ] Issue: Implementation of AudioService is in multiple ways fragile
 
 ## Ideas (undeveloped/more long-term):
 - [ ] Add: Integrated controls for audio devices
