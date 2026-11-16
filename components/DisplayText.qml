@@ -1,10 +1,10 @@
 import qs.config.style
 
 import QtQuick
+import QtQuick.Layouts
 
 Text {
     id: root
-    required property string txt
     required property int size
 
     property string fontFamily: Theme.fontFamily
@@ -12,12 +12,13 @@ Text {
     property color colHover: Color.textLight
     property bool hovered: false
     property bool bold: true
+    property bool alignToBaseline: true
 
-    text: txt
     font {
         pixelSize: size
         family: fontFamily
         bold: bold
     }
     color: hovered ? colHover : col
+    Layout.alignment: root.alignToBaseline ? Qt.AlignBaseline | Qt.AlignHCenter : Qt.AlignVCenter | Qt.AlignHCenter
 }

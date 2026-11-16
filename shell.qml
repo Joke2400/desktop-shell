@@ -11,10 +11,10 @@ import QtQuick
 
 ShellRoot {
     StatusBar {}
-    PowerMenu {}
-    WallpaperSwitcher {}
-    BrightnessSlider {}
-    VolumeSlider {}
-    SystemTrayMenu {}
-    SidebarPanel {}
+    //PowerMenu {}
+    //WallpaperSwitcher {}
+    //BrightnessSlider {}
+    //VolumeSlider {}
+    //SystemTrayMenu {}
+    //SidebarPanel {}
 }

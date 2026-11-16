@@ -6,11 +6,15 @@ import QtQuick
 Button {
     id: root
 
+    required property var action
+
     bgCol: "transparent"
     bgColHover: "transparent"
 
-    iconSize: Constant.iconSizeLarge
+    textSize: Constant.textSizeMedium
 
     padding: Constant.paddingSmall
     radius: Constant.roundingLarge
+
+    onLeftClicked: action()
 }

@@ -1,15 +1,12 @@
 import qs.services
 import qs.config.style
 import qs.config.settings
-import qs.components.style
-import qs.modules.statusbar.indicators
-import qs.modules.statusbar.controls
-import qs.modules.statusbar.workspaces
-import qs.modules.statusbar.clock
+import qs.components.visuals
 
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
+import Quickshell.Wayland
 
 PanelWindow {
     id: root
@@ -19,9 +16,10 @@ PanelWindow {
     anchors.bottom: Settings.statusbarPosition === "bottom" ? true : false
     anchors.left: true
     anchors.right: true
+    WlrLayershell.namespace: "quickshell:shell"
     color: "transparent"
 
-    implicitHeight: barContainer.implicitHeight + Constant.paddingSmall * 2
+    implicitHeight: barContainer.implicitHeight
 
     margins {
         top: (Constant.marginSmall / 2)
@@ -33,41 +31,51 @@ PanelWindow {
     Rectangle {
         id: barContainer
 
-        radius: Constant.roundingMedium
-        color: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.9)
-        border.color: Color.surfaceDark
+        color: "transparent"
 
         anchors.fill: parent
-        width: parent.width
+        implicitWidth: parent.width
         implicitHeight: Constant.barHeight + Constant.paddingSmall * 2
 
-        ClockWidget {
-            anchors.centerIn: parent
+        GlassSurface {
+            anchors.fill: parent
+            radius: Constant.roundingMedium
+            tint: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.55)
         }
-
-        GradientHighlight {}
-        BorderHighlight {}
-        GradientShadow {}
 
         RowLayout {
             id: rowLayout
             anchors.fill: parent
             anchors.leftMargin: Constant.marginMedium
             anchors.rightMargin: Constant.marginMedium
-            anchors.topMargin: Constant.paddingSmall
-            anchors.bottomMargin: Constant.paddingSmall
-            spacing: 0
-
-            SidebarControl {}
-            WorkspaceWidget {}
-            // ColorTestTray {}
+            spacing: Constant.spacingSmall
 
             Item {
                 Layout.fillWidth: true
             }
 
-            IndicatorWidget {}
-            ControlsWidget {}
+
+            BarButton {
+                text: "󱊣"
+                tooltip: "Battery"
+                action: () => {  }
+            }
+            BarButton {
+                text: "󰖩"
+                tooltip: "Internet"
+                action: () => {  }
+            }
+            BarButton {
+                text: ""
+                tooltip: "Controls"
+                action: () => {  }
+            }
+            BarButton {
+                text: ""
+                tooltip: "Power"
+                action: () => { GlobalStates.powerMenuIsVisible = !GlobalStates.powerMenuIsVisible };
+            }
+
         }
     }
 }

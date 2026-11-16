@@ -11,7 +11,7 @@ Singleton {
     }
 
     // Component sizes
-    readonly property int barHeight: scale(32)
+    readonly property int barHeight: scale(28)
 
     readonly property int sidebarWidth: scale(340)
 
@@ -20,6 +20,7 @@ Singleton {
     readonly property int sliderTrackSize: scale(12)
     readonly property int sliderHandleSize: scale(22)
 
+    // this needs to be improved/relocated
     readonly property int carouselPanelHeight: MonitorService.selectedMonitor.height * 0.5
     readonly property int carouselPanelWidth: MonitorService.selectedMonitor.width
     readonly property int carouselViewHeight: carouselPanelHeight - borderLarge * 2
@@ -29,20 +30,14 @@ Singleton {
 
     // Basic sizes
     readonly property int textSizeTiny: scale(12)
-    readonly property int textSizeSmall: scale(14)
-    readonly property int textSizeMedium: scale(16)
-    readonly property int textSizeLarge: scale(18)
-    readonly property int textSizeHuge: scale(20)
+    readonly property int textSizeSmall: scale(16)
+    readonly property int textSizeMedium: scale(22)
+    readonly property int textSizeLarge: scale(24)
+    readonly property int textSizeHuge: scale(30)
 
-    readonly property int iconSizeTiny: scale(18)
-    readonly property int iconSizeSmall: scale(20)
-    readonly property int iconSizeMedium: scale(24)
-    readonly property int iconSizeLarge: scale(30)
-    readonly property int iconSizeHuge: scale(36)
-
-    readonly property int spacingSmall: scale(4)
-    readonly property int spacingMedium: scale(8)
-    readonly property int spacingLarge: scale(12)
+    readonly property int spacingSmall: scale(2)
+    readonly property int spacingMedium: scale(4)
+    readonly property int spacingLarge: scale(6)
 
     readonly property int paddingSmall: scale(4)
     readonly property int paddingMedium: scale(5)
