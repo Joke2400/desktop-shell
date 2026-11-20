@@ -16,6 +16,7 @@ Singleton {
     readonly property int controlsMenuWidth: scale(340)
     readonly property int settingsMenuWidth: scale(340)
 
+    // this needs to be improved/relocated
     readonly property int buttonSize: scale(22)
     readonly property int sliderWidth: scale(380)
     readonly property int sliderHeight: scale(32)

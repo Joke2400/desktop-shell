@@ -11,7 +11,6 @@ PanelWindow {
     visible: StateService.showSettingsMenu
     anchors {
         top: true
-        bottom: true
         left: true
     }
     margins {

@@ -48,4 +48,9 @@ Singleton {
     property color colWarning: colMaroon
     property color colError: colOrange
     property color colInfo: colBlue
+
+    // Glass tints
+    property color tintDark: Qt.hsla(Color.baseDark.hslHue, Color.baseDark.hslSaturation, Color.baseDark.hslLightness, 0.06)
+    property color tintNormal: Qt.hsla(Color.surfaceNormal.hslHue, Color.surfaceNormal.hslSaturation, Color.surfaceNormal.hslLightness, 0.06)
+    property color tintLight: Qt.hsla(Color.overlayLight.hslHue, Color.overlayLight.hslSaturation, Color.overlayLight.hslLightness, 0.06)
 }

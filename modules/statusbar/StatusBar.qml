@@ -12,14 +12,14 @@ PanelWindow {
     id: root
 
     screen: MonitorService.selectedMonitor
-    anchors.top: Settings.statusbarPosition === "top" ? true : false
-    anchors.bottom: Settings.statusbarPosition === "bottom" ? true : false
-    anchors.left: true
-    anchors.right: true
+    anchors {
+        top: Settings.statusbarPosition === "top" ? true : false
+        bottom: Settings.statusbarPosition === "bottom" ? true : false
+        left: true
+        right: true
+    }
     WlrLayershell.namespace: "quickshell:shell"
     color: "transparent"
-
-    implicitHeight: barContainer.implicitHeight
 
     margins {
         top: (Constant.marginSmall / 2)
@@ -28,19 +28,20 @@ PanelWindow {
         bottom: (Constant.marginSmall / 2)
     }
 
+    implicitHeight: barContainer.implicitHeight
+
     Rectangle {
         id: barContainer
 
         color: "transparent"
 
-        anchors.fill: parent
         implicitWidth: parent.width
         implicitHeight: Constant.barHeight + Constant.paddingSmall * 2
 
         GlassSurface {
             anchors.fill: parent
             radius: Constant.roundingMedium
-            tint: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.06)
+            tint: Color.tintNormal
         }
 
         RowLayout {
@@ -50,6 +51,21 @@ PanelWindow {
             anchors.rightMargin: Constant.marginMedium
             spacing: 0
 
+            BarButton {
+                text: ""
+                tooltip: "Settings"
+                action: () => { }
+            }
+            BarButton {
+                text: ""
+                tooltip: "Applications"
+                action: () => { }
+            }
+            BarButton {
+                text: ""
+                tooltip: "Search"
+                action: () => { }
+            }
             Item {
                 Layout.fillWidth: true
             }

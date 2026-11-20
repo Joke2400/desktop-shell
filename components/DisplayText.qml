@@ -12,7 +12,7 @@ Text {
     property color colHover: Color.textLight
     property bool hovered: false
     property bool bold: true
-    property bool alignToBaseline: true
+    property bool alignToBaseline: false
 
     font {
         pixelSize: size

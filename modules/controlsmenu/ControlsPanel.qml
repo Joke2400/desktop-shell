@@ -1,8 +1,12 @@
 import qs.services
 import qs.config.style
+import qs.components.visuals
 
+import QtQuick
+import QtQuick.Layouts
 import Quickshell
 import Quickshell.Hyprland
+import Quickshell.Wayland
 
 PanelWindow {
     id: root
@@ -11,9 +15,11 @@ PanelWindow {
     visible: StateService.showControlsMenu
     anchors {
         top: true
-        bottom: true
         right: true
     }
+    WlrLayershell.namespace: "quickshell:shell"
+    color: "transparent"
+
     margins {
         top: Constant.marginSmall
         right: Constant.marginSmall
@@ -23,7 +29,6 @@ PanelWindow {
     implicitWidth: Constant.controlsMenuWidth
     implicitHeight: 500
 
-    color: "red"
     exclusiveZone: 0
 
     HyprlandFocusGrab {
@@ -34,6 +39,62 @@ PanelWindow {
 
         onActiveChanged: {
             if (active) {}
+        }
+    }
+
+    Rectangle {
+        id: menuContainer
+
+        color: "transparent"
+        anchors.fill: parent
+
+        GlassSurface {
+            anchors.fill: parent
+            radius: Constant.roundingMedium
+            tint: Color.tintNormal
+        }
+
+        GridLayout {
+            id: buttonGrid
+            columnSpacing: Constant.spacingLarge
+            rowSpacing: Constant.spacingLarge
+            columns: 4
+
+            ControlButton {
+                text: SystemTrayService.getNetworkTrayItemIcon(SystemTrayService.networkTrayItem)
+                tooltip: "Internet"
+                action: () => {  }
+            }
+            ControlButton {
+                text: "󰂯"
+                tooltip: "Bluetooth"
+                action: () => {  }
+            }
+            ControlButton {
+                text: "󰄀"
+                tooltip: "Screenshot"
+                action: () => {  }
+            }
+            ControlButton {
+                text: "󰕧"
+                tooltip: "Screenrecord"
+                action: () => {  }
+            }
+            ControlButton {
+                text: ""
+                tooltip: "Calculator"
+                action: () => {  }
+            }
+            ControlButton {
+                text: "󱘟"
+                tooltip: "Clipboard"
+                action: () => {  }
+            }
+            ControlButton {
+                text: "󰀠"
+                tooltip: "Alarm"
+                action: () => {  }
+            }
         }
     }
 }
