@@ -54,17 +54,17 @@ PanelWindow {
             BarButton {
                 text: ""
                 tooltip: "Settings"
-                action: () => { }
+                leftAction: () => { }
             }
             BarButton {
                 text: ""
                 tooltip: "Applications"
-                action: () => { }
+                leftAction: () => { }
             }
             BarButton {
                 text: ""
                 tooltip: "Search"
-                action: () => { }
+                leftAction: () => { }
             }
             Item {
                 Layout.fillWidth: true
@@ -94,18 +94,18 @@ PanelWindow {
             BarButton {
                 text: ""
                 tooltip: "Controls"
-                action: () => { StateService.openMenu("showControlsMenu") }
+                leftAction: () => { StateService.openMenu("showControlsMenu") }
             }
             // Note: the notifications menu is still handled by swaync
             BarButton {
                 text: ""
                 tooltip: "Notifications"
-                action: () => { StateService.openMenu("showNotificationsMenu") }
+                leftAction: () => { StateService.openMenu("showNotificationsMenu") }
             }
             BarButton {
                 text: ""
                 tooltip: "Power"
-                action: () => { StateService.openMenu("showPowerMenu") };
+                leftAction: () => { StateService.openMenu("showPowerMenu") };
             }
 
         }

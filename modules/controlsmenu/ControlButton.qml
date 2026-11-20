@@ -7,7 +7,9 @@ import QtQuick
 Button {
     id: root
 
-    required property var action
+    required property var leftAction
+    property var middleAction
+    property var rightAction
 
     bgCol: "transparent"
     bgColHover: "transparent"
@@ -17,7 +19,9 @@ Button {
 
     padding: Constant.paddingSmall
 
-    onLeftClicked: action()
+    onLeftClicked: leftAction()
+    onMiddleClicked: middleAction()
+    onRightClicked: rightAction()
 
     GlassSurface {
         anchors.fill: parent

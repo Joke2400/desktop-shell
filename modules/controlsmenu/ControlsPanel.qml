@@ -63,37 +63,37 @@ PanelWindow {
             ControlButton {
                 text: SystemTrayService.getNetworkTrayItemIcon(SystemTrayService.networkTrayItem)
                 tooltip: "Internet"
-                action: () => {  }
+                leftAction: () => {  }
             }
             ControlButton {
                 text: "󰂯"
                 tooltip: "Bluetooth"
-                action: () => {  }
+                leftAction: () => {  }
             }
             ControlButton {
                 text: "󰄀"
                 tooltip: "Screenshot"
-                action: () => {  }
+                leftAction: () => {  }
             }
             ControlButton {
                 text: "󰕧"
                 tooltip: "Screenrecord"
-                action: () => {  }
+                leftAction: () => {  }
             }
             ControlButton {
                 text: ""
                 tooltip: "Calculator"
-                action: () => {  }
+                leftAction: () => {  }
             }
             ControlButton {
                 text: "󱘟"
                 tooltip: "Clipboard"
-                action: () => {  }
+                leftAction: () => {  }
             }
             ControlButton {
                 text: "󰀠"
                 tooltip: "Alarm"
-                action: () => {  }
+                leftAction: () => {  }
             }
         }
     }
