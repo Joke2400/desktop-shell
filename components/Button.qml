@@ -1,7 +1,6 @@
 import qs.config.style
 
 import QtQuick
-import QtQuick.Layouts
 
 Rectangle {
     id: root
@@ -29,8 +28,8 @@ Rectangle {
     border.color: hovered ? brColHover : brCol
     border.width: 0
 
-    implicitWidth: btnText.implicitWidth + root.padding * 2
-    implicitHeight: btnText.implicitHeight + root.padding * 2
+    implicitWidth: Math.max(btnText.implicitWidth + root.padding * 2, Constant.barButtonSize + root.padding * 2)
+    implicitHeight: Math.max(btnText.implicitHeight + root.padding * 2, Constant.barButtonSize + root.padding * 2)
 
     HoverHandler {
         id: hover

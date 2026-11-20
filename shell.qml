@@ -1,6 +1,7 @@
 //@ pragma UseQApplication
 import qs.modules.statusbar
-import qs.modules.sidebars
+import qs.modules.controlsmenu
+import qs.modules.settingsmenu
 
 import Quickshell
 import QtQuick

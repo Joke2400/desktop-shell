@@ -48,22 +48,32 @@ PanelWindow {
             anchors.fill: parent
             anchors.leftMargin: Constant.marginMedium
             anchors.rightMargin: Constant.marginMedium
-            spacing: Constant.spacingSmall
+            spacing: 0
 
             Item {
                 Layout.fillWidth: true
             }
 
-
-            BarButton {
-                text: "X"
-                tooltip: "TestButton1"
-                action: () => { StateService.openMenu("showSettingsMenu") }
+            BarIndicator {
+                text: {
+                    if (BatteryService.isFull)
+                        return "󰂄";
+                    if (BatteryService.percentage < 15) {
+                        return BatteryService.isCharging ? "󰢟" : "󰂎";
+                    } else if (BatteryService.percentage < 33) {
+                        return BatteryService.isCharging ? "󱊤" : "󱊡";
+                    } else if (BatteryService.percentage < 66) {
+                        return BatteryService.isCharging ? "󱊥" : "󱊢";
+                    } else {
+                        return BatteryService.isCharging ? "󱊦" : "󱊣";
+                    }
+                }
+                tooltip: "Battery: " + BatteryService.percentage + "%"
+                visible: BatteryService.battery !== null
             }
-            BarButton {
-                text: "󱊣"
-                tooltip: "Battery"
-                action: () => { StateService.openMenu("showBatteryMenu") }
+            BarIndicator {
+                text: SystemTrayService.getNetworkTrayItemIcon(SystemTrayService.networkTrayItem)
+                tooltip: "Internet"
             }
             BarButton {
                 text: ""
