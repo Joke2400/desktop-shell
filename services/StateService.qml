@@ -15,8 +15,9 @@ Singleton {
     property bool showVolumeSlider: false
     property bool showBrightnessSlider: false
 
-    // Functionality not yet planned
+    // Functionality not yet planned/unsure if will be needed
     property bool showInternetMenu: false
+    property bool showBluetoothMenu: false
     property bool showBatteryMenu: false
 
     // Mutually exclusive properties
