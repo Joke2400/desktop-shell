@@ -29,6 +29,7 @@ Singleton {
         "showNotificationsMenu",
         "showWallpaperSwitcherMenu",
         "showInternetMenu",
+        "showBluetoothMenu",
         "showBatteryMenu"
     ]
 
