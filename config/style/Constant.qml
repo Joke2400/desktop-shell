@@ -13,7 +13,8 @@ Singleton {
     // Component sizes
     readonly property int barHeight: scale(28)
 
-    readonly property int sidebarWidth: scale(340)
+    readonly property int controlsMenuWidth: scale(340)
+    readonly property int settingsMenuWidth: scale(340)
 
     readonly property int sliderWidth: scale(380)
     readonly property int sliderHeight: scale(32)

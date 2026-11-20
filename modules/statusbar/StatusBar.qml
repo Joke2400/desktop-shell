@@ -40,7 +40,7 @@ PanelWindow {
         GlassSurface {
             anchors.fill: parent
             radius: Constant.roundingMedium
-            tint: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.55)
+            tint: Qt.hsla(Color.baseNormal.hslHue, Color.baseNormal.hslSaturation, Color.baseNormal.hslLightness, 0.06)
         }
 
         RowLayout {
@@ -68,6 +68,11 @@ PanelWindow {
             BarButton {
                 text: ""
                 tooltip: "Controls"
+                action: () => {  }
+            }
+            BarButton {
+                text: ""
+                tooltip: "Notifications"
                 action: () => {  }
             }
             BarButton {

@@ -1,20 +1,12 @@
 //@ pragma UseQApplication
 import qs.modules.statusbar
-import qs.modules.sliders
-import qs.modules.powermenu
-import qs.modules.systemtray
-import qs.modules.sidebar
-import qs.modules.wallpaperswitcher
+import qs.modules.sidebars
 
 import Quickshell
 import QtQuick
 
 ShellRoot {
     StatusBar {}
-    //PowerMenu {}
-    //WallpaperSwitcher {}
-    //BrightnessSlider {}
-    //VolumeSlider {}
-    //SystemTrayMenu {}
-    //SidebarPanel {}
+    ControlsPanel {}
+    SettingsPanel {}
 }
