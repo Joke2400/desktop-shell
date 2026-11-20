@@ -66,15 +66,11 @@ PanelWindow {
                 action: () => { StateService.openMenu("showBatteryMenu") }
             }
             BarButton {
-                text: "󰖩"
-                tooltip: "Internet"
-                action: () => { StateService.openMenu("showInternetMenu") }
-            }
-            BarButton {
                 text: ""
                 tooltip: "Controls"
                 action: () => { StateService.openMenu("showControlsMenu") }
             }
+            // Note: the notifications menu is still handled by swaync
             BarButton {
                 text: ""
                 tooltip: "Notifications"
