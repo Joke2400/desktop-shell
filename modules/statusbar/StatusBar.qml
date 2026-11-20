@@ -56,29 +56,34 @@ PanelWindow {
 
 
             BarButton {
+                text: "X"
+                tooltip: "TestButton1"
+                action: () => { StateService.openMenu("showSettingsMenu") }
+            }
+            BarButton {
                 text: "󱊣"
                 tooltip: "Battery"
-                action: () => {  }
+                action: () => { StateService.openMenu("showBatteryMenu") }
             }
             BarButton {
                 text: "󰖩"
                 tooltip: "Internet"
-                action: () => {  }
+                action: () => { StateService.openMenu("showInternetMenu") }
             }
             BarButton {
                 text: ""
                 tooltip: "Controls"
-                action: () => {  }
+                action: () => { StateService.openMenu("showControlsMenu") }
             }
             BarButton {
                 text: ""
                 tooltip: "Notifications"
-                action: () => {  }
+                action: () => { StateService.openMenu("showNotificationsMenu") }
             }
             BarButton {
                 text: ""
                 tooltip: "Power"
-                action: () => { GlobalStates.powerMenuIsVisible = !GlobalStates.powerMenuIsVisible };
+                action: () => { StateService.openMenu("showPowerMenu") };
             }
 
         }
