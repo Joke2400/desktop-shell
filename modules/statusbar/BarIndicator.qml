@@ -1,6 +1,5 @@
 import qs.config.style
 import qs.components
-import qs.components.visuals
 
 import QtQuick
 
