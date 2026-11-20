@@ -12,11 +12,11 @@ Singleton {
 
     // Component sizes
     readonly property int barHeight: scale(28)
-    readonly property int barButtonSize: scale(22)
 
     readonly property int controlsMenuWidth: scale(340)
     readonly property int settingsMenuWidth: scale(340)
 
+    readonly property int buttonSize: scale(22)
     readonly property int sliderWidth: scale(380)
     readonly property int sliderHeight: scale(32)
     readonly property int sliderTrackSize: scale(12)

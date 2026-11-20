@@ -12,6 +12,7 @@ Rectangle {
 
     property int textSize: Constant.textSizeMedium
     property int padding: Constant.paddingSmall
+    property int minBtnSize: Constant.buttonSize
 
     property color textCol: Color.textNormal
     property color textColHover: Color.textLight
@@ -28,8 +29,8 @@ Rectangle {
     border.color: hovered ? brColHover : brCol
     border.width: 0
 
-    implicitWidth: Math.max(btnText.implicitWidth + root.padding * 2, Constant.barButtonSize + root.padding * 2)
-    implicitHeight: Math.max(btnText.implicitHeight + root.padding * 2, Constant.barButtonSize + root.padding * 2)
+    implicitWidth: Math.max(btnText.implicitWidth + root.padding * 2, root.minBtnSize + root.padding * 2)
+    implicitHeight: Math.max(btnText.implicitHeight + root.padding * 2, root.minBtnSize + root.padding * 2)
 
     HoverHandler {
         id: hover
