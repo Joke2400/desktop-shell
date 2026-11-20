@@ -20,8 +20,8 @@ Rectangle {
     border.color: brCol
     border.width: 0
 
-    implicitWidth: Math.max(btnText.implicitWidth + root.padding * 2, Constant.barButtonSize + root.padding * 2)
-    implicitHeight: Math.max(btnText.implicitHeight + root.padding * 2, Constant.barButtonSize + root.padding * 2)
+    implicitWidth: Math.max(btnText.implicitWidth + root.padding * 2, Constant.buttonSize + root.padding * 2)
+    implicitHeight: Math.max(btnText.implicitHeight + root.padding * 2, Constant.buttonSize + root.padding * 2)
 
     DisplayText {
         id: btnText
