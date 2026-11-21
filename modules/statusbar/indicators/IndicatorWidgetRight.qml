@@ -30,11 +30,19 @@ Rectangle {
             color: "transparent"
             radius: Constant.roundingMedium
 
+            Rectangle {
+                anchors.fill: parent
+                radius: Constant.roundingMedium
+                color: Qt.hsla(Color.baseLight.hslHue, Color.baseLight.hslSaturation, Color.baseLight.hslLightness, 0.5)
+                z: -2
+            }
+
             GlassSurface {
                 anchors.fill: parent
                 radius: Constant.roundingMedium
                 tint: Color.tintDark
                 edgeLight: 0
+                z: -1
             }
 
             RowLayout {
