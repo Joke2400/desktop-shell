@@ -14,8 +14,8 @@ Button {
     brCol: "transparent"
 
     textSize: Constant.powerButtonSize
-    textCol: isActive ? Color.accentLight : Color.overlayNormal
-    textColHover: isActive ? Color.accentNormal : Color.overlayLight
+    textCol: isActive ? Color.accentNormal : Color.overlayNormal
+    textColHover: isActive ? Color.accentLight : Color.overlayLight
 
     padding: Constant.paddingLarge
     radius: Constant.roundingLarge * 4
