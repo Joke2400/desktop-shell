@@ -28,10 +28,19 @@ Rectangle {
             implicitWidth: settingsBtn.implicitHeight
             implicitHeight: settingsBtn.minBtnSize + Constant.paddingSmall * 2.5
 
+            Rectangle {
+                anchors.fill: parent
+                radius: Constant.roundingLarge
+                color: Qt.hsla(Color.accentNormal.hslHue, Color.accentNormal.hslSaturation, Color.accentNormal.hslLightness, 0.66)
+                z: -2
+            }
+
             GlassSurface {
                 anchors.fill: parent
                 radius: Constant.roundingLarge
-                tint: Color.tintAccent
+                tint: Color.tintDark
+                edgeLight: 0
+                z: -1
             }
         }
         BarButton {
