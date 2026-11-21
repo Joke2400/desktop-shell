@@ -43,6 +43,13 @@
 - [ ] Issue: Implement fix for certain font icons which are visually off-center compared to other icons (its font-related)
 - [ ] Issue: Implementation of AudioService is in multiple ways fragile
 
+## List of nixos config integrations (which might need to be re-evaluated/fixed/improved)
+- Hyprpaper usage vs. another utility
+- The folder structure for wallpapers (& lack of support for vertical wallpapers)
+- Swaync for notification centre gui
+- Reliance on certain bash scripts defined in my nixos config
+- (I'm forgetting something)
+
 ## Ideas (undeveloped/more long-term):
 - [ ] Add: Integrated controls for audio devices
 - [ ] Add: Integrated controls for wifi/lan connections
