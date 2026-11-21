@@ -72,11 +72,25 @@ PanelWindow {
             Item {
                 Layout.fillWidth: true
             }
-
             BatteryIndicator {}
             BarIndicator {
                 text: SystemTrayService.getNetworkTrayItemIcon(SystemTrayService.networkTrayItem)
                 tooltip: "Internet"
+            }
+            BarIndicatorDual {
+                icon: ""
+                text: SystemDataService.cpuPercent.toFixed(1) + "%"
+                tooltip: "CPU " + SystemDataService.cpuPercent.toFixed(1) + "%"
+            }
+            BarIndicatorDual {
+                icon: ""
+                text: SystemDataService.memPercent.toFixed(1) + "%"
+                tooltip: "MEM " + SystemDataService.memPercent.toFixed(1) + "%"
+            }
+            BarIndicatorDual {
+                icon: "󰋊"
+                text: SystemDataService.diskPercent.toFixed(1) + "%"
+                tooltip: "DISK " + SystemDataService.diskPercent.toFixed(1) + "%"
             }
             BarButton {
                 text: ""
