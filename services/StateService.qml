@@ -12,9 +12,6 @@ Singleton {
     property bool showNotificationsMenu: false
     property bool showWallpaperSwitcherMenu: false
 
-    property bool showVolumeSlider: false
-    property bool showBrightnessSlider: false
-
     // Functionality not yet planned/unsure if will be needed
     property bool showInternetMenu: false
     property bool showBluetoothMenu: false

@@ -15,7 +15,10 @@ Singleton {
         objects: [root.sink]
     }
 
+    //onSinkChanged: console.log("sink:", sink?.name, "| audio:", sink?.audio)
+
     function setVolume(volumeRatio) {
+        //console.log("setVolume", volumeRatio, "->", root.sink?.name, "current:", root.sink?.audio?.volume);
         if (!root.sink?.audio) return;
         root.sink.audio.volume = Math.max(0, Math.min(1, volumeRatio));
     }

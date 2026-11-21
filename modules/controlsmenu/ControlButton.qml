@@ -20,8 +20,8 @@ Button {
     padding: Constant.paddingSmall
 
     onLeftClicked: leftAction()
-    onMiddleClicked: middleAction()
-    onRightClicked: rightAction()
+    onMiddleClicked: if (middleAction) middleAction()
+    onRightClicked: if (rightAction) rightAction()
 
     GlassSurface {
         anchors.fill: parent

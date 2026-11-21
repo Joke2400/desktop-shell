@@ -1,6 +1,7 @@
 import qs.services
 import qs.config.style
 import qs.components.visuals
+import qs.modules.controlsmenu.sliders
 
 import QtQuick
 import QtQuick.Layouts
@@ -42,58 +43,69 @@ PanelWindow {
         }
     }
 
+    GlassSurface {
+        anchors.fill: parent
+        radius: Constant.roundingLarge * 1.25
+        tint: Color.tintNormal
+    }
+
     Rectangle {
         id: menuContainer
 
         color: "transparent"
-        anchors.fill: parent
+        anchors.centerIn: parent
 
-        GlassSurface {
+        implicitWidth: parent.width - Constant.marginLarge * 2
+        implicitHeight: parent.height - Constant.marginLarge * 2
+
+        Column {
+            id: column
             anchors.fill: parent
-            radius: Constant.roundingMedium
-            tint: Color.tintNormal
-        }
+            spacing: Constant.spacingLarge
 
-        GridLayout {
-            id: buttonGrid
-            columnSpacing: Constant.spacingLarge
-            rowSpacing: Constant.spacingLarge
-            columns: 4
+            VolumeSlider {}
+            BrightnessSlider {}
+            GridLayout {
+                id: buttonGrid
+                columnSpacing: Constant.spacingLarge
+                rowSpacing: Constant.spacingLarge
+                columns: 4
 
-            ControlButton {
-                text: SystemTrayService.getNetworkTrayItemIcon(SystemTrayService.networkTrayItem)
-                tooltip: "Internet"
-                leftAction: () => {  }
-            }
-            ControlButton {
-                text: "󰂯"
-                tooltip: "Bluetooth"
-                leftAction: () => {  }
-            }
-            ControlButton {
-                text: "󰄀"
-                tooltip: "Screenshot"
-                leftAction: () => {  }
-            }
-            ControlButton {
-                text: "󰕧"
-                tooltip: "Screenrecord"
-                leftAction: () => {  }
-            }
-            ControlButton {
-                text: ""
-                tooltip: "Calculator"
-                leftAction: () => {  }
-            }
-            ControlButton {
-                text: "󱘟"
-                tooltip: "Clipboard"
-                leftAction: () => {  }
-            }
-            ControlButton {
-                text: "󰀠"
-                tooltip: "Alarm"
-                leftAction: () => {  }
+                ControlButton {
+                    text: SystemTrayService.getNetworkTrayItemIcon(SystemTrayService.networkTrayItem)
+                    tooltip: "Internet"
+                    leftAction: () => {  }
+                }
+                ControlButton {
+                    text: "󰂯"
+                    tooltip: "Bluetooth"
+                    leftAction: () => {  }
+                }
+                ControlButton {
+                    text: "󰄀"
+                    tooltip: "Screenshot"
+                    leftAction: () => {  }
+                }
+                ControlButton {
+                    text: "󰕧"
+                    tooltip: "Screenrecord"
+                    leftAction: () => {  }
+                }
+                ControlButton {
+                    text: ""
+                    tooltip: "Calculator"
+                    leftAction: () => {  }
+                }
+                ControlButton {
+                    text: "󱘟"
+                    tooltip: "Clipboard"
+                    leftAction: () => {  }
+                }
+                ControlButton {
+                    text: "󰀠"
+                    tooltip: "Alarm"
+                    leftAction: () => {  }
+                }
             }
         }
     }

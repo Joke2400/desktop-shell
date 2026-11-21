@@ -14,11 +14,10 @@ Button {
     bgColHover: "transparent"
 
     textSize: Constant.textSizeMedium
-
     padding: Constant.paddingSmall
     radius: Constant.roundingLarge
 
     onLeftClicked: leftAction()
-    onMiddleClicked: middleAction()
-    onRightClicked: rightAction()
+    onMiddleClicked: if (middleAction) middleAction()
+    onRightClicked: if (rightAction) rightAction()
 }

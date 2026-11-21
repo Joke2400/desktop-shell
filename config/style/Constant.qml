@@ -12,7 +12,7 @@ Singleton {
 
     // Large components
     readonly property int barHeight: scale(28)
-    readonly property int controlsMenuWidth: scale(340)
+    readonly property int controlsMenuWidth: scale(420)
     readonly property int settingsMenuWidth: scale(280)
 
     // Small components
@@ -20,10 +20,9 @@ Singleton {
     readonly property int controlButtonSize: scale(36)
     readonly property int powerButtonSize: scale(64)
 
-    readonly property int sliderWidth: scale(380)
-    readonly property int sliderHeight: scale(32)
-    readonly property int sliderTrackSize: scale(12)
-    readonly property int sliderHandleSize: scale(22)
+    readonly property int controlSliderSize: scale(36)
+    readonly property int controlSliderHandleSize: scale(20)
+    readonly property int controlSliderTrackSize: scale(10)
 
     // this needs to be improved/relocated
     readonly property int carouselPanelHeight: MonitorService.selectedMonitor.height * 0.5
