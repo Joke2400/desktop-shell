@@ -3,7 +3,7 @@ import QtQuick
 ButtonBase {
    id: root
 
-   implicitWidth: Math.max(btnText.implicitWidth + root.padding * 2, root.minBtnSize + root.padding * 2)
+   implicitWidth: Math.max(btnText.implicitHeight + root.padding * 2, root.minBtnSize + root.padding * 2)
    implicitHeight: Math.max(btnText.implicitHeight + root.padding * 2, root.minBtnSize + root.padding * 2)
 
     DisplayText {

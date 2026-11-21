@@ -18,7 +18,7 @@ Singleton {
     // Small components
     readonly property int buttonSize: scale(22) // default button size
     readonly property int controlButtonSize: scale(36)
-    readonly property int powerButtonSize: scale(50)
+    readonly property int powerButtonSize: scale(64)
 
     readonly property int sliderWidth: scale(380)
     readonly property int sliderHeight: scale(32)
