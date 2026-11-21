@@ -32,7 +32,7 @@ Singleton {
     readonly property real carouselItemWidth: carouselViewWidth / carouselItemCount
 
     // Basic sizes
-    readonly property int textSizeTiny: scale(12)
+    readonly property int textSizeTiny: scale(14)
     readonly property int textSizeSmall: scale(16)
     readonly property int textSizeMedium: scale(22)
     readonly property int textSizeLarge: scale(24)

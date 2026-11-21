@@ -2,13 +2,13 @@ import qs.services
 import qs.config.style
 import qs.config.settings
 import qs.components.visuals
+import qs.modules.statusbar.clock
 import qs.modules.statusbar.buttons
 import qs.modules.statusbar.indicators
 
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
-import Quickshell.Hyprland
 import Quickshell.Wayland
 
 PanelWindow {
@@ -45,6 +45,10 @@ PanelWindow {
             anchors.fill: parent
             radius: Constant.roundingMedium
             tint: Color.tintNormal
+        }
+
+        ClockWidget {
+            anchors.centerIn: parent
         }
 
         RowLayout {

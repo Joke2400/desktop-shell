@@ -1,41 +1,48 @@
-import qs.config.style
-import qs.components
-import qs.components.style
 import qs.services
+import qs.components
+import qs.config.style
 
 import QtQuick
+import QtQuick.Layouts
 
-Button {
+Rectangle {
     id: root
 
     property bool isToggled: false
     property string time: Qt.formatTime(ClockService.date, "HH:mm:ss")
     property string date: Qt.formatDate(ClockService.date, "dd.MM.yyyy")
+    property string dateTime: Qt.formatDateTime(ClockService.date, "ddd dd MMM")
 
-    bgCol: Color.baseDark
-    brCol: Color.baseLight
-    bgColHover: Color.baseLight
-    brColHover: Color.surfaceDark
+    color: "transparent"
+    implicitWidth: column.implicitWidth
+    implicitHeight: column.implicitHeight
 
-    tooltip: root.isToggled ? "Date" : "Clock"
-    btnIcon: root.isToggled ? "" : ""
-    btnText: root.isToggled ? root.date : root.time
+    ColumnLayout {
+        id: column
+        anchors.centerIn: parent
+        spacing: 0
 
-    spacing: Constant.spacingSmall
-    padding: Constant.paddingMedium * 1.25
-    alignTextToBaseline: false
+        DisplayText {
+            id: timeText
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
 
-    radius: Constant.roundingLarge
-    border.width: Constant.borderSmall
+            text: root.time
+            col: Color.textNormal
+            colHover: Color.textNormal
+            hovered: false
+            size: Constant.textSizeSmall
+        }
 
-    GradientShadow {
-        topCol: Qt.rgba(1, 1, 1, 0)
-        centerCol: Qt.rgba(1, 1, 1, 0.03)
-        bottomCol: Qt.rgba(1, 1, 1, 0.06)
-    }
-    BorderHighlight {}
+        DisplayText {
+            id: dateText
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
 
-    onLeftClicked: () => {
-        isToggled = !isToggled;
+            text: root.dateTime
+            col: Color.textNormal
+            colHover: Color.textNormal
+            hovered: false
+            size: Constant.textSizeTiny
+            bold: false
+        }
     }
 }
