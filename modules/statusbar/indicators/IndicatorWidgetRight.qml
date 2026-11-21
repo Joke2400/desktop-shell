@@ -34,6 +34,7 @@ Rectangle {
                 anchors.fill: parent
                 radius: Constant.roundingMedium
                 tint: Color.tintDark
+                edgeLight: 0
             }
 
             RowLayout {
@@ -71,6 +72,7 @@ Rectangle {
                 anchors.fill: parent
                 radius: Constant.roundingMedium
                 tint: Color.tintDark
+                edgeLight: 0
             }
 
             RowLayout {
