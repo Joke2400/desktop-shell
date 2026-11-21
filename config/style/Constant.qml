@@ -10,14 +10,16 @@ Singleton {
         return Math.max(1, Math.round(value * Settings.uiScaleFactor));
     }
 
-    // Component sizes
+    // Large components
     readonly property int barHeight: scale(28)
-
     readonly property int controlsMenuWidth: scale(340)
-    readonly property int settingsMenuWidth: scale(340)
+    readonly property int settingsMenuWidth: scale(280)
 
-    // this needs to be improved/relocated
-    readonly property int buttonSize: scale(22)
+    // Small components
+    readonly property int buttonSize: scale(22) // default button size
+    readonly property int controlButtonSize: scale(36)
+    readonly property int powerButtonSize: scale(50)
+
     readonly property int sliderWidth: scale(380)
     readonly property int sliderHeight: scale(32)
     readonly property int sliderTrackSize: scale(12)
