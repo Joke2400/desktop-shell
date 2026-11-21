@@ -57,37 +57,23 @@ Rectangle {
                     text: SystemDataService.diskPercent.toFixed(1) + "%"
                     tooltip: "DISK " + SystemDataService.diskPercent.toFixed(1) + "%"
                 }
-            }
-        }
-        Rectangle {
-            id: singleContainer
-
-            implicitWidth: singleLayout.implicitWidth + Constant.paddingMedium * 2
-            implicitHeight: singleLayout.implicitHeight - Constant.paddingSmall * 1.25
-
-            color: "transparent"
-            radius: Constant.roundingMedium
-
-            GlassSurface {
-                anchors.fill: parent
-                radius: Constant.roundingMedium
-                tint: Color.tintDark
-                edgeLight: 0
-            }
-
-            RowLayout {
-                id: singleLayout
-                anchors.centerIn: parent
-                spacing: 0
-
-                BatteryIndicator {}
-                BarIndicator {
-                    text: SystemTrayService.getNetworkTrayItemIcon(SystemTrayService.networkTrayItem)
-                    tooltip: "Internet"
-                }
-                BarIndicator {
-                    text: SystemTrayService.getNetworkTrayItemIcon(SystemTrayService.networkTrayItem)
-                    tooltip: "Internet"
+                BarIndicatorDual {
+                    icon: {
+                        if (BatteryService.isFull)
+                            return "󰂄";
+                        if (BatteryService.percentage < 15) {
+                            return BatteryService.isCharging ? "󰢟" : "󰂎";
+                        } else if (BatteryService.percentage < 33) {
+                            return BatteryService.isCharging ? "󱊤" : "󱊡";
+                        } else if (BatteryService.percentage < 66) {
+                            return BatteryService.isCharging ? "󱊥" : "󱊢";
+                        } else {
+                            return BatteryService.isCharging ? "󱊦" : "󱊣";
+                        }
+                    }
+                    text: BatteryService.percentage + "%"
+                    tooltip: "Battery: " + BatteryService.percentage + "%"
+                    visible: BatteryService.battery !== null
                 }
             }
         }
