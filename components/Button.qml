@@ -1,52 +1,11 @@
-import qs.config.style
-
 import QtQuick
 
-Rectangle {
-    id: root
+ButtonBase {
+   id: root
 
-    readonly property bool hovered: hover.hovered
+   implicitWidth: Math.max(btnText.implicitWidth + root.padding * 2, root.minBtnSize + root.padding * 2)
+   implicitHeight: Math.max(btnText.implicitHeight + root.padding * 2, root.minBtnSize + root.padding * 2)
 
-    required property string text
-    required property string tooltip
-
-    property int textSize: Constant.textSizeMedium
-    property int padding: Constant.paddingSmall
-    property int minBtnSize: Constant.buttonSize
-
-    property color textCol: Color.textNormal
-    property color textColHover: Color.textLight
-    property color bgCol: "transparent"
-    property color brCol: "transparent"
-    property color bgColHover: bgCol
-    property color brColHover: brCol
-
-    signal leftClicked
-    signal middleClicked
-    signal rightClicked
-
-    color: hovered ? bgColHover : bgCol
-    border.color: hovered ? brColHover : brCol
-    border.width: 0
-
-    implicitWidth: Math.max(btnText.implicitWidth + root.padding * 2, root.minBtnSize + root.padding * 2)
-    implicitHeight: Math.max(btnText.implicitHeight + root.padding * 2, root.minBtnSize + root.padding * 2)
-
-    HoverHandler {
-        id: hover
-    }
-    TapHandler {
-        id: tap
-        acceptedButtons: Qt.LeftButton | Qt.MiddleButton | Qt.RightButton
-        onTapped: (eventPoint, button) => {
-            if (button === Qt.LeftButton)
-                root.leftClicked();
-            if (button === Qt.MiddleButton)
-                root.middleClicked();
-            if (button === Qt.RightButton)
-                root.rightClicked();
-        }
-    }
     DisplayText {
         id: btnText
         anchors.centerIn: parent

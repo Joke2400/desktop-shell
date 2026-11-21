@@ -35,15 +35,16 @@ Rectangle {
             }
         }
         BarButton {
-            text: ""
-            tooltip: "Applications"
-            leftAction: () => { Hyprland.dispatch("exec toggle-rofi") }
-        }
-        BarButton {
             text: ""
             tooltip: "Search"
             leftAction: () => { Hyprland.dispatch("exec toggle-rofi") }
         }
-
+        BarButtonDual {
+            icon: "󱟲"
+            text: WorkspaceService.activeWorkspace
+            tooltip: "Workspaces"
+            textSize: Constant.textSizeSmall * 1.2
+            leftAction: () => { }
+        }
     }
 }
