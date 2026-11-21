@@ -20,8 +20,6 @@ Button {
     padding: Constant.paddingLarge
     radius: Constant.roundingLarge * 4
 
-    border.width: Constant.borderMedium
-
     onLeftClicked: leftAction()
 
     Rectangle {
