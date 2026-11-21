@@ -2,10 +2,13 @@ import qs.services
 import qs.config.style
 import qs.config.settings
 import qs.components.visuals
+import qs.modules.statusbar.buttons
+import qs.modules.statusbar.indicators
 
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
+import Quickshell.Hyprland
 import Quickshell.Wayland
 
 PanelWindow {
@@ -54,39 +57,23 @@ PanelWindow {
             BarButton {
                 text: ""
                 tooltip: "Settings"
-                leftAction: () => { }
+                leftAction: () => { StateService.openMenu("showSettingsMenu") }
             }
             BarButton {
                 text: ""
                 tooltip: "Applications"
-                leftAction: () => { }
+                leftAction: () => { Hyprland.dispatch("exec toggle-rofi") }
             }
             BarButton {
                 text: ""
                 tooltip: "Search"
-                leftAction: () => { }
+                leftAction: () => { Hyprland.dispatch("exec toggle-rofi") }
             }
             Item {
                 Layout.fillWidth: true
             }
 
-            BarIndicator {
-                text: {
-                    if (BatteryService.isFull)
-                        return "󰂄";
-                    if (BatteryService.percentage < 15) {
-                        return BatteryService.isCharging ? "󰢟" : "󰂎";
-                    } else if (BatteryService.percentage < 33) {
-                        return BatteryService.isCharging ? "󱊤" : "󱊡";
-                    } else if (BatteryService.percentage < 66) {
-                        return BatteryService.isCharging ? "󱊥" : "󱊢";
-                    } else {
-                        return BatteryService.isCharging ? "󱊦" : "󱊣";
-                    }
-                }
-                tooltip: "Battery: " + BatteryService.percentage + "%"
-                visible: BatteryService.battery !== null
-            }
+            BatteryIndicator {}
             BarIndicator {
                 text: SystemTrayService.getNetworkTrayItemIcon(SystemTrayService.networkTrayItem)
                 tooltip: "Internet"
@@ -96,12 +83,7 @@ PanelWindow {
                 tooltip: "Controls"
                 leftAction: () => { StateService.openMenu("showControlsMenu") }
             }
-            // Note: the notifications menu is still handled by swaync
-            BarButton {
-                text: ""
-                tooltip: "Notifications"
-                leftAction: () => { StateService.openMenu("showNotificationsMenu") }
-            }
+            NotificationButton {}
             BarButton {
                 text: ""
                 tooltip: "Power"
