@@ -54,56 +54,15 @@ PanelWindow {
             anchors.rightMargin: Constant.marginMedium
             spacing: 0
 
-            BarButton {
-                text: ""
-                tooltip: "Settings"
-                leftAction: () => { StateService.openMenu("showSettingsMenu") }
-            }
-            BarButton {
-                text: ""
-                tooltip: "Applications"
-                leftAction: () => { Hyprland.dispatch("exec toggle-rofi") }
-            }
-            BarButton {
-                text: ""
-                tooltip: "Search"
-                leftAction: () => { Hyprland.dispatch("exec toggle-rofi") }
-            }
+            ButtonsWidgetLeft {}
+
             Item {
                 Layout.fillWidth: true
             }
-            BatteryIndicator {}
-            BarIndicator {
-                text: SystemTrayService.getNetworkTrayItemIcon(SystemTrayService.networkTrayItem)
-                tooltip: "Internet"
-            }
-            BarIndicatorDual {
-                icon: ""
-                text: SystemDataService.cpuPercent.toFixed(1) + "%"
-                tooltip: "CPU " + SystemDataService.cpuPercent.toFixed(1) + "%"
-            }
-            BarIndicatorDual {
-                icon: ""
-                text: SystemDataService.memPercent.toFixed(1) + "%"
-                tooltip: "MEM " + SystemDataService.memPercent.toFixed(1) + "%"
-            }
-            BarIndicatorDual {
-                icon: "󰋊"
-                text: SystemDataService.diskPercent.toFixed(1) + "%"
-                tooltip: "DISK " + SystemDataService.diskPercent.toFixed(1) + "%"
-            }
-            BarButton {
-                text: ""
-                tooltip: "Controls"
-                leftAction: () => { StateService.openMenu("showControlsMenu") }
-            }
-            NotificationButton {}
-            BarButton {
-                text: ""
-                tooltip: "Power"
-                leftAction: () => { StateService.openMenu("showPowerMenu") };
-            }
 
+            IndicatorWidgetRight {}
+
+            ButtonsWidgetRight {}
         }
     }
 }
