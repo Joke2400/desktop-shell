@@ -1,6 +1,7 @@
 import qs.services
 import qs.config.style
 import qs.components.visuals
+import qs.modules.controlsmenu.buttons
 import qs.modules.controlsmenu.sliders
 
 import QtQuick
@@ -45,7 +46,7 @@ PanelWindow {
 
     GlassSurface {
         anchors.fill: parent
-        radius: Constant.roundingLarge * 1.25
+        radius: Constant.roundingLarge
         tint: Color.tintNormal
     }
 
@@ -63,6 +64,7 @@ PanelWindow {
             anchors.fill: parent
             spacing: Constant.spacingLarge
 
+            ConnectivityWidget {}
             VolumeSlider {}
             BrightnessSlider {}
             GridLayout {
@@ -71,16 +73,6 @@ PanelWindow {
                 rowSpacing: Constant.spacingLarge
                 columns: 4
 
-                ControlButton {
-                    text: SystemTrayService.getNetworkTrayItemIcon(SystemTrayService.networkTrayItem)
-                    tooltip: "Internet"
-                    leftAction: () => {  }
-                }
-                ControlButton {
-                    text: "󰂯"
-                    tooltip: "Bluetooth"
-                    leftAction: () => {  }
-                }
                 ControlButton {
                     text: "󰄀"
                     tooltip: "Screenshot"

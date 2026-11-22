@@ -16,21 +16,21 @@ Rectangle {
     property real ratioMax: 1
 
     color: "transparent"
-    radius: Constant.roundingLarge * 1.25
+    radius: Constant.roundingLarge
 
     implicitWidth: parent.width
     implicitHeight: row.implicitHeight + Constant.paddingLarge * 2
 
     Rectangle {
         anchors.fill: parent
-        radius: Constant.roundingLarge * 1.25
+        radius: Constant.roundingLarge
         color: Qt.hsla(Color.baseLight.hslHue, Color.baseLight.hslSaturation, Color.baseLight.hslLightness, 0.5)
         z: -2
     }
 
     GlassSurface {
         anchors.fill: parent
-        radius: Constant.roundingLarge * 1.25
+        radius: Constant.roundingLarge
         tint: Color.tintDark
         z: -1
     }
@@ -59,7 +59,7 @@ Rectangle {
             sliderSize: Constant.controlSliderSize
             handleSize: Constant.controlSliderHandleSize
             trackSize: Constant.controlSliderTrackSize
-            textSize: Constant.textSizeMedium * 0.95
+            textSize: Constant.textSizeMedium * 0.9
 
             onApplied: ratio => root.action(ratio)
         }
