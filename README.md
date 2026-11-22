@@ -18,5 +18,6 @@ Some of these can be easily changed by editing the config
 - hyprpaper (for the wallpaper-switcher)
 - hyprsunset (for software-dimming)
 - SOON: brightnessctl (for hardware-dimming)
+- hyprland's animations/effects system is used for blur & panel animations
 
 (subject to change of course)
