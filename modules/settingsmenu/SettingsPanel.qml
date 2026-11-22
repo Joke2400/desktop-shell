@@ -9,13 +9,13 @@ PanelWindow {
     id: root
 
     screen: MonitorService.selectedMonitor
-    visible: StateService.showControlsMenu
+    visible: StateService.showSettingsMenu
     anchors {
         top: true
         left: true
     }
     WlrLayershell.namespace: "quickshell:sidebar-left"
-    color: "transparent"
+    color: "lightblue"
 
     margins {
         top: Constant.marginSmall
