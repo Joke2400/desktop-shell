@@ -3,16 +3,20 @@ import qs.config.style
 
 import Quickshell
 import Quickshell.Hyprland
+import Quickshell.Wayland
 
 PanelWindow {
     id: root
 
     screen: MonitorService.selectedMonitor
-    visible: StateService.showSettingsMenu
+    visible: StateService.showControlsMenu
     anchors {
         top: true
         left: true
     }
+    WlrLayershell.namespace: "quickshell:sidebar-left"
+    color: "transparent"
+
     margins {
         top: Constant.marginSmall
         left: Constant.marginSmall
@@ -22,7 +26,6 @@ PanelWindow {
     implicitWidth: Constant.settingsMenuWidth
     implicitHeight: 500
 
-    color: "blue"
     exclusiveZone: 0
 
     HyprlandFocusGrab {

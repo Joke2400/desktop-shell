@@ -21,7 +21,7 @@ PanelWindow {
         left: true
         right: true
     }
-    WlrLayershell.namespace: "quickshell:shell"
+    WlrLayershell.namespace: "quickshell:statusbar"
     color: "transparent"
 
     margins {
