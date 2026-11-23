@@ -9,21 +9,33 @@ Singleton {
 
     readonly property bool wifiEnabled: Networking.wifiEnabled
     readonly property var devices: Networking.devices.values
-    readonly property var connectedDevices: devices.filter(
-        item => item.connected
-    )
+    readonly property var networks: mapAvailableNetworks(root.devices)
 
-    Component.onCompleted: () => {
-        Networking.checkConnectivity()
-        console.log(devices)
-        console.log(connectedDevices[0].networks.values)
-        console.log(getConnectedNetworks(connectedDevices[0]))
+    Timer {
+        id: settleTimer
+        interval: 150
+        running: true
+        onTriggered: () => {
+            Networking.checkConnectivity()
+            if (root.devices.length > 0) {
+                console.log("Found network devices:", root.devices)
+            }
+            if (Object.keys(root.networks).length > 0) {
+                console.log("Found networks:", Object.entries(root.networks))
+                for (const [name, net] of Object.entries(root.networks)) {
+                    console.log(name, net)
+                }
+            }
+        }
     }
 
-    function getConnectedNetworks(networkDevice) {
-        return networkDevice.networks.values.filter(
-            network => network.connected
-        )
+    function mapAvailableNetworks(networkDeviceList) {
+        const networks = {};
+        for (const device of networkDeviceList) {
+            for (const network of device.networks.values) {
+                networks[network.name] = network;
+            }
+        }
+        return networks;
     }
-
 }
