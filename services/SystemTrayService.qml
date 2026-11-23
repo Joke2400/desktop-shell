@@ -47,7 +47,7 @@ Singleton {
         case "easyeffects":
             return "󰺢";
         default:
-            console.log("Could not find an icon-preset for icon ID:", trayItem.id, "- using the default icon.");
+            console.warn("Could not find an icon-preset for id:", trayItem.id, "- using the default icon.");
             return trayItem.icon;
         }
     }
@@ -64,13 +64,25 @@ Singleton {
         } else if (icon.includes("signal") || "device-wired") {
             return "󰖩";
         } else {
+            console.warn("Could not find an icon-preset for network:", trayItem.icon, "- using fallback");
             return "󱚵";
         }
     }
 
     function getBluetoothIcon(trayItem) {
-        console.log(trayItem.icon)
-        return "󰂯"
+        if (!trayItem)
+            return "󰂯";
+
+        // using tooltip title for now as it shows whether its enabled/disabled
+        const tooltipTitle = trayItem.tooltipTitle ?? "";
+        if (tooltipTitle.includes("Bluetooth Enabled")) {
+            return "󰂯";
+        } else if (tooltipTitle.includes("Bluetooth Disabled")) {
+            return "󰂲";
+        } else {
+            console.warn("Could not find an icon-preset for bluetooth:", trayItem.icon, "- using fallback");
+            return "󰂯";
+        }
     }
 
     function debuglogTray() {
