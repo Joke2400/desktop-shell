@@ -3,6 +3,7 @@ import qs.config.style
 import qs.components.visuals
 import qs.modules.controlsmenu.buttons
 import qs.modules.controlsmenu.sliders
+import qs.modules.controlsmenu.dropdown
 
 import QtQuick
 import QtQuick.Layouts
@@ -62,9 +63,10 @@ PanelWindow {
         Column {
             id: column
             anchors.fill: parent
-            spacing: Constant.spacingLarge
+            spacing: Constant.spacingLarge * 1.5
 
             ConnectivityWidget {}
+            Dropdown {}
             VolumeSlider {}
             BrightnessSlider {}
             GridLayout {
