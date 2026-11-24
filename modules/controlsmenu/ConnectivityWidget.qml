@@ -1,5 +1,5 @@
-import qs.services
 import qs.config.style
+import qs.modules.controlsmenu.buttons
 
 import QtQuick
 import QtQuick.Layouts
@@ -16,11 +16,11 @@ Rectangle {
         anchors.fill: parent
         spacing: Constant.spacingLarge
 
-        NetworkControl {
+        NetworkControlButton {
             id: networkButton
             Layout.fillWidth: true
         }
-        BluetoothControl {
+        BluetoothControlButton {
             id: bluetoothButton
             Layout.fillWidth: true
         }
