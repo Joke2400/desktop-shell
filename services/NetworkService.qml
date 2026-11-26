@@ -31,6 +31,10 @@ Singleton {
             Networking.connectivityCheckEnabled = true
             root.checkNetworkConnectivity()
             Networking.connectivityCheckEnabled = false
+
+            for (const [name, net] of Object.entries(root.availableWifiNetworks)) {
+                console.log(JSON.stringify(root.getNetworkDetails(net)))
+            }
         }
     }
 
