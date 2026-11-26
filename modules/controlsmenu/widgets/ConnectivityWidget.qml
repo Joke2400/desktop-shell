@@ -1,5 +1,5 @@
 import qs.config.style
-import qs.modules.controlsmenu.buttons
+import qs.modules.controlsmenu.components.buttons
 
 import QtQuick
 import QtQuick.Layouts
@@ -8,7 +8,7 @@ Rectangle {
     id: root
 
     color: "transparent"
-    implicitWidth: parent.width
+    implicitWidth: Constant.controlsMenuWidth
     implicitHeight: Math.max(networkButton.implicitHeight, bluetoothButton.implicitHeight) + Constant.paddingMedium * 2
 
     RowLayout {

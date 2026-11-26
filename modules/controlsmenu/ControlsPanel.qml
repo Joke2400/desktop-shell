@@ -1,10 +1,8 @@
 import qs.services
 import qs.config.style
 import qs.components.visuals
-import qs.modules.controlsmenu.buttons
-import qs.modules.controlsmenu.sliders
-import qs.modules.controlsmenu.dropdown
-import qs.modules.controlsmenu.systemtray
+import qs.modules.controlsmenu.widgets
+
 
 import QtQuick
 import QtQuick.Layouts
@@ -22,21 +20,21 @@ PanelWindow {
         right: true
     }
     WlrLayershell.namespace: "quickshell:sidebar-right"
-    color: "transparent"
+    color: "red"
 
     margins {
         top: Constant.marginSmall
         right: Constant.marginSmall
     }
 
-    implicitWidth: Constant.controlsMenuWidth + Constant.spacingLarge + systemTrayContainer.implicitWidth
-    implicitHeight: 500
+    implicitWidth: row.implicitWidth
+    implicitHeight: row.implicitHeight
 
     exclusiveZone: 0
 
     HyprlandFocusGrab {
         id: focusGrab
-        windows: [contentContainer]
+        windows: [root]
         active: root.visible
         onCleared: StateService.showControlsMenu = false
 
@@ -44,100 +42,27 @@ PanelWindow {
             if (active) {}
         }
     }
-
     Rectangle {
-        id: contentContainer
-        anchors.centerIn: parent
-
-        implicitWidth: StateService.showSystemTrayMenu ? Constant.controlsMenuWidth + Constant.spacingLarge + systemTrayContainer.implicitWidth : Constant.controlsMenuWidth
-        implicitHeight: 500
-
-        color: "transparent"
-
-        GlassSurface {
-            anchors.fill: parent
-            radius: Constant.roundingLarge
-            tint: Color.tintNormal
-        }
+        id: container
+        anchors.fill: parent
 
         RowLayout {
-            spacing: Constant.spacingLarge
+            id: row
+            anchors.fill: parent
+            spacing: Constant.spacingMedium
 
-            Rectangle {
-                id: systemTrayContainer
-                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+            SystemTrayWidget { id: tray }
+            ColumnLayout {
+                id: column
+                spacing: Constant.spacingMedium
 
-                implicitWidth: 40
-                implicitHeight: 300
+                Layout.preferredWidth: Constant.controlsMenuWidth
 
-                visible: StateService.showSystemTrayMenu
-
-                SystemTrayMenu {}
-            }
-
-            Rectangle {
-                id: controlsContainer
-
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                Layout.leftMargin: StateService.showSystemTrayMenu ? 0 : systemTrayContainer.implicitWidth + Constant.spacingLarge
-
-                color: "transparent"
-
-                implicitWidth: Constant.controlsMenuWidth - Constant.marginLarge * 2
-                implicitHeight: parent.height - Constant.marginLarge * 2
-
-                Column {
-                    id: column
-                    anchors.fill: parent
-                    spacing: Constant.spacingLarge * 1.5
-
-                    ConnectivityWidget {}
-                    Dropdown {}
-                    VolumeSlider {}
-                    BrightnessSlider {}
-
-                    GridLayout {
-                        id: buttonGrid
-                        columnSpacing: Constant.spacingLarge
-                        rowSpacing: Constant.spacingLarge
-                        columns: 4
-
-                        ControlButton {
-                            text: "󰄀"
-                            tooltip: "Screenshot"
-                            leftAction: () => {  }
-                        }
-                        ControlButton {
-                            text: "󰕧"
-                            tooltip: "Screenrecord"
-                            leftAction: () => {  }
-                        }
-                        ControlButton {
-                            text: ""
-                            tooltip: "Calculator"
-                            leftAction: () => {  }
-                        }
-                        ControlButton {
-                            text: "󱘟"
-                            tooltip: "Clipboard"
-                            leftAction: () => {  }
-                        }
-                        ControlButton {
-                            text: "󰀠"
-                            tooltip: "Alarm"
-                            leftAction: () => {  }
-                        }
-                        ControlButton {
-                            text: "X"
-                            tooltip: "bruh"
-                            leftAction: () => {
-                                StateService.showSystemTrayMenu = !StateService.showSystemTrayMenu
-                            }
-                        }
-                    }
-                }
+                ConnectivityWidget {}
+                SlidersWidget {}
+                ControlButtonsWidget {}
             }
         }
+
     }
 }

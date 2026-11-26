@@ -1,7 +1,7 @@
 import qs.config.style
 import qs.config.settings
 import qs.components
-import qs.components.style
+import qs.components.visuals
 
 import QtQuick
 import Quickshell
