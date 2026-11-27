@@ -92,7 +92,7 @@ Singleton {
     function getNetworkDetails(network) {
         return {
             "name" : network.name,
-            "device" : network.device,
+            "device" : network.device.name,
             "conName" : network.nmSettings.length > 0 ? network.nmSettings[0].id : "None",
             "state" : ConnectionState.toString(network.state)
         }
