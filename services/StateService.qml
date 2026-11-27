@@ -8,9 +8,11 @@ Singleton {
     property bool showPowerMenu: false
     property bool showControlsMenu: false
     property bool showSettingsMenu: false
-    property bool showSystemTrayMenu: true
+    property bool showSystemTrayMenu: false
     property bool showNotificationsMenu: false
     property bool showWallpaperSwitcherMenu: false
+
+    property bool systemTrayContextMenuOpen: false
 
     // Functionality not yet planned/unsure if will be needed
     property bool showInternetMenu: false

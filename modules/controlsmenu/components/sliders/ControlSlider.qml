@@ -33,6 +33,7 @@ Rectangle {
         radius: Constant.roundingLarge
         tint: Color.tintDark
         z: -1
+        edgeLight: 0
     }
 
     RowLayout {

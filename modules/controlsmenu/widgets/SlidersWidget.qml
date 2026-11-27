@@ -6,13 +6,14 @@ import QtQuick.Layouts
 
 Rectangle {
     id: root
-
+    color: "transparent"
     implicitWidth: Constant.controlsMenuWidth
     implicitHeight: row.implicitHeight
 
-    RowLayout {
+    ColumnLayout {
         id: row
-        spacing: Constant.spacingSmall
+        anchors.fill: parent
+        spacing: Constant.spacingMedium
 
         VolumeSlider {}
         BrightnessSlider {}
