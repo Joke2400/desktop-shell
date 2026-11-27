@@ -13,6 +13,8 @@ import Quickshell.Wayland
 PanelWindow {
     id: root
 
+    readonly property int maxContentWidth: Constant.controlsMenuWidth + Constant.spacingLarge + systemTray.implicitWidth
+
     screen: MonitorService.selectedMonitor
     visible: StateService.showControlsMenu
     anchors {
@@ -27,8 +29,7 @@ PanelWindow {
         right: Constant.marginSmall
     }
 
-    implicitWidth: Constant.controlsMenuWidth + Constant.spacingLarge
-                   + systemTray.implicitWidth + Constant.marginMedium * 2
+    implicitWidth: root.maxContentWidth + Constant.marginMedium * 2
     implicitHeight: container.implicitHeight + Constant.marginMedium * 2
     mask: Region { item: glass }
 
@@ -68,21 +69,19 @@ PanelWindow {
         anchors.right: parent.right
         anchors.topMargin: Constant.marginMedium
         anchors.rightMargin: Constant.marginMedium
-        implicitWidth: systemTray.visible
-                       ? systemTray.implicitWidth + Constant.spacingLarge + Constant.controlsMenuWidth
-                       : Constant.controlsMenuWidth
-        implicitHeight: 500
+        implicitWidth: systemTray.visible ? root.maxContentWidth : Constant.controlsMenuWidth
+        implicitHeight: row.height
 
         RowLayout {
             id: row
-            anchors.fill: parent
+            implicitWidth: parent.width
             spacing: Constant.spacingLarge
 
             SystemTrayWidget {
                 id: systemTray
                 opacity: StateService.showSystemTrayMenu ? 1 : 0
                 visible: opacity > 0
-                Behavior on opacity { NumberAnimation { duration: 90; easing.type: Easing.OutCubic } }
+                Behavior on opacity { NumberAnimation { duration: 150; easing.type: Easing.OutCubic } }
             }
             ColumnLayout {
                 id: column

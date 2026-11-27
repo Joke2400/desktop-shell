@@ -31,7 +31,7 @@ Rectangle {
     GlassSurface {
         anchors.fill: parent
         radius: Constant.roundingLarge
-        tint: Color.tintDark
+        tint: Color.tintNormal
         z: -1
         edgeLight: 0
     }

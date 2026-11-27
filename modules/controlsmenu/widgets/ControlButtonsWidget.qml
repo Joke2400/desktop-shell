@@ -1,48 +1,47 @@
+pragma ComponentBehavior: Bound
 import qs.services
 import qs.config.style
 import qs.modules.controlsmenu.components.buttons
 
+import QtQuick
 import QtQuick.Layouts
 
-GridLayout {
+ColumnLayout {
     id: root
-
+    Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
     implicitWidth: Constant.controlsMenuWidth
+    spacing: Constant.spacingLarge
 
-    columnSpacing: Constant.spacingLarge
-    rowSpacing: Constant.spacingLarge
-    columns: 3
+    readonly property int columns: 6
 
-    ControlButton {
-        text: "󰄀"
-        tooltip: "Screenshot"
-        leftAction: () => {  }
-    }
-    ControlButton {
-        text: "󰕧"
-        tooltip: "Screenrecord"
-        leftAction: () => {  }
-    }
-    ControlButton {
-        text: ""
-        tooltip: "Calculator"
-        leftAction: () => {  }
-    }
-    ControlButton {
-        text: "󱘟"
-        tooltip: "Clipboard"
-        leftAction: () => {  }
-    }
-    ControlButton {
-        text: "󰀠"
-        tooltip: "Alarm"
-        leftAction: () => {  }
-    }
-    ControlButton {
-        text: "X"
-        tooltip: "bruh"
-        leftAction: () => {
-            StateService.showSystemTrayMenu = !StateService.showSystemTrayMenu
+    readonly property var buttons: [
+        { text: "󰄀", tooltip: "Screenshot", action: () => {} },
+        { text: "󰕧", tooltip: "Screenrecord", action: () => {} },
+        { text: "", tooltip: "Calculator", action: () => {} },
+        { text: "󱘟", tooltip: "Clipboard", action: () => {} },
+        { text: "", tooltip: "System Monitor", action: () => {} },
+        { text: "", tooltip: "Disks", action: () => {} }
+    ]
+
+    Repeater {
+        model: Math.ceil(root.buttons.length / root.columns)
+
+        delegate: RowLayout {
+            id: row
+            required property int index
+            Layout.alignment: Qt.AlignHCenter
+            spacing: Constant.spacingLarge * 1.75
+
+            Repeater {
+                model: root.buttons.slice(row.index * root.columns, (row.index + 1) * root.columns)
+
+                delegate: ControlButton {
+                    required property var modelData
+                    text: modelData.text
+                    tooltip: modelData.tooltip
+                    leftAction: modelData.action
+                }
+            }
         }
     }
 }

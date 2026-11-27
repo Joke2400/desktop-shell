@@ -14,8 +14,8 @@ Button {
     bgCol: "transparent"
     bgColHover: "transparent"
 
-    textSize: Constant.textSizeHuge * 1.25
-    minBtnSize: Constant.textSizeHuge * 2
+    textSize: Constant.textSizeHuge * 1
+    minBtnSize: Constant.textSizeHuge * 1.75
 
     padding: Constant.paddingSmall
 
@@ -23,9 +23,17 @@ Button {
     onMiddleClicked: if (middleAction) middleAction()
     onRightClicked: if (rightAction) rightAction()
 
+    Rectangle {
+        anchors.fill: parent
+        radius: Constant.roundingLarge * 2
+        color: Qt.hsla(Color.baseLight.hslHue, Color.baseLight.hslSaturation, Color.baseLight.hslLightness, 0.5)
+        z: -2
+    }
+
     GlassSurface {
         anchors.fill: parent
         radius: Constant.roundingLarge * 2
         tint: root.hovered? Color.tintLight : Color.tintNormal
+        z: -1
     }
 }
