@@ -47,7 +47,9 @@ ButtonBase {
            top: parent.top
            bottom: parent.bottom
            left: parent.left
+           right: parent.right
            leftMargin: Constant.marginMedium
+           rightMargin: Constant.marginMedium
        }
        spacing: Constant.spacingSmall
 
@@ -82,22 +84,24 @@ ButtonBase {
 
            DisplayText {
                id: titleText
-               Layout.alignment: Qt.AlignLeft
+               Layout.fillWidth: true
                text: root.text
                col: root.textCol
                colHover: root.textColHover
                hovered: root.hovered
                size: root.textSize
+               elide: Text.ElideRight
            }
            DisplayText {
                id: detailText
-               Layout.alignment: Qt.AlignLeft
+               Layout.fillWidth: true
                text: root.subText
                col: root.subTextCol
                colHover: root.subTextColHover
                hovered: root.hovered
                size: root.subTextSize
                bold: false
+               elide: Text.ElideRight
            }
        }
    }

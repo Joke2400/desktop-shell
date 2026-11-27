@@ -19,10 +19,12 @@ Rectangle {
         NetworkControlButton {
             id: networkButton
             Layout.fillWidth: true
+            Layout.preferredWidth: 1
         }
         BluetoothControlButton {
             id: bluetoothButton
             Layout.fillWidth: true
+            Layout.preferredWidth: 1
         }
     }
 }
