@@ -9,7 +9,7 @@ Rectangle {
 
     color: "transparent"
     implicitWidth: Constant.controlsMenuWidth
-    implicitHeight: Math.max(networkButton.implicitHeight, bluetoothButton.implicitHeight) + Constant.paddingMedium * 2
+    implicitHeight: Math.max(networkButton.implicitHeight, bluetoothButton.implicitHeight)
 
     RowLayout {
         id: connectivityRow

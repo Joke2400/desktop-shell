@@ -14,8 +14,6 @@ Rectangle {
 
     implicitWidth: Constant.systemTrayMenuWidth
     Layout.fillHeight: true
-    Layout.topMargin: Constant.paddingMedium
-    Layout.bottomMargin: Constant.paddingMedium
 
     Rectangle {
         anchors.fill: parent
