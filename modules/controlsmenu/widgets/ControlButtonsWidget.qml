@@ -26,13 +26,13 @@ ColumnLayout {
             leftAction: () => {Hyprland.dispatch("exec [float; center; size 700 400] gnome-calculator") }
         },
         {
-            text: "󰄀",
+            text: "󰵝",
             tooltip: "Screenshot",
             leftAction: () => {Hyprland.dispatch("exec screenshot --copy") },
             rightAction: () => {Hyprland.dispatch("exec screenshot --save") }
         },
         {
-            text: "󰕧",
+            text: "󰻃",
             tooltip: "Screenrecord",
             leftAction: () => {Hyprland.dispatch("exec screenrecord --copy") },
             rightAction: () => {Hyprland.dispatch("exec screenrecord --save") }
@@ -43,7 +43,7 @@ ColumnLayout {
             leftAction: () => {Hyprland.dispatch("exec [float; center; size 1000 700] kitty --override font_size=12 --title float_kitty btop"); }
         },
         {
-            text: "",
+            text: "",
             tooltip: "Disks",
             leftAction: () => {Hyprland.dispatch("exec [float; center; size 1000 700] gnome-disks"); }
         }

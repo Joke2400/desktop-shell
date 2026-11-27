@@ -41,6 +41,8 @@ PanelWindow {
         onCleared: {
             StateService.showControlsMenu = false
             StateService.showSystemTrayMenu = false
+            StateService.showInternetMenu = false
+            StateService.showBluetoothMenu = false
         }
         onActiveChanged: {
             if (active) {}
@@ -59,8 +61,6 @@ PanelWindow {
 
         radius: Constant.roundingMedium
         tint: Color.tintNormal
-
-        Behavior on width { NumberAnimation { duration: 50 }}
     }
 
     Rectangle {
@@ -96,14 +96,20 @@ PanelWindow {
                 id: systemTray
                 opacity: StateService.showSystemTrayMenu ? 1 : 0
                 visible: opacity > 0
-                Behavior on opacity { NumberAnimation { duration: 100; easing.type: Easing.OutCubic } }
+                Behavior on opacity { NumberAnimation { duration: 150; easing.type: Easing.OutCubic } }
             }
             ColumnLayout {
                 id: column
                 spacing: Constant.spacingLarge * 2
                 Layout.preferredWidth: Constant.controlsMenuWidth
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+
                 ConnectivityWidget {}
+                DropdownWidget {
+                    opacity: (StateService.showInternetMenu | StateService.showBluetoothMenu) ? 1 : 0
+                    visible: opacity > 0
+                    Behavior on opacity { NumberAnimation { duration: 150; easing.type: Easing.OutCubic } }
+                }
                 SlidersWidget {}
                 ControlButtonsWidget {}
             }

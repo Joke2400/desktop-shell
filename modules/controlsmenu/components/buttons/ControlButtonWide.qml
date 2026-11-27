@@ -9,7 +9,10 @@ import QtQuick.Layouts
 ButtonBase {
    id: root
 
-   // Note: ID titleText uses text-related properties inherited from ButtonBase
+   required property var leftAction
+   property var middleAction
+   property var rightAction
+
    required property string icon
    required property string subText
 
@@ -20,6 +23,7 @@ ButtonBase {
    property color subTextCol: Color.subTextLight
    property color iconColHover: Color.textLight
    property color subTextColHover: Color.subTextLight
+   property int buttonRounding: Constant.roundingLarge
 
    textSize: Constant.textSizeSmall
    padding: Constant.paddingLarge
@@ -27,16 +31,20 @@ ButtonBase {
    implicitWidth: Math.max(row.implicitWidth + root.padding * 2, root.minBtnSize + root.padding * 2)
    implicitHeight: Math.max(row.implicitHeight + root.padding * 2, root.minBtnSize + root.padding * 2)
 
+   onLeftClicked: leftAction()
+   onMiddleClicked: if (middleAction) middleAction()
+   onRightClicked: if (rightAction) rightAction()
+
    Rectangle {
        anchors.fill: parent
-       radius: Constant.roundingMedium
-       color: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.5)
+       radius: root.buttonRounding
+       color: Qt.hsla(Color.baseLight.hslHue, Color.baseLight.hslSaturation, Color.baseLight.hslLightness, 0.5)
        z: -2
    }
 
    GlassSurface {
        anchors.fill: parent
-       radius: Constant.roundingMedium
+       radius: root.buttonRounding
        tint: root.hovered? Color.tintNormal : Color.tintDark
        z: -1
    }
@@ -44,10 +52,7 @@ ButtonBase {
    RowLayout {
        id: row
        anchors {
-           top: parent.top
-           bottom: parent.bottom
-           left: parent.left
-           right: parent.right
+           fill: parent
            leftMargin: Constant.marginMedium
            rightMargin: Constant.marginMedium
        }
@@ -62,8 +67,8 @@ ButtonBase {
 
            color: "transparent"
 
-           implicitWidth: iconText.implicitHeight + Constant.marginMedium * 2
-           implicitHeight: iconText.implicitHeight + Constant.marginMedium * 2
+           implicitWidth: iconText.implicitHeight + Constant.marginSmall * 2
+           implicitHeight: iconText.implicitHeight + Constant.marginLarge * 2
 
            DisplayText {
                id: iconText
@@ -74,7 +79,6 @@ ButtonBase {
                hovered: root.hovered
                size: root.iconSize
            }
-
        }
        ColumnLayout {
            id: textColumn

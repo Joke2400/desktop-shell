@@ -26,9 +26,6 @@ Singleton {
         "showSettingsMenu",
         "showNotificationsMenu",
         "showWallpaperSwitcherMenu",
-        "showInternetMenu",
-        "showBluetoothMenu",
-        "showBatteryMenu"
     ]
 
     function openMenu(name) {

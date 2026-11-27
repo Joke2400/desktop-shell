@@ -7,9 +7,9 @@ import Quickshell.Networking
 Singleton {
     id: root
 
-    readonly property var primaryNetworkDevice:
-        wiredDevices.find(d => d.connected)
-        || wifiDevices.find(d => d.connected)
+    readonly property var primaryNetwork:
+        availableWiredNetworks.find(d => d.connected)
+        || availableWifiNetworks.find(d => d.connected)
         || null
 
     readonly property string networkConnectivity: NetworkConnectivity.toString(Networking.connectivity)
@@ -23,6 +23,7 @@ Singleton {
     readonly property var wiredDevices: {Networking.devices.values.filter( device => DeviceType.toString(device.type) === "Wired" && device.hasLink)}
     readonly property var connectedDevices: Networking.devices.values.filter( device => device.connected)
 
+    readonly property var availableNetworks: availableWiredNetworks.concat(availableWifiNetworks)
     readonly property var availableWifiNetworks: scanAvailableWifiNetworks(wifiDevices)
     readonly property var availableWiredNetworks: scanAvailableWiredNetworks(wiredDevices)
     readonly property var connectedNetworks: mapConnectedNetworks(networkDevices)
@@ -37,7 +38,7 @@ Singleton {
             Networking.wifiEnabled = true
             root.checkNetworkConnectivity()
 
-            //for (const [name, net] of Object.entries(root.availableWifiNetworks)) {
+            //for (const [name, net] of Object.entries(root.availableNetworks)) {
             //    console.log(JSON.stringify(root.getNetworkDetails(net)))
             //}
         }
@@ -91,10 +92,12 @@ Singleton {
 
     function getNetworkDetails(network) {
         return {
-            "name" : network.name,
-            "device" : network.device.name,
-            "conName" : network.nmSettings.length > 0 ? network.nmSettings[0].id : "None",
-            "state" : ConnectionState.toString(network.state)
+            "networkName": network.name,
+            "deviceName" : network.device.name,
+            "deviceType" : DeviceType.toString(network.device.type),
+            "connectionName" : network.nmSettings.length > 0 ? network.nmSettings[0].id : "",
+            "state" : ConnectionState.toString(network.state),
+            "known" : network.known
         }
     }
 }

@@ -1,35 +1,38 @@
 import qs.services
 
-import Quickshell.Networking
-
 ControlButtonWide {
     id: root
 
-    readonly property var netDetails: NetworkService.getNetworkDetails(netDevice.network)
-    readonly property var netDevice: NetworkService.primaryNetworkDevice
+    readonly property var network: NetworkService.primaryNetwork
+    readonly property var netDetails: NetworkService.getNetworkDetails(network)
 
-    icon: getNetworkIcon(netDevice.state, netDevice.type)
-    text: netDetails.name
-    subText: netDetails.conName
-    tooltip: `${netDetails.conName}: ${ConnectionState.toString(netDetails.state)}`
-
+    icon: network ? getNetworkIcon(netDetails.state, netDetails.deviceType) : "󱚵"
+    text: network ? (netDetails.deviceType === "Wired" ? "Wired LAN" : netDetails.networkName) : "No connection"
+    subText: network ? netDetails.connectionName : "-"
+    tooltip: network ? `${netDetails.connectionName}: ${ConnectionState.toString(netDetails.state)}` : "No connection"
+    leftAction: () => {
+        if (!StateService.showInternetMenu) {
+            StateService.showInternetMenu = true
+            StateService.showBluetoothMenu = false
+        } else {
+            StateService.showInternetMenu = false
+            StateService.showBluetoothMenu = false
+        }
+    }
 
     function getNetworkIcon(networkState, deviceType) {
-        const stateString = ConnectionState.toString(networkState)
-        const typeString = DeviceType.toString(deviceType)
-
-        if (stateString === "Disconnected") {
+        if (networkState === "Disconnected") {
             return "󱚼";
-        } else if (stateString === "Connecting") {
+        } else if (networkState === "Connecting") {
             return "󱛇";
-        } else if (stateString === "Connected") {
-            if (typeString === "Wired") {
+        } else if (networkState === "Connected") {
+            if (deviceType === "Wired") {
                 return "󰈀"
             } else return "󰖩"
-        } else if (stateString === "Disconnecting") {
+        } else if (networkState === "Disconnecting") {
             return "󱛇";
         } else {
-            console.warn("Could not determine icon for network state:", stateString, "- using fallback");
+            console.warn("Could not determine icon for network state:", networkState, "- using fallback");
             return "󱚵"
         }
     }
