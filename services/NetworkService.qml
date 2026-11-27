@@ -7,15 +7,20 @@ import Quickshell.Networking
 Singleton {
     id: root
 
-    readonly property bool networkConnectivity: NetworkConnectivity.toString(Networking.connectivity)
+    readonly property var primaryNetworkDevice:
+        wiredDevices.find(d => d.connected)
+        || wifiDevices.find(d => d.connected)
+        || null
+
+    readonly property string networkConnectivity: NetworkConnectivity.toString(Networking.connectivity)
 
     readonly property bool wifiRadioEnabled: !wifiSoftwareBlock && !wifiHardwareBlock
-    property bool wifiSoftwareBlock: !Networking.wifiEnabled
+    readonly property bool wifiSoftwareBlock: !Networking.wifiEnabled
     readonly property bool wifiHardwareBlock: !Networking.wifiHardwareEnabled
 
     readonly property var networkDevices: Networking.devices.values
-    readonly property var wifiDevices: {Networking.devices.values.filter( device => device.type === 1)}
-    readonly property var wiredDevices: {Networking.devices.values.filter( device => device.type === 2 && device.hasLink)}
+    readonly property var wifiDevices: {Networking.devices.values.filter( device => DeviceType.toString(device.type) === "Wifi")}
+    readonly property var wiredDevices: {Networking.devices.values.filter( device => DeviceType.toString(device.type) === "Wired" && device.hasLink)}
     readonly property var connectedDevices: Networking.devices.values.filter( device => device.connected)
 
     readonly property var availableWifiNetworks: scanAvailableWifiNetworks(wifiDevices)
@@ -29,8 +34,8 @@ Singleton {
         onTriggered: () => {
             // is seemingly disabled by default
             Networking.connectivityCheckEnabled = true
+            Networking.wifiEnabled = true
             root.checkNetworkConnectivity()
-            Networking.connectivityCheckEnabled = false
 
             //for (const [name, net] of Object.entries(root.availableWifiNetworks)) {
             //    console.log(JSON.stringify(root.getNetworkDetails(net)))
@@ -43,13 +48,15 @@ Singleton {
         if (Networking.canCheckConnectivity && Networking.connectivityCheckEnabled) {
             Networking.checkConnectivity()
             console.log("Checked network connectivity, got result:", root.networkConnectivity)
+        } else {
+            console.log(`Unable to check network connectivity (canCheckConnectivity=${Networking.canCheckConnectivity}, connectivityCheckEnabled=${Networking.connectivityCheckEnabled})`)
         }
-        console.log(`Unable to check network connectivity (canCheckConnectivity=${Networking.canCheckConnectivity}, connectivityCheckEnabled=${Networking.connectivityCheckEnabled})`)
     }
 
     function scanAvailableWifiNetworks(wifiDevices) {
         if (!root.wifiRadioEnabled) {
-            root.wifiSoftwareBlock = false
+            console.log("WI-FI is not enabled, unable to scan for WI-FI networks")
+            return []
         }
         const networks = []
         for (const device of wifiDevices) {
