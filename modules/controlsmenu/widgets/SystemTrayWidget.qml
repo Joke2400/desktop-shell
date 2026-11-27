@@ -12,8 +12,7 @@ Rectangle {
     color: "transparent"
     Layout.alignment: Qt.AlignLeft | Qt.AlignTop
 
-    implicitWidth: 60
-
+    implicitWidth: Constant.systemTrayMenuWidth
     Layout.fillHeight: true
     Layout.topMargin: Constant.paddingMedium
     Layout.bottomMargin: Constant.paddingMedium

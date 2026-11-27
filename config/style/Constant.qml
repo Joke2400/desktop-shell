@@ -14,6 +14,7 @@ Singleton {
     readonly property int barHeight: scale(28)
     readonly property int controlsMenuWidth: scale(420)
     readonly property int settingsMenuWidth: scale(280)
+    readonly property int systemTrayMenuWidth: scale(60)
 
     // Small components
     readonly property int buttonSize: scale(22) // default button size
