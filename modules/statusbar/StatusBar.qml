@@ -2,9 +2,8 @@ import qs.services
 import qs.config.style
 import qs.config.settings
 import qs.components.visuals
-import qs.modules.statusbar.clock
-import qs.modules.statusbar.buttons
-import qs.modules.statusbar.indicators
+import qs.modules.statusbar.widgets
+import qs.modules.statusbar.components
 
 import QtQuick
 import QtQuick.Layouts

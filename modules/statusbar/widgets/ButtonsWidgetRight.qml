@@ -3,6 +3,7 @@ import qs.config.style
 
 import QtQuick
 import QtQuick.Layouts
+import qs.modules.statusbar.components
 
 Rectangle {
     id: root

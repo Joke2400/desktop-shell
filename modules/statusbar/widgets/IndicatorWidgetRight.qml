@@ -1,7 +1,7 @@
 import qs.services
 import qs.config.style
 import qs.components.visuals
-
+import qs.modules.statusbar.components
 
 import QtQuick
 import QtQuick.Layouts
