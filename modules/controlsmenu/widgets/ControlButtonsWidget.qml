@@ -1,10 +1,10 @@
 pragma ComponentBehavior: Bound
-import qs.services
 import qs.config.style
 import qs.modules.controlsmenu.components.buttons
 
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Hyprland
 
 ColumnLayout {
     id: root
@@ -15,12 +15,40 @@ ColumnLayout {
     readonly property int columns: 6
 
     readonly property var buttons: [
-        { text: "󰄀", tooltip: "Screenshot", action: () => {} },
-        { text: "󰕧", tooltip: "Screenrecord", action: () => {} },
-        { text: "", tooltip: "Calculator", action: () => {} },
-        { text: "󱘟", tooltip: "Clipboard", action: () => {} },
-        { text: "", tooltip: "System Monitor", action: () => {} },
-        { text: "", tooltip: "Disks", action: () => {} }
+        {
+            text: "󱘟",
+            tooltip: "Clipboard",
+            leftAction: () => {Hyprland.dispatch("exec toggle-clipboard") }
+        },
+        {
+            text: "",
+            tooltip: "Calculator",
+            leftAction: () => {Hyprland.dispatch("exec ") }
+        },
+        {
+            text: "󰄀",
+            tooltip: "Screenshot",
+            leftAction: () => {Hyprland.dispatch("exec screenshot --copy") },
+            rightAction: () => {Hyprland.dispatch("exec screenshot --save") }
+        },
+        {
+            text: "󰕧",
+            tooltip: "Screenrecord",
+            leftAction: () => {Hyprland.dispatch("exec screenrecord --copy") },
+            rightAction: () => {Hyprland.dispatch("exec screenrecord --save") }
+        },
+        {
+            text: "",
+            tooltip: "System Monitor",
+            leftAction: () => {Hyprland.dispatch("exec ") },
+            rightAction: () => {Hyprland.dispatch("exec ") }
+        },
+        {
+            text: "",
+            tooltip: "Disks",
+            leftAction: () => {Hyprland.dispatch("exec ") },
+            rightAction: () => {Hyprland.dispatch("exec ") }
+        }
     ]
 
     Repeater {
@@ -39,7 +67,8 @@ ColumnLayout {
                     required property var modelData
                     text: modelData.text
                     tooltip: modelData.tooltip
-                    leftAction: modelData.action
+                    leftAction: modelData.leftAction
+                    rightAction: modelData.rightAction
                 }
             }
         }
