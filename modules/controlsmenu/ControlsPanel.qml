@@ -38,8 +38,10 @@ PanelWindow {
         id: focusGrab
         windows: [root]
         active: root.visible && !StateService.systemTrayContextMenuOpen
-        onCleared: StateService.showControlsMenu = false
-
+        onCleared: {
+            StateService.showControlsMenu = false
+            StateService.showSystemTrayMenu = false
+        }
         onActiveChanged: {
             if (active) {}
         }
@@ -55,7 +57,7 @@ PanelWindow {
         radius: Constant.roundingMedium
         tint: Color.tintNormal
 
-        Behavior on width { NumberAnimation { duration: 150 }}
+        Behavior on width { NumberAnimation { duration: 100 }}
     }
 
     Rectangle {
@@ -80,7 +82,7 @@ PanelWindow {
                 id: systemTray
                 opacity: StateService.showSystemTrayMenu ? 1 : 0
                 visible: opacity > 0
-                Behavior on opacity { NumberAnimation { duration: 100; easing.type: Easing.OutCubic } }
+                Behavior on opacity { NumberAnimation { duration: 90; easing.type: Easing.OutCubic } }
             }
             ColumnLayout {
                 id: column
