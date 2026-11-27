@@ -23,7 +23,7 @@ ColumnLayout {
         {
             text: "",
             tooltip: "Calculator",
-            leftAction: () => {Hyprland.dispatch("exec ") }
+            leftAction: () => {Hyprland.dispatch("exec [float; center; size 700 400] gnome-calculator") }
         },
         {
             text: "󰄀",
@@ -40,14 +40,12 @@ ColumnLayout {
         {
             text: "",
             tooltip: "System Monitor",
-            leftAction: () => {Hyprland.dispatch("exec ") },
-            rightAction: () => {Hyprland.dispatch("exec ") }
+            leftAction: () => {Hyprland.dispatch("exec [float; center; size 1000 700] kitty --override font_size=12 --title float_kitty btop"); }
         },
         {
             text: "",
             tooltip: "Disks",
-            leftAction: () => {Hyprland.dispatch("exec ") },
-            rightAction: () => {Hyprland.dispatch("exec ") }
+            leftAction: () => {Hyprland.dispatch("exec [float; center; size 1000 700] gnome-disks"); }
         }
     ]
 
