@@ -11,6 +11,8 @@ Button {
     property var middleAction
     property var rightAction
 
+    property bool displayBgGlass: true
+
     bgCol: "transparent"
     bgColHover: "transparent"
 
@@ -24,6 +26,7 @@ Button {
     onRightClicked: if (rightAction) rightAction()
 
     Rectangle {
+        visible: root.displayBgGlass
         anchors.fill: parent
         radius: Constant.roundingLarge * 2
         color: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.5)
@@ -31,6 +34,7 @@ Button {
     }
 
     GlassSurface {
+        visible: root.displayBgGlass
         anchors.fill: parent
         radius: Constant.roundingLarge * 2
         tint: root.hovered ? Color.tintLight : Color.tintNormal

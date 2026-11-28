@@ -14,9 +14,11 @@ ControlButtonWide {
         if (!StateService.showInternetMenu) {
             StateService.showInternetMenu = true
             StateService.showBluetoothMenu = false
+            root.toggled = true
         } else {
             StateService.showInternetMenu = false
             StateService.showBluetoothMenu = false
+            root.toggled = false
         }
     }
 

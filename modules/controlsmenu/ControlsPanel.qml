@@ -61,6 +61,9 @@ PanelWindow {
 
         radius: Constant.roundingMedium
         tint: Color.tintNormal
+
+        Behavior on width { NumberAnimation { duration: 100; easing.type: Easing.OutCubic } }
+        Behavior on height { NumberAnimation { duration: 100; easing.type: Easing.OutCubic } }
     }
 
     Rectangle {
@@ -96,7 +99,7 @@ PanelWindow {
                 id: systemTray
                 opacity: StateService.showSystemTrayMenu ? 1 : 0
                 visible: opacity > 0
-                Behavior on opacity { NumberAnimation { duration: 150; easing.type: Easing.OutCubic } }
+                Behavior on opacity { NumberAnimation { duration: 100; easing.type: Easing.OutCubic } }
             }
             ColumnLayout {
                 id: column
@@ -108,7 +111,7 @@ PanelWindow {
                 DropdownWidget {
                     opacity: (StateService.showInternetMenu | StateService.showBluetoothMenu) ? 1 : 0
                     visible: opacity > 0
-                    Behavior on opacity { NumberAnimation { duration: 150; easing.type: Easing.OutCubic } }
+                    Behavior on opacity { NumberAnimation { duration: 100; easing.type: Easing.OutCubic } }
                 }
                 SlidersWidget {}
                 ControlButtonsWidget {}

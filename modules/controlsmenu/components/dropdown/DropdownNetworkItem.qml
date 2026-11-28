@@ -16,4 +16,5 @@ DropdownItem {
             : null
     actionIcon: networkDetails.connected ? "" : "󱘖"
     actionTooltip: networkDetails.connected ? "Disconnect from network" : "Connect to network"
+    toggled: networkDetails.connected
 }

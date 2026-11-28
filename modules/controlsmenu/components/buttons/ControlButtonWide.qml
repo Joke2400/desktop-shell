@@ -15,6 +15,7 @@ ButtonBase {
 
    required property string icon
    required property string subText
+   property bool toggled: false
 
    property int iconSize: Constant.textSizeLarge
    property int subTextSize: Constant.textSizeTiny
@@ -38,7 +39,9 @@ ButtonBase {
    Rectangle {
        anchors.fill: parent
        radius: root.buttonRounding
-       color: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.5)
+       color: root.toggled
+               ? Qt.hsla(Color.surfaceNormal.hslHue, Color.surfaceNormal.hslSaturation, Color.surfaceNormal.hslLightness, 0.5)
+               : Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.5)
        z: -2
    }
 
