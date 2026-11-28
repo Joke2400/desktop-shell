@@ -1,7 +1,7 @@
 import qs.services
 import qs.config.style
 import qs.components.visuals
-import qs.modules.controlsmenu.components
+import qs.modules.controlsmenu.components.dropdown
 
 import QtQuick
 import QtQuick.Layouts
@@ -44,19 +44,8 @@ Rectangle {
             clip: true
             spacing: Constant.spacingMedium
             model: Object.values(NetworkService.availableNetworks)
-                    .map(n => NetworkService.getNetworkDetails(n))
 
-            delegate: DropdownListItem {
-                required property var modelData
-
-                icon: modelData.deviceType === "Wired" ? "󰈀" : "󰖩"
-                text: modelData.deviceType === "Wired" ? "Wired LAN" : modelData.networkName
-                subText: modelData.known
-                            ? `${modelData.connectionName} (${modelData.deviceName})`
-                            : modelData.deviceName
-                action: () => {}
-
-            }
+            delegate: DropdownNetworkItem { }
         }
     }
 

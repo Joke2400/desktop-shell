@@ -1,6 +1,7 @@
 import qs.config.style
 import qs.components
 import qs.components.visuals
+import qs.modules.controlsmenu.components.buttons
 
 import QtQuick
 import QtQuick.Layouts
@@ -11,7 +12,10 @@ Rectangle {
     required property string icon
     required property string text
     required property string subText
+
     required property var action
+    required property string actionIcon
+    required property string actionTooltip
 
     property int iconSize: Constant.textSizeLarge
     property int textSize: Constant.textSizeSmall
@@ -24,7 +28,6 @@ Rectangle {
     property color subTextCol: Color.subTextLight
     property color iconColHover: Color.textLight
     property color subTextColHover: Color.subTextLight
-    property int buttonRounding: Constant.roundingLarge
 
     color: "transparent"
     anchors {
@@ -36,14 +39,14 @@ Rectangle {
     Rectangle {
         anchors.fill: parent
         radius: Constant.roundingMedium
-        color: Qt.hsla(Color.baseLight.hslHue, Color.baseLight.hslSaturation, Color.baseLight.hslLightness, 0.5)
+        color: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.5)
         z: -2
     }
 
     GlassSurface {
         anchors.fill: parent
         radius: Constant.roundingMedium
-        tint: Color.tintDark
+        tint: hover.hovered ? Color.tintLight : Color.tintNormal
         z: -1
         edgeLight: 0
     }
@@ -102,6 +105,16 @@ Rectangle {
                 bold: false
                 elide: Text.ElideRight
             }
+        }
+        ControlButton {
+            text: root.actionIcon
+            tooltip: root.actionTooltip
+            leftAction: root.action
+            visible: !!root.action
+            textSize: Constant.textSizeLarge
+            minBtnSize: Constant.textSizeLarge * 1.25
+            padding: Constant.paddingLarge
+            Layout.rightMargin: Constant.marginSmall
         }
     }
 }

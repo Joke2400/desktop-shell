@@ -9,7 +9,7 @@ ControlButtonWide {
     icon: network ? getNetworkIcon(netDetails.state, netDetails.deviceType) : "󱚵"
     text: network ? (netDetails.deviceType === "Wired" ? "Wired LAN" : netDetails.networkName) : "No connection"
     subText: network ? netDetails.connectionName : "-"
-    tooltip: network ? `${netDetails.connectionName}: ${ConnectionState.toString(netDetails.state)}` : "No connection"
+    tooltip: network ? `${netDetails.connectionName}: ${netDetails.state}` : "No connection"
     leftAction: () => {
         if (!StateService.showInternetMenu) {
             StateService.showInternetMenu = true

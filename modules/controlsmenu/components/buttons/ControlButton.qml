@@ -26,14 +26,15 @@ Button {
     Rectangle {
         anchors.fill: parent
         radius: Constant.roundingLarge * 2
-        color: Qt.hsla(Color.baseLight.hslHue, Color.baseLight.hslSaturation, Color.baseLight.hslLightness, 0.5)
+        color: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.5)
         z: -2
     }
 
     GlassSurface {
         anchors.fill: parent
         radius: Constant.roundingLarge * 2
-        tint: root.hovered? Color.tintLight : Color.tintNormal
+        tint: root.hovered ? Color.tintLight : Color.tintNormal
         z: -1
+        edgeLight: 0
     }
 }

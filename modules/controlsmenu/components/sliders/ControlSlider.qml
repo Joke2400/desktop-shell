@@ -23,14 +23,14 @@ Rectangle {
 
     Rectangle {
         anchors.fill: parent
-        radius: Constant.roundingLarge
-        color: Qt.hsla(Color.baseLight.hslHue, Color.baseLight.hslSaturation, Color.baseLight.hslLightness, 0.5)
+        radius: Constant.roundingMedium
+        color: Qt.hsla(Color.surfaceDark.hslHue, Color.surfaceDark.hslSaturation, Color.surfaceDark.hslLightness, 0.5)
         z: -2
     }
 
     GlassSurface {
         anchors.fill: parent
-        radius: Constant.roundingLarge
+        radius: Constant.roundingMedium
         tint: Color.tintNormal
         z: -1
         edgeLight: 0

@@ -97,6 +97,7 @@ Singleton {
             "deviceType" : DeviceType.toString(network.device.type),
             "connectionName" : network.nmSettings.length > 0 ? network.nmSettings[0].id : "",
             "state" : ConnectionState.toString(network.state),
+            "connected": network.connected,
             "known" : network.known
         }
     }
